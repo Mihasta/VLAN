@@ -3,4 +3,8 @@ bin
 obj
 
 EntityFramework.6.4.0
+<<<<<<< HEAD
 *.oob
+=======
+*.oob
+>>>>>>> bfa4f2922e559b3eba280dccf370d34715803274
