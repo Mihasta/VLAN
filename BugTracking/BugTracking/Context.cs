@@ -10,7 +10,7 @@ namespace BugTracking
 {
     public class BTContext : DbContext
     {
-        public BTContext() : base("BTContext")
+        public BTContext() : base("BugTracking")
         {
         }
 
