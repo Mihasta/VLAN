@@ -9,9 +9,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace BugTracking
 {
 
-    enum UserStatus {User, Moderator, Admin};
-    enum ErrorPriority { High, Medium, Low };
-    enum ErrorLevel { Trivial, Insignificant, Significant, Critical, Blocking };
+    public enum UserStatus {User, Moderator, Admin};
+    public enum ErrorPriority { High, Medium, Low };
+    public enum ErrorLevel { Trivial, Insignificant, Significant, Critical, Blocking };
 
     public class Error
     {
