@@ -59,7 +59,7 @@ namespace BugTracking
         public int ErrorId { get; set; }
         [ForeignKey("ErrorId")]
         public virtual Error Error { get; set; }
-        public int UserID { get; set; }
+        public int UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual User User { get; set; }
         public DateTime Date { get; set; }
