@@ -18,7 +18,7 @@ namespace BugTracking
 
         [Key]
         public int Id { get; set; }
-        public DataType Date { get; set; }
+        public DateTime Date { get; set; }
         public ErrorPriority Priority { get; set; }
         public ErrorLevel Level { get; set; }
         public string Code { get; set; }
@@ -26,9 +26,11 @@ namespace BugTracking
         public int UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual User User { get; set; }
-
+        public int TypeId { get; set; }
+        [ForeignKey("TypeId")]
+        public virtual ErrorType Type { get; set; }
     }
-    public class Error_Type
+    public class ErrorType
     {
 
         [Key]
@@ -47,7 +49,11 @@ namespace BugTracking
         public string Password { get; set; }
         public UserStatus Status { get; set;}
         public string Mail { get; set; }
-        public int PhoneNumber { get; set; }
+        [StringLength(12)]
+        public string PhoneNumber { get; set; }
+
+        public ICollection<Error> Errors { get; set; }
+        public ICollection<Solution> Solutions { get; set; }
     }
 
     public class Solution 
