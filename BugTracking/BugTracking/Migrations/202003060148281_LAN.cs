@@ -62,7 +62,7 @@
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Error", t => t.ErrorId, cascadeDelete: true)
-                .ForeignKey("dbo.User", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.User", t => t.UserId, cascadeDelete: false)
                 .Index(t => t.ErrorId)
                 .Index(t => t.UserId);
             
