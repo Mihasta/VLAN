@@ -10,16 +10,18 @@ using System.Windows.Forms;
 
 namespace BugTracking
 {
-    public partial class Form1 : Form
+    public partial class MainMenu : Form
     {
-        public Form1()
+        public MainMenu()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            
+            Users users = new Users();
+            users.Show();
+
         }
     }
 }

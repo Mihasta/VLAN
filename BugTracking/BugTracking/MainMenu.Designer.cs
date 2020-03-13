@@ -1,6 +1,6 @@
 ﻿namespace BugTracking
 {
-    partial class Form1
+    partial class MainMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.User = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // Form1
+            // User
+            // 
+            this.User.Location = new System.Drawing.Point(12, 12);
+            this.User.Name = "User";
+            this.User.Size = new System.Drawing.Size(162, 49);
+            this.User.TabIndex = 0;
+            this.User.Text = "Пользователи";
+            this.User.UseVisualStyleBackColor = true;
+            this.User.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(518, 377);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(699, 471);
+            this.Controls.Add(this.User);
+            this.Name = "MainMenu";
+            this.Text = "MainMenu";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button User;
 
     }
 }
