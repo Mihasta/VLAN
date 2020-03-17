@@ -19,7 +19,8 @@ namespace BugTracking
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            BTContext db = new BTContext();
+            dataGridView1.DataSource = db.Users.ToList();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -48,5 +49,10 @@ namespace BugTracking
             dataGridView1.DataSource = db.Users.ToList();
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AddUser adduser = new AddUser();
+            adduser.Show();
+        }
     }
 }
