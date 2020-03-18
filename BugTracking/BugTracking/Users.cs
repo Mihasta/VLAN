@@ -43,16 +43,16 @@ namespace BugTracking
             }
         }
 
-        private void Users_Load(object sender, EventArgs e)
-        {
-            BTContext db = new BTContext();
-            dataGridView1.DataSource = db.Users.ToList();
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             AddUser adduser = new AddUser();
             adduser.Show();
+        }
+
+        private void Users_Load_1(object sender, EventArgs e)
+        {
+            BTContext db = new BTContext();
+            dataGridView1.DataSource = db.Users.ToList();
         }
     }
 }

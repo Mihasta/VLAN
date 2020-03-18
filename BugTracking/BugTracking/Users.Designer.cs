@@ -45,27 +45,29 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(968, 30);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(217, 40);
+            this.button1.Size = new System.Drawing.Size(42, 35);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Вывести всех пользователей";
+            this.button1.Text = "⟳";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(566, 12);
+            this.button2.Location = new System.Drawing.Point(12, 454);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(66, 40);
             this.button2.TabIndex = 2;
-            this.button2.Text = "button2";
+            this.button2.Text = "Добавить Админа";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(235, 12);
+            this.button3.Location = new System.Drawing.Point(12, 30);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(189, 40);
             this.button3.TabIndex = 3;
@@ -84,6 +86,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "Users";
             this.Text = "Users";
+            this.Load += new System.EventHandler(this.Users_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
