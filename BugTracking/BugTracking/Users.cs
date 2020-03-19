@@ -17,7 +17,7 @@ namespace BugTracking
         public Users()
         {
             InitializeComponent();
-           
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -46,17 +46,12 @@ namespace BugTracking
             }
         }
 
-        private void Users_Load(object sender, EventArgs e)
-        {
-            BTContext db = new BTContext();
-            dataGridView1.DataSource = db.Users.ToList();
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             AddUser adduser = new AddUser();
             adduser.Show();
         }
+
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -87,9 +82,15 @@ namespace BugTracking
                     User user = db.Users.Find(id);
                     db.Users.Remove(user);
                     db.SaveChanges();
-                    
+
                 }
             }
         }
+            private void Users_Load_1(object sender, EventArgs e)
+            {
+                BTContext db = new BTContext();
+                dataGridView1.DataSource = db.Users.ToList();
+
+            }
+        }
     }
-}
