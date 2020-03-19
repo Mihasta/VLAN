@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,10 +63,7 @@
             // 
             // button2
             // 
-
-            this.button2.Location = new System.Drawing.Point(845, 12);
             this.button2.Location = new System.Drawing.Point(12, 454);
-
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(66, 40);
             this.button2.TabIndex = 2;
@@ -84,7 +83,6 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(191, 30);
             this.button4.Location = new System.Drawing.Point(430, 12);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(187, 40);
@@ -95,9 +93,6 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(384, 30);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(162, 40);
             this.button5.Location = new System.Drawing.Point(633, 12);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(135, 40);
@@ -105,6 +100,11 @@
             this.button5.Text = "Удалить пользователя";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Users
             // 
@@ -132,5 +132,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
