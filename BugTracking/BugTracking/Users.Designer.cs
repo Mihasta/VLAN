@@ -51,6 +51,7 @@
             // 
             // button1
             // 
+            this.button1.Enabled = false;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.Location = new System.Drawing.Point(968, 30);
             this.button1.Name = "button1";
@@ -83,7 +84,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(430, 12);
+            this.button4.Location = new System.Drawing.Point(191, 30);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(187, 40);
             this.button4.TabIndex = 4;
@@ -93,9 +94,9 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(633, 12);
+            this.button5.Location = new System.Drawing.Point(384, 30);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(135, 40);
+            this.button5.Size = new System.Drawing.Size(162, 40);
             this.button5.TabIndex = 5;
             this.button5.Text = "Удалить пользователя";
             this.button5.UseVisualStyleBackColor = true;
@@ -104,6 +105,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
+            this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Users

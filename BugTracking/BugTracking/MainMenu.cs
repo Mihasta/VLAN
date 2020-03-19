@@ -37,5 +37,11 @@ namespace BugTracking
         {
             Application.Exit();
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            BTContext db = new BTContext();
+            dataGridView1.DataSource = db.Errors.ToList();
+        }
     }
 }

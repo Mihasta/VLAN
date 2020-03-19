@@ -22,8 +22,8 @@ namespace BugTracking
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //BTContext db = new BTContext();
-            //dataGridView1.DataSource = db.Users.ToList();
+            BTContext db = new BTContext();
+            dataGridView1.DataSource = db.Users.ToList();
         }
 
         private void button2_Click(object sender, EventArgs e)

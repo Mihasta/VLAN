@@ -32,12 +32,12 @@ namespace BugTracking
             {
                 using (BTContext db = new BTContext())
                 {
-                    var Login = (from p in db.Users
-                                 where p.Login == textBox1.Text
-                                 select p).ToArray();
-                    var Pass = (from p in db.Users
-                                where p.Password == textBox2.Text
-                                select p).ToArray();
+                    var Login  = (from p in db.Users
+                                  where p.Login == textBox1.Text
+                                  select p).ToArray();
+                    var Pass   = (from p in db.Users
+                                  where p.Password == textBox2.Text
+                                  select p).ToArray();
 
                     if (textBox1.Text == Login[0].Login)
                     {
