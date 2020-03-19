@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,11 @@ namespace BugTracking
 {
     public partial class Users : Form
     {
+        BTContext db;
         public Users()
         {
             InitializeComponent();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -49,10 +52,45 @@ namespace BugTracking
             adduser.Show();
         }
 
-        private void Users_Load_1(object sender, EventArgs e)
+
+        private void button4_Click(object sender, EventArgs e)
         {
-            BTContext db = new BTContext();
-            dataGridView1.DataSource = db.Users.ToList();
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int index = dataGridView1.SelectedRows[0].Index;
+                int id = 0;
+                bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out id);
+                if (converted == false)
+                    return;
+                EditUser edituser = new EditUser(id);
+                edituser.Show();
+
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            using (BTContext db = new BTContext())
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    int index = dataGridView1.SelectedRows[0].Index;
+                    int id = 0;
+                    bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out id);
+                    if (converted == false)
+                        return;
+                    User user = db.Users.Find(id);
+                    db.Users.Remove(user);
+                    db.SaveChanges();
+
+                }
+            }
+        }
+            private void Users_Load_1(object sender, EventArgs e)
+            {
+                BTContext db = new BTContext();
+                dataGridView1.DataSource = db.Users.ToList();
+
+            }
         }
     }
-}
