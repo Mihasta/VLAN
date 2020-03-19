@@ -93,10 +93,10 @@ namespace BugTracking
 
             }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            BTContext db = new BTContext();
-            dataGridView1.DataSource = db.Users.ToList();
-        }
+            private void timer1_Tick(object sender, EventArgs e)
+            {
+                BTContext db = new BTContext();
+                dataGridView1.DataSource = db.Users.ToList();
+            }
     }
-    }
+}

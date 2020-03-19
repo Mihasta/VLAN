@@ -51,7 +51,6 @@
             // 
             // button1
             // 
-            this.button1.Enabled = false;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.Location = new System.Drawing.Point(968, 30);
             this.button1.Name = "button1";
@@ -105,7 +104,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 500;
+            this.timer1.Interval = 10000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Users

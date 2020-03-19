@@ -17,19 +17,11 @@ namespace BugTracking
         {
             InitializeComponent();
         }
-
-        private void textBox1_Validated(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty((sender as TextBox).Text))
-                errorProvider1.SetError(textBox1, "Введите логин!");
-            else
-                errorProvider1.SetError(textBox1, string.Empty);
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
+                
                 using (BTContext db = new BTContext())
                 {
                     var Login  = (from p in db.Users
@@ -38,6 +30,8 @@ namespace BugTracking
                     var Pass   = (from p in db.Users
                                   where p.Password == textBox2.Text
                                   select p).ToArray();
+
+                    int id = Login[0].Id;
 
                     if (textBox1.Text == Login[0].Login)
                     {
