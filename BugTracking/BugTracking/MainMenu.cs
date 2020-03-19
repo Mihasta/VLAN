@@ -40,8 +40,8 @@ namespace BugTracking
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            BTContext db = new BTContext();
-            dataGridView1.DataSource = db.Errors.ToList();
+            /*BTContext db = new BTContext();
+            dataGridView1.DataSource = db.Errors.ToList();*/
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -70,7 +70,7 @@ namespace BugTracking
             {
                 ErrorType type = new ErrorType
                 {
-                    Name = "CompilationError"
+                    Name = "Logic"
                 };
                 db.ErrorTypes.Add(type);
                 db.SaveChanges();
@@ -82,6 +82,46 @@ namespace BugTracking
         {
             AddError adderror = new AddError();
             adderror.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            BTContext db = new BTContext();
+            dataGridView1.DataSource = db.Errors.ToList();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int index = dataGridView1.SelectedRows[0].Index;
+                int id = 0;
+                bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out id);
+                if (converted == false)
+                    return;
+                EditError editerror = new EditError(id);
+                editerror.Show();
+
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            using (BTContext db = new BTContext())
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    int index = dataGridView1.SelectedRows[0].Index;
+                    int id = 0;
+                    bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out id);
+                    if (converted == false)
+                        return;
+                    Error error = db.Errors.Find(id);
+                    db.Errors.Remove(error);
+                    db.SaveChanges();
+
+                }
+            }
         }
     }
 }

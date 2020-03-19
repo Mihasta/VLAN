@@ -46,7 +46,13 @@ namespace BugTracking
                 };
                 db.Errors.Add(error);
                 db.SaveChanges();
+                this.Close();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
