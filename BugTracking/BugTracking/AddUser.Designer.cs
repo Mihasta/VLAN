@@ -44,6 +44,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.status = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.password2 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // name
@@ -180,11 +184,53 @@
             this.status.Size = new System.Drawing.Size(157, 21);
             this.status.TabIndex = 16;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(28, 377);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(0, 15);
+            this.label8.TabIndex = 17;
+            // 
+            // password2
+            // 
+            this.password2.Location = new System.Drawing.Point(208, 184);
+            this.password2.Name = "password2";
+            this.password2.PasswordChar = '*';
+            this.password2.Size = new System.Drawing.Size(157, 20);
+            this.password2.TabIndex = 18;
+            this.password2.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(205, 168);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(112, 13);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Подтвердите пароль";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(208, 219);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(0, 15);
+            this.label10.TabIndex = 20;
+            // 
             // AddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(402, 450);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.password2);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.status);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -226,5 +272,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox status;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox password2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }

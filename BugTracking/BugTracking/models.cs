@@ -43,11 +43,16 @@ namespace BugTracking
     {
         [Key]
         public int Id { get; set; }
+        [MinLength(1)]
         public string Name { get; set; }
+        [MinLength(1)]
         public string Surname { get; set; }
+        [MinLength(1)]
         public string Login { get; set; }
+        [MinLength(1)]
         public string Password { get; set; }
         public UserStatus Status { get; set;}
+        [MinLength(1)]
         public string Mail { get; set; }
         [StringLength(12)]
         public string PhoneNumber { get; set; }

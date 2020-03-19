@@ -25,22 +25,45 @@ namespace BugTracking
 
         private void button2_Click(object sender, EventArgs e)
         {
-            using (BTContext db = new BTContext())
+            if (label10.Text == "")
             {
-                User user = new User
+                try
                 {
-                    Name = name.Text,
-                    Surname = surname.Text,
-                    Login = login.Text,
-                    Password = password.Text,
-                    Status = (UserStatus)status.SelectedItem,
-                    Mail = mail.Text,
-                    PhoneNumber = phonenumber.Text
-                };
-                db.Users.Add(user);
-                db.SaveChanges();
+                    using (BTContext db = new BTContext())
+                    {
+                        User user = new User
+                        {
+                            Name = name.Text,
+                            Surname = surname.Text,
+                            Login = login.Text,
+                            Password = password.Text,
+                            Status = (UserStatus)status.SelectedItem,
+                            Mail = mail.Text,
+                            PhoneNumber = phonenumber.Text
+                        };
+                        db.Users.Add(user);
+                        db.SaveChanges();
+                    }
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    label8.Text = "Заполните все поля";
+                    //MessageBox.Show(ex.Message);
+                }
             }
-            this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (password2.Text != password.Text)
+            {
+                label10.Text = "Пароли не совпадают";
+            }
+            else
+            {
+                label10.Text = "";
+            }
         }
     }
 }
