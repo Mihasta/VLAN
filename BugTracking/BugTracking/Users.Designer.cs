@@ -61,7 +61,10 @@
             // 
             // button2
             // 
+
+            this.button2.Location = new System.Drawing.Point(845, 12);
             this.button2.Location = new System.Drawing.Point(12, 454);
+
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(66, 40);
             this.button2.TabIndex = 2;
@@ -82,6 +85,7 @@
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(191, 30);
+            this.button4.Location = new System.Drawing.Point(430, 12);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(187, 40);
             this.button4.TabIndex = 4;
@@ -94,6 +98,9 @@
             this.button5.Location = new System.Drawing.Point(384, 30);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(162, 40);
+            this.button5.Location = new System.Drawing.Point(633, 12);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(135, 40);
             this.button5.TabIndex = 5;
             this.button5.Text = "Удалить пользователя";
             this.button5.UseVisualStyleBackColor = true;
