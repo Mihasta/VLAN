@@ -12,6 +12,7 @@ namespace BugTracking
     {
         public BTContext() : base("BugTracking")
         {
+
         }
 
         public DbSet<Error> Errors { get; set; }
