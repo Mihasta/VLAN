@@ -43,6 +43,8 @@ namespace BugTracking
                     {
                         if (textBox2.Text == Pass[0].Password)
                         {
+                            Globals.user_id = Login[0].Id;
+                            Console.WriteLine(Globals.user_id);
                             MainMenu MM = new MainMenu();
                             MM.Show();
                             this.Hide();
@@ -59,5 +61,10 @@ namespace BugTracking
                 label2.Text = "Неправильный логин или пароль";
             }
         }
+    }
+
+    public static class Globals
+    {
+        public static int user_id;
     }
 }
