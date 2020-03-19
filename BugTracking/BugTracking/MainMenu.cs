@@ -29,7 +29,19 @@ namespace BugTracking
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
+            BTContext db = new BTContext();
+            dataGridView1.DataSource = db.Errors.ToList();
+        }
 
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            BTContext db = new BTContext();
+            dataGridView1.DataSource = db.Errors.ToList();
         }
     }
 }
