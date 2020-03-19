@@ -32,12 +32,10 @@ namespace BugTracking
     }
     public class ErrorType
     {
-
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
         public virtual ICollection<Error> Errors { get; set; }
-
     }
     public class User
     {

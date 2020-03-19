@@ -57,6 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddError.Designer.cs">
+      <DependentUpon>AddError.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,9 +82,9 @@
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003060148281_LAN.cs" />
-    <Compile Include="Migrations\202003060148281_LAN.designer.cs">
-      <DependentUpon>202003060148281_LAN.cs</DependentUpon>
+    <Compile Include="Migrations\202003190525142_LAN.cs" />
+    <Compile Include="Migrations\202003190525142_LAN.designer.cs">
+      <DependentUpon>202003190525142_LAN.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="models.cs" />
@@ -97,6 +103,9 @@
       <DependentUpon>Users.cs</DependentUpon>
     </Compile>
     <Compile Include="UsersFunction.cs" />
+    <EmbeddedResource Include="AddError.resx">
+      <DependentUpon>AddError.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,8 +115,8 @@
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003060148281_LAN.resx">
-      <DependentUpon>202003060148281_LAN.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003190525142_LAN.resx">
+      <DependentUpon>202003190525142_LAN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

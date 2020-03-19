@@ -43,5 +43,45 @@ namespace BugTracking
             BTContext db = new BTContext();
             dataGridView1.DataSource = db.Errors.ToList();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (BTContext db = new BTContext())
+            {
+                Error error = new Error
+                {
+                    Date = DateTime.Now,
+                    Priority = ErrorPriority.Low,
+                    Level = ErrorLevel.Trivial,
+                    Code = "IDE1006",
+                    Description = "oshibka oshibka",
+                    UserId = 2,
+                    TypeId = 1
+                };
+                db.Errors.Add(error);
+                db.SaveChanges();
+                Console.WriteLine("Успешно добавлено");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (BTContext db = new BTContext())
+            {
+                ErrorType type = new ErrorType
+                {
+                    Name = "CompilationError"
+                };
+                db.ErrorTypes.Add(type);
+                db.SaveChanges();
+                Console.WriteLine("Успешно добавлено");
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AddError adderror = new AddError();
+            adderror.Show();
+        }
     }
 }
