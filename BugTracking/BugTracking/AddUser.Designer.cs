@@ -47,6 +47,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.password2 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.PasswordCheck = new System.Windows.Forms.Label();
+            this.emailCheck = new System.Windows.Forms.Label();
+            this.tlfcheck = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -105,7 +109,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(25, 269);
+            this.label6.Location = new System.Drawing.Point(25, 266);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(37, 13);
             this.label6.TabIndex = 6;
@@ -114,7 +118,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(25, 322);
+            this.label7.Location = new System.Drawing.Point(25, 329);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(93, 13);
             this.label7.TabIndex = 7;
@@ -144,17 +148,19 @@
             // 
             // mail
             // 
-            this.mail.Location = new System.Drawing.Point(28, 285);
+            this.mail.Location = new System.Drawing.Point(28, 282);
             this.mail.Name = "mail";
             this.mail.Size = new System.Drawing.Size(157, 20);
             this.mail.TabIndex = 12;
+            this.mail.TextChanged += new System.EventHandler(this.mail_TextChanged);
             // 
             // phonenumber
             // 
-            this.phonenumber.Location = new System.Drawing.Point(28, 338);
+            this.phonenumber.Location = new System.Drawing.Point(28, 345);
             this.phonenumber.Name = "phonenumber";
             this.phonenumber.Size = new System.Drawing.Size(157, 20);
             this.phonenumber.TabIndex = 13;
+            this.phonenumber.TextChanged += new System.EventHandler(this.phonenumber_TextChanged);
             // 
             // button1
             // 
@@ -212,21 +218,63 @@
             this.label9.TabIndex = 19;
             this.label9.Text = "Подтвердите пароль";
             // 
+            // PasswordCheck
+            // 
+            this.PasswordCheck.AutoSize = true;
+            this.PasswordCheck.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.PasswordCheck.ForeColor = System.Drawing.Color.Red;
+            this.PasswordCheck.Location = new System.Drawing.Point(208, 214);
+            this.PasswordCheck.Name = "PasswordCheck";
+            this.PasswordCheck.Size = new System.Drawing.Size(0, 15);
+            this.PasswordCheck.TabIndex = 20;
+            // 
+            // emailCheck
+            // 
+            this.emailCheck.AutoSize = true;
+            this.emailCheck.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.emailCheck.ForeColor = System.Drawing.Color.Red;
+            this.emailCheck.Location = new System.Drawing.Point(208, 282);
+            this.emailCheck.Name = "emailCheck";
+            this.emailCheck.Size = new System.Drawing.Size(0, 15);
+            this.emailCheck.TabIndex = 21;
+            // 
+            // tlfcheck
+            // 
+            this.tlfcheck.AutoSize = true;
+            this.tlfcheck.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tlfcheck.ForeColor = System.Drawing.Color.Red;
+            this.tlfcheck.Location = new System.Drawing.Point(208, 345);
+            this.tlfcheck.Name = "tlfcheck";
+            this.tlfcheck.Size = new System.Drawing.Size(0, 15);
+            this.tlfcheck.TabIndex = 22;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(25, 308);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(137, 13);
+            this.label11.TabIndex = 24;
+            this.label11.Text = "*Пример: example@mail.ru";
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(208, 219);
+            this.label10.Location = new System.Drawing.Point(25, 371);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(0, 15);
-            this.label10.TabIndex = 20;
+            this.label10.Size = new System.Drawing.Size(129, 13);
+            this.label10.TabIndex = 23;
+            this.label10.Text = "*Пример: +79123456578";
             // 
             // AddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(402, 450);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.tlfcheck);
+            this.Controls.Add(this.emailCheck);
+            this.Controls.Add(this.PasswordCheck);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.password2);
@@ -275,6 +323,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox password2;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label PasswordCheck;
+        private System.Windows.Forms.Label emailCheck;
+        private System.Windows.Forms.Label tlfcheck;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
     }
 }

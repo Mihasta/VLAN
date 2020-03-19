@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -25,7 +26,7 @@ namespace BugTracking
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (label10.Text == "")
+            if (PasswordCheck.Text == "" && emailCheck.Text == "" && tlfcheck.Text == "")
             {
                 try
                 {
@@ -58,12 +59,41 @@ namespace BugTracking
         {
             if (password2.Text != password.Text)
             {
-                label10.Text = "Пароли не совпадают";
+                PasswordCheck.Text = "Пароли не совпадают";
             }
             else
             {
-                label10.Text = "";
+                PasswordCheck.Text = "";
             }
         }
+
+        private void mail_TextChanged(object sender, EventArgs e)
+        {
+            string pattern = @"^([a-z0-9]+([-_][a-z0-9]+)*)@(([a-z0-9]+(-[a-z0-9]+)*).){2,}[a-z]+$";
+            string email = mail.Text;
+            if (Regex.IsMatch(email, pattern, RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250)))
+            {
+                emailCheck.Text = "";
+            }
+            else
+            {
+                emailCheck.Text = "Неправильная почта";
+            }
+        }
+
+        private void phonenumber_TextChanged(object sender, EventArgs e)
+        {
+            string pattern = @"((\+7[ /]*)?(\d[ /]*){10,11}\d)";
+            string tlf = phonenumber.Text;
+            if (Regex.IsMatch(tlf, pattern, RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250)))
+            {
+                tlfcheck.Text = "";
+            }
+            else
+            {
+                tlfcheck.Text = "Неправильный номер";
+            }
+        }
+
     }
 }
