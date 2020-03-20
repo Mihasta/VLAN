@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -69,6 +69,12 @@
     <Compile Include="AddErrorType.Designer.cs">
       <DependentUpon>AddErrorType.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddSolution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSolution.Designer.cs">
+      <DependentUpon>AddSolution.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,11 +94,23 @@
     <Compile Include="TextType.Designer.cs">
       <DependentUpon>TextType.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditSolution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditSolution.Designer.cs">
+      <DependentUpon>EditSolution.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditUser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EditUser.Designer.cs">
       <DependentUpon>EditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorWindow.Designer.cs">
+      <DependentUpon>ErrorWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
@@ -133,6 +151,9 @@
     <EmbeddedResource Include="AddErrorType.resx">
       <DependentUpon>AddErrorType.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddSolution.resx">
+      <DependentUpon>AddSolution.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,10 +161,16 @@
       <DependentUpon>EditError.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TextType.resx">
-      <DependentUpon>TextType.cs</DependentUpon>
+      <DependentUpon>TextType.cs</DependentUpon> 
+    </EmbeddedResource>  
+    <EmbeddedResource Include="EditSolution.resx">
+      <DependentUpon>EditSolution.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditUser.resx">
       <DependentUpon>EditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorWindow.resx">
+      <DependentUpon>ErrorWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
