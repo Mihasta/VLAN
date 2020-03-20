@@ -47,7 +47,7 @@ namespace BugTracking
                     }
                     this.Close();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     label8.Text = "Заполните все поля";
                     //MessageBox.Show(ex.Message);

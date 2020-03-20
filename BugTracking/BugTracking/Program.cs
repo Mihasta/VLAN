@@ -16,7 +16,7 @@ namespace BugTracking
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SignIn/*MainMenu*/());
+            Application.Run(new /*SignIn*//*MainMenu*/AddErrorType());
         }
     }
 }

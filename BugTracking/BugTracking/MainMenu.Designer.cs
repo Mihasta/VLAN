@@ -33,6 +33,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ошибкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.типОшибкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -61,25 +63,41 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 82);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1072, 377);
+            this.dataGridView1.Size = new System.Drawing.Size(1042, 377);
             this.dataGridView1.TabIndex = 1;
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.выходToolStripMenuItem});
+            this.выходToolStripMenuItem,
+            this.ошибкиToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1109, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1071, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
+            // 
+            // ошибкиToolStripMenuItem
+            // 
+            this.ошибкиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.типОшибкиToolStripMenuItem});
+            this.ошибкиToolStripMenuItem.Name = "ошибкиToolStripMenuItem";
+            this.ошибкиToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.ошибкиToolStripMenuItem.Text = "Ошибки";
+            // 
+            // типОшибкиToolStripMenuItem
+            // 
+            this.типОшибкиToolStripMenuItem.Name = "типОшибкиToolStripMenuItem";
+            this.типОшибкиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.типОшибкиToolStripMenuItem.Text = "Типы ошибок";
+            this.типОшибкиToolStripMenuItem.Click += new System.EventHandler(this.типОшибкиToolStripMenuItem_Click);
             // 
             // timer1
             // 
@@ -88,21 +106,23 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(801, 41);
+            this.button1.Enabled = false;
+            this.button1.Location = new System.Drawing.Point(652, 35);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(58, 35);
             this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
+            this.button1.Text = "TestError";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(706, 41);
+            this.button2.Enabled = false;
+            this.button2.Location = new System.Drawing.Point(716, 35);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(83, 35);
             this.button2.TabIndex = 4;
-            this.button2.Text = "button2";
+            this.button2.Text = "OneTypeError";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -118,17 +138,17 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(949, 53);
+            this.button4.Location = new System.Drawing.Point(988, 41);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(66, 23);
             this.button4.TabIndex = 6;
-            this.button4.Text = "refresh";
+            this.button4.Text = "Обновить";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(374, 28);
+            this.button5.Location = new System.Drawing.Point(364, 28);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(149, 48);
             this.button5.TabIndex = 7;
@@ -138,7 +158,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(556, 28);
+            this.button6.Location = new System.Drawing.Point(519, 28);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(127, 48);
             this.button6.TabIndex = 8;
@@ -150,7 +170,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1109, 477);
+            this.ClientSize = new System.Drawing.Size(1071, 476);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -162,7 +182,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainMenu";
-            this.Text = "MainMenu";
+            this.Text = "BugTracking";
             this.Load += new System.EventHandler(this.MainMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
@@ -185,6 +205,8 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.ToolStripMenuItem ошибкиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem типОшибкиToolStripMenuItem;
     }
 }
 

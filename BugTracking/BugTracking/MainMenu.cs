@@ -101,7 +101,6 @@ namespace BugTracking
                     return;
                 EditError editerror = new EditError(id);
                 editerror.Show();
-
             }
         }
 
@@ -122,6 +121,12 @@ namespace BugTracking
 
                 }
             }
+        }
+
+        private void типОшибкиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddErrorType AET = new AddErrorType();
+            AET.Show();
         }
     }
 }

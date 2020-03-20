@@ -25,8 +25,6 @@ namespace BugTracking
             }
             _id = id;
 
-
-
             using (var db = new BTContext())
             {
                 var error = db.Errors.First(x => x.Id == id);
@@ -34,10 +32,6 @@ namespace BugTracking
                 comboBox2.SelectedItem = error.Level;
                 textBox1.Text = error.Code;
                 textBox2.Text = error.Description;
-                comboBox3.SelectedItem = error.TypeId;
-
-
-
             }
         }
 
@@ -54,10 +48,7 @@ namespace BugTracking
                 error.Code = textBox1.Text;
                 error.Description = textBox2.Text;
                 error.TypeId = TypeId[0].Id;
-
-
                 db.SaveChanges();
-
             }
             this.Close();
         }

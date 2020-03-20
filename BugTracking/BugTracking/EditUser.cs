@@ -55,7 +55,5 @@ namespace BugTracking
         {
             this.Close();
         }
-
-        private void EditUser_Load(object sender, EventArgs e) { }
     }
 }

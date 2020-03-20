@@ -13,7 +13,7 @@ namespace BugTracking
 {
     public partial class Users : Form
     {
-        BTContext db;
+        //BTContext db;
         public Users()
         {
             InitializeComponent();
@@ -64,7 +64,6 @@ namespace BugTracking
                     return;
                 EditUser edituser = new EditUser(id);
                 edituser.Show();
-
             }
         }
 
@@ -82,7 +81,6 @@ namespace BugTracking
                     User user = db.Users.Find(id);
                     db.Users.Remove(user);
                     db.SaveChanges();
-
                 }
             }
         }
