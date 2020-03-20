@@ -63,6 +63,12 @@
     <Compile Include="AddError.Designer.cs">
       <DependentUpon>AddError.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddSolution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSolution.Designer.cs">
+      <DependentUpon>AddSolution.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,12 @@
     </Compile>
     <Compile Include="EditUser.Designer.cs">
       <DependentUpon>EditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorWindow.Designer.cs">
+      <DependentUpon>ErrorWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
@@ -112,6 +124,9 @@
     <EmbeddedResource Include="AddError.resx">
       <DependentUpon>AddError.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddSolution.resx">
+      <DependentUpon>AddSolution.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditUser.resx">
       <DependentUpon>EditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorWindow.resx">
+      <DependentUpon>ErrorWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
