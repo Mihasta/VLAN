@@ -47,5 +47,39 @@ namespace BugTracking
             addsolution.Show();
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int index = dataGridView1.SelectedRows[0].Index;
+                int id = 0;
+                bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out id);
+                if (converted == false)
+                    return;
+
+                EditSolution editsolution = new EditSolution(id);
+                editsolution.Show();
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            using (BTContext db = new BTContext())
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    int index = dataGridView1.SelectedRows[0].Index;
+                    int id = 0;
+                    bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out id);
+                    if (converted == false)
+                        return;
+                    Solution solution = db.Solutions.Find(id);
+                    db.Solutions.Remove(solution);
+                    db.SaveChanges();
+
+                }
+            }
+        }
     }
 }

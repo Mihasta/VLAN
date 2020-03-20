@@ -82,6 +82,12 @@
     <Compile Include="EditError.Designer.cs">
       <DependentUpon>EditError.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditSolution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditSolution.Designer.cs">
+      <DependentUpon>EditSolution.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditError.resx">
       <DependentUpon>EditError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditSolution.resx">
+      <DependentUpon>EditSolution.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditUser.resx">
       <DependentUpon>EditUser.cs</DependentUpon>
