@@ -155,7 +155,7 @@
             this.button5.TabIndex = 7;
             this.button5.Text = "Редактировать ошибку";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button5.Click += new System.EventHandler(this.Edit_Error);
             // 
             // button6
             // 
@@ -165,7 +165,7 @@
             this.button6.TabIndex = 8;
             this.button6.Text = "Удалить ошибку";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button6.Click += new System.EventHandler(this.Delete_Error);
             // 
             // MainMenu
             // 

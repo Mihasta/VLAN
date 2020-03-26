@@ -90,7 +90,7 @@ namespace BugTracking
             dataGridView1.DataSource = db.Errors.ToList();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void Edit_Error(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
@@ -103,7 +103,7 @@ namespace BugTracking
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void Delete_Error(object sender, EventArgs e)
         {
             using (BTContext db = new BTContext())
             {
