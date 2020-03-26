@@ -84,17 +84,25 @@ namespace BugTracking
                 }
             }
         }
-            private void Users_Load_1(object sender, EventArgs e)
+        private void Users_Load_1(object sender, EventArgs e)
+        {
+            if (Globals.user_status == "Moderator")
+            {
+                button1.Visible = false;
+                button5.Visible = false;
+                button4.Visible = false;
+            }
+            else if (Globals.user_status == "Admin")
             {
                 BTContext db = new BTContext();
                 dataGridView1.DataSource = db.Users.ToList();
-
             }
+        }
 
-            private void timer1_Tick(object sender, EventArgs e)
-            {
-                BTContext db = new BTContext();
-                dataGridView1.DataSource = db.Users.ToList();
-            }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            BTContext db = new BTContext();
+            dataGridView1.DataSource = db.Users.ToList();
+        }
     }
 }

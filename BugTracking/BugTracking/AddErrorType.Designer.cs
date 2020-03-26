@@ -57,9 +57,11 @@
             // 
             // dbTypeError
             // 
+            this.dbTypeError.AllowUserToAddRows = false;
             this.dbTypeError.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dbTypeError.Location = new System.Drawing.Point(12, 67);
             this.dbTypeError.Name = "dbTypeError";
+            this.dbTypeError.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dbTypeError.Size = new System.Drawing.Size(600, 377);
             this.dbTypeError.TabIndex = 14;
             // 

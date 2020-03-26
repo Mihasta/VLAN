@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.User = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ошибкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.типОшибкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -48,7 +46,7 @@
             // 
             // User
             // 
-            this.User.Location = new System.Drawing.Point(12, 27);
+            this.User.Location = new System.Drawing.Point(196, 28);
             this.User.Name = "User";
             this.User.Size = new System.Drawing.Size(162, 49);
             this.User.TabIndex = 0;
@@ -96,14 +94,9 @@
             // типОшибкиToolStripMenuItem
             // 
             this.типОшибкиToolStripMenuItem.Name = "типОшибкиToolStripMenuItem";
-            this.типОшибкиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.типОшибкиToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.типОшибкиToolStripMenuItem.Text = "Типы ошибок";
             this.типОшибкиToolStripMenuItem.Click += new System.EventHandler(this.типОшибкиToolStripMenuItem_Click);
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 10000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // button1
             // 
@@ -114,6 +107,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "TestError";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
@@ -125,11 +119,12 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "OneTypeError";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(181, 28);
+            this.button3.Location = new System.Drawing.Point(13, 29);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(177, 48);
             this.button3.TabIndex = 5;
@@ -199,7 +194,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;

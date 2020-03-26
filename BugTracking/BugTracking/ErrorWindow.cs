@@ -20,13 +20,8 @@ namespace BugTracking
 
         public void RefreshDataGridView(int id)
         {
-            using (BTContext db = new BTContext())
-            {
-                var solutions = (from p in db.Solutions
-                                 where p.ErrorId == id
-                                 select p);
-                dataGridView1.DataSource = solutions.ToList();
-            }
+            BTContext db = new BTContext();
+            dataGridView1.DataSource = db.Solutions.Where(s => s.ErrorId == id).ToList();
         }
 
         public ErrorWindow(int id)
@@ -79,6 +74,19 @@ namespace BugTracking
                     db.SaveChanges();
 
                 }
+            }
+        }
+
+        private void ErrorWindow_Load(object sender, EventArgs e)
+        {
+            if (Globals.user_status == "User")
+            {
+                button3.Visible = false;
+                button4.Visible = false;
+            }
+            else if (Globals.user_status == "Moderator") 
+            {
+                button4.Visible = false;
             }
         }
     }
