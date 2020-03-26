@@ -24,11 +24,22 @@ namespace BugTracking
         {
             Users users = new Users();
             users.Show();
-
         }
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
+            if (Globals.user_status == "User")
+            {
+                User.Visible = false;
+                ошибкиToolStripMenuItem.Visible = false;
+                button5.Visible = false;
+                button6.Visible = false;
+            }
+            else if (Globals.user_status == "Moderator")
+            {
+                ошибкиToolStripMenuItem.Visible = false;
+                button6.Visible = false;
+            }
             BTContext db = new BTContext();
             dataGridView1.DataSource = db.Errors.ToList();
         }
@@ -36,12 +47,6 @@ namespace BugTracking
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            /*BTContext db = new BTContext();
-            dataGridView1.DataSource = db.Errors.ToList();*/
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -90,7 +95,7 @@ namespace BugTracking
             dataGridView1.DataSource = db.Errors.ToList();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void Edit_Error(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
@@ -103,7 +108,7 @@ namespace BugTracking
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void Delete_Error(object sender, EventArgs e)
         {
             using (BTContext db = new BTContext())
             {

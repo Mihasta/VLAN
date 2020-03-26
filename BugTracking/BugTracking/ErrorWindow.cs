@@ -107,6 +107,17 @@ namespace BugTracking
                 }
             }
         }
-
+        private void ErrorWindow_Load(object sender, EventArgs e)
+        {
+            if (Globals.user_status == "User")
+            {
+                button3.Visible = false;
+                button4.Visible = false;
+            }
+            else if (Globals.user_status == "Moderator") 
+            {
+                button4.Visible = false;
+            }
+        }
     }
 }

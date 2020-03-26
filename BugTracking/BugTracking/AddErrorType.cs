@@ -39,6 +39,7 @@ namespace BugTracking
         {
             if (dbTypeError.SelectedRows.Count > 0)
             {
+
                 int index = dbTypeError.SelectedRows[0].Index;
                 int id = 0;
                 bool converted = Int32.TryParse(dbTypeError[0, index].Value.ToString(), out id);
@@ -46,6 +47,29 @@ namespace BugTracking
                     return;
                 EditTextType ett = new EditTextType(id);
                 ett.Show();
+            }
+        }
+
+        private void dbTypeError_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Delete_ErrorType(object sender, EventArgs e)
+        {
+            using (BTContext db = new BTContext())
+            {
+                if (dbTypeError.SelectedRows.Count > 0)
+                {
+                    int index = dbTypeError.SelectedRows[0].Index;
+                    int id = 0;
+                    bool converted = Int32.TryParse(dbTypeError[0, index].Value.ToString(), out id);
+                    if (converted == false)
+                        return;
+                    ErrorType errorType = db.ErrorTypes.Find(id);
+                    db.ErrorTypes.Remove(errorType);
+                    db.SaveChanges();
+                }
             }
         }
     }

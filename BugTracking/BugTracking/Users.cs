@@ -53,7 +53,7 @@ namespace BugTracking
         }
 
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Edit_User(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
@@ -67,7 +67,7 @@ namespace BugTracking
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void Delete_User(object sender, EventArgs e)
         {
             using (BTContext db = new BTContext())
             {
@@ -84,17 +84,25 @@ namespace BugTracking
                 }
             }
         }
-            private void Users_Load_1(object sender, EventArgs e)
+        private void Users_Load_1(object sender, EventArgs e)
+        {
+            if (Globals.user_status == "Moderator")
+            {
+                button1.Visible = false;
+                button5.Visible = false;
+                button4.Visible = false;
+            }
+            else if (Globals.user_status == "Admin")
             {
                 BTContext db = new BTContext();
                 dataGridView1.DataSource = db.Users.ToList();
-
             }
+        }
 
-            private void timer1_Tick(object sender, EventArgs e)
-            {
-                BTContext db = new BTContext();
-                dataGridView1.DataSource = db.Users.ToList();
-            }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            BTContext db = new BTContext();
+            dataGridView1.DataSource = db.Users.ToList();
+        }
     }
 }
