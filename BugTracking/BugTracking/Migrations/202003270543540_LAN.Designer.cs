@@ -13,7 +13,7 @@ namespace BugTracking.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202003190525142_LAN"; }
+            get { return "202003270543540_LAN"; }
         }
         
         string IMigrationMetadata.Source

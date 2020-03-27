@@ -44,6 +44,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button5 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -57,7 +58,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(776, 426);
+            this.tabControl1.Size = new System.Drawing.Size(867, 426);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -73,7 +74,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(768, 400);
+            this.tabPage1.Size = new System.Drawing.Size(859, 400);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Сведения";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -102,7 +103,7 @@
             this.DescriptionTextBox.Multiline = true;
             this.DescriptionTextBox.Name = "DescriptionTextBox";
             this.DescriptionTextBox.ReadOnly = true;
-            this.DescriptionTextBox.Size = new System.Drawing.Size(756, 183);
+            this.DescriptionTextBox.Size = new System.Drawing.Size(847, 183);
             this.DescriptionTextBox.TabIndex = 6;
             // 
             // Type
@@ -152,6 +153,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button5);
             this.tabPage2.Controls.Add(this.button4);
             this.tabPage2.Controls.Add(this.button3);
             this.tabPage2.Controls.Add(this.button2);
@@ -160,7 +162,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(768, 400);
+            this.tabPage2.Size = new System.Drawing.Size(859, 400);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Решения";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -187,7 +189,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(687, 29);
+            this.button2.Location = new System.Drawing.Point(778, 32);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 2;
@@ -212,14 +214,28 @@
             this.dataGridView1.Location = new System.Drawing.Point(6, 58);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(756, 336);
+            this.dataGridView1.Size = new System.Drawing.Size(847, 336);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // button5
+            // 
+            this.button5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button5.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button5.ForeColor = System.Drawing.SystemColors.Control;
+            this.button5.Location = new System.Drawing.Point(591, 3);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(55, 52);
+            this.button5.TabIndex = 5;
+            this.button5.Text = "👍";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // ErrorWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(959, 454);
             this.Controls.Add(this.tabControl1);
             this.Name = "ErrorWindow";
             this.Text = "ErrorWindow";
@@ -251,5 +267,6 @@
         private System.Windows.Forms.Label UserString;
         private System.Windows.Forms.Label Description;
         private System.Windows.Forms.TextBox DescriptionTextBox;
+        private System.Windows.Forms.Button button5;
     }
 }

@@ -119,5 +119,35 @@ namespace BugTracking
                 button4.Visible = false;
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            int i = 0;
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int index = dataGridView1.SelectedRows[0].Index;
+                int id = 0;
+                bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out id);
+                if (converted == false)
+                    return;
+                if (Globals.Like != true) 
+                {
+                    using (BTContext db = new BTContext())
+                    {
+                        //Console.WriteLine("зашел");
+                        /*var Likes = (from p in db.Solutions
+                                     where p.Id == id
+                                     select p.Likes).ToArray();*/
+                        var solution = db.Solutions.First(x => x.Id == id);
+                        i = solution.Likes;
+                        i++;
+                        //Console.WriteLine(i);
+                        solution.Likes = i;
+                        db.SaveChanges();
+                    }
+                }
+                Globals.Like = true;
+            }
+        }
     }
 }

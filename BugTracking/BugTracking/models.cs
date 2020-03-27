@@ -72,6 +72,7 @@ namespace BugTracking
         [ForeignKey("UserId")]
         public virtual User User { get; set; }
         public DateTime Date { get; set; }
+        public int Likes { get; set; }
     }
 
     public class Report 

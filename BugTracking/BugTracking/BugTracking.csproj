@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -88,6 +88,11 @@
     <Compile Include="EditError.Designer.cs">
       <DependentUpon>EditError.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003270543540_LAN.cs" />
+    <Compile Include="Migrations\202003270543540_LAN.designer.cs">
+      <DependentUpon>202003270543540_LAN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="TextType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,11 +123,6 @@
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003190525142_LAN.cs" />
-    <Compile Include="Migrations\202003190525142_LAN.designer.cs">
-      <DependentUpon>202003190525142_LAN.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="models.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -160,9 +160,12 @@
     <EmbeddedResource Include="EditError.resx">
       <DependentUpon>EditError.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003270543540_LAN.resx">
+      <DependentUpon>202003270543540_LAN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TextType.resx">
-      <DependentUpon>TextType.cs</DependentUpon> 
-    </EmbeddedResource>  
+      <DependentUpon>TextType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditSolution.resx">
       <DependentUpon>EditSolution.cs</DependentUpon>
     </EmbeddedResource>
@@ -174,9 +177,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003190525142_LAN.resx">
-      <DependentUpon>202003190525142_LAN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

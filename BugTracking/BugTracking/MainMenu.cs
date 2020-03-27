@@ -219,7 +219,5 @@ namespace BugTracking
         {
             filterBox.Visible = !filterBox.Visible;
         }
-
-  
     }
 }

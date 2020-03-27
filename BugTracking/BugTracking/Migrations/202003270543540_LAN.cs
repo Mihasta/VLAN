@@ -2,7 +2,7 @@
 {
     using System;
     using System.Data.Entity.Migrations;
-
+    
     public partial class LAN : DbMigration
     {
         public override void Up()
@@ -78,9 +78,9 @@
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Error", t => t.ErrorId, cascadeDelete: true)
                 .Index(t => t.ErrorId);
-
+            AddColumn("dbo.Solution", "Likes", c => c.Int(nullable: false));
         }
-
+        
         public override void Down()
         {
             DropForeignKey("dbo.Report", "ErrorId", "dbo.Error");
@@ -98,6 +98,7 @@
             DropTable("dbo.User");
             DropTable("dbo.ErrorType");
             DropTable("dbo.Error");
+            DropColumn("dbo.Solution", "Likes");
         }
     }
 }
