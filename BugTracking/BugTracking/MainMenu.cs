@@ -42,6 +42,10 @@ namespace BugTracking
             }
             BTContext db = new BTContext();
             dataGridView1.DataSource = db.Errors.ToList();
+            var types = new List<string>();
+            types.Add("All");
+            types.AddRange(db.ErrorTypes.Select(q => q.Name).ToList());
+            TypeComboBox.DataSource = types;
         }
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
@@ -91,10 +95,42 @@ namespace BugTracking
 
         private void button4_Click(object sender, EventArgs e)
         {
-            BTContext db = new BTContext();
-            dataGridView1.DataSource = db.Errors.ToList();
+            string priority = PriorityBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
+            string level = LevelBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
+            string type = TypeComboBox.SelectedItem.ToString();
+            string code = CodeTextBox.Text;
+            dataGridView1.DataSource = GetFilterredErrors(priority, level, type, code);
         }
 
+        public int GetErrorTypeId(string name)
+        {
+            BTContext db = new BTContext();
+            var type = (from p in db.ErrorTypes where p.Name == name select p).ToArray();
+            return type[0].Id;
+        }
+        public List<Error> GetFilterredErrors(string priority, string level, string type, string code)
+        {
+            BTContext db = new BTContext();
+            IQueryable<Error> filteredErrors = db.Errors;
+            if (priority != "All")
+            {
+                filteredErrors = filteredErrors.Where(error => error.Priority.ToString() == priority);
+            }
+            if (level != "All")
+            {
+                filteredErrors = filteredErrors.Where(error => error.Level.ToString() == level);
+            }
+            if (type != "All")
+            {
+                int type_id = GetErrorTypeId(type);
+                filteredErrors = filteredErrors.Where(error => error.TypeId == type_id);
+            }
+            if (!string.IsNullOrWhiteSpace(code))
+            {
+                filteredErrors = filteredErrors.Where(error => error.Code.Contains(code));
+            }
+            return filteredErrors.ToList();
+        }
         private void Edit_Error(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -143,6 +179,11 @@ namespace BugTracking
                 ErrorWindow errorwindow = new ErrorWindow(id);
                 errorwindow.Show();
             }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            filterBox.Visible = !filterBox.Visible;
         }
     }
 }
