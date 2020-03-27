@@ -42,29 +42,32 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.filterBox = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.CodeTextBox = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TypeComboBox = new System.Windows.Forms.ComboBox();
+            this.LevelBox = new System.Windows.Forms.GroupBox();
+            this.radioButton10 = new System.Windows.Forms.RadioButton();
+            this.radioButton9 = new System.Windows.Forms.RadioButton();
+            this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.PriorityBox = new System.Windows.Forms.GroupBox();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.LevelBox = new System.Windows.Forms.GroupBox();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
-            this.radioButton10 = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.TypeComboBox = new System.Windows.Forms.ComboBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.CodeTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.filterBox.SuspendLayout();
-            this.PriorityBox.SuspendLayout();
-            this.LevelBox.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.LevelBox.SuspendLayout();
+            this.PriorityBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // User
@@ -84,7 +87,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 82);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1042, 377);
+            this.dataGridView1.Size = new System.Drawing.Size(826, 377);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
             // 
@@ -102,7 +105,7 @@
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
@@ -117,7 +120,7 @@
             // типОшибкиToolStripMenuItem
             // 
             this.типОшибкиToolStripMenuItem.Name = "типОшибкиToolStripMenuItem";
-            this.типОшибкиToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.типОшибкиToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.типОшибкиToolStripMenuItem.Text = "Типы ошибок";
             this.типОшибкиToolStripMenuItem.Click += new System.EventHandler(this.типОшибкиToolStripMenuItem_Click);
             // 
@@ -197,16 +200,160 @@
             // 
             // filterBox
             // 
+            this.filterBox.Controls.Add(this.label1);
+            this.filterBox.Controls.Add(this.comboBox2);
+            this.filterBox.Controls.Add(this.comboBox1);
             this.filterBox.Controls.Add(this.groupBox2);
             this.filterBox.Controls.Add(this.groupBox1);
             this.filterBox.Controls.Add(this.LevelBox);
             this.filterBox.Controls.Add(this.PriorityBox);
             this.filterBox.Location = new System.Drawing.Point(12, 330);
             this.filterBox.Name = "filterBox";
-            this.filterBox.Size = new System.Drawing.Size(1042, 129);
+            this.filterBox.Size = new System.Drawing.Size(826, 129);
             this.filterBox.TabIndex = 10;
             this.filterBox.TabStop = false;
             this.filterBox.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(280, 99);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(130, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Сортировать по столбцу";
+       
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "По возрастанию",
+            "По убыванию"});
+            this.comboBox2.Location = new System.Drawing.Point(584, 96);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(150, 21);
+            this.comboBox2.TabIndex = 16;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(423, 96);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(155, 21);
+            this.comboBox1.TabIndex = 15;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.CodeTextBox);
+            this.groupBox2.Location = new System.Drawing.Point(417, 13);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(161, 58);
+            this.groupBox2.TabIndex = 14;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Поиск по коду";
+            // 
+            // CodeTextBox
+            // 
+            this.CodeTextBox.Location = new System.Drawing.Point(6, 20);
+            this.CodeTextBox.Name = "CodeTextBox";
+            this.CodeTextBox.Size = new System.Drawing.Size(148, 20);
+            this.CodeTextBox.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.TypeComboBox);
+            this.groupBox1.Location = new System.Drawing.Point(277, 13);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(133, 58);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Тип";
+            // 
+            // TypeComboBox
+            // 
+            this.TypeComboBox.FormattingEnabled = true;
+            this.TypeComboBox.Location = new System.Drawing.Point(6, 19);
+            this.TypeComboBox.Name = "TypeComboBox";
+            this.TypeComboBox.Size = new System.Drawing.Size(121, 21);
+            this.TypeComboBox.TabIndex = 0;
+            // 
+            // LevelBox
+            // 
+            this.LevelBox.Controls.Add(this.radioButton10);
+            this.LevelBox.Controls.Add(this.radioButton9);
+            this.LevelBox.Controls.Add(this.radioButton8);
+            this.LevelBox.Controls.Add(this.radioButton7);
+            this.LevelBox.Controls.Add(this.radioButton6);
+            this.LevelBox.Controls.Add(this.radioButton5);
+            this.LevelBox.Location = new System.Drawing.Point(103, 13);
+            this.LevelBox.Name = "LevelBox";
+            this.LevelBox.Size = new System.Drawing.Size(167, 110);
+            this.LevelBox.TabIndex = 12;
+            this.LevelBox.TabStop = false;
+            this.LevelBox.Text = "Уровень";
+            // 
+            // radioButton10
+            // 
+            this.radioButton10.AutoSize = true;
+            this.radioButton10.Checked = true;
+            this.radioButton10.Location = new System.Drawing.Point(6, 19);
+            this.radioButton10.Name = "radioButton10";
+            this.radioButton10.Size = new System.Drawing.Size(36, 17);
+            this.radioButton10.TabIndex = 5;
+            this.radioButton10.TabStop = true;
+            this.radioButton10.Text = "All";
+            this.radioButton10.UseVisualStyleBackColor = true;
+            // 
+            // radioButton9
+            // 
+            this.radioButton9.AutoSize = true;
+            this.radioButton9.Location = new System.Drawing.Point(95, 42);
+            this.radioButton9.Name = "radioButton9";
+            this.radioButton9.Size = new System.Drawing.Size(66, 17);
+            this.radioButton9.TabIndex = 4;
+            this.radioButton9.Text = "Blocking";
+            this.radioButton9.UseVisualStyleBackColor = true;
+            // 
+            // radioButton8
+            // 
+            this.radioButton8.AutoSize = true;
+            this.radioButton8.Location = new System.Drawing.Point(95, 19);
+            this.radioButton8.Name = "radioButton8";
+            this.radioButton8.Size = new System.Drawing.Size(56, 17);
+            this.radioButton8.TabIndex = 3;
+            this.radioButton8.Text = "Critical";
+            this.radioButton8.UseVisualStyleBackColor = true;
+            // 
+            // radioButton7
+            // 
+            this.radioButton7.AutoSize = true;
+            this.radioButton7.Location = new System.Drawing.Point(6, 87);
+            this.radioButton7.Name = "radioButton7";
+            this.radioButton7.Size = new System.Drawing.Size(74, 17);
+            this.radioButton7.TabIndex = 2;
+            this.radioButton7.Text = "Significant";
+            this.radioButton7.UseVisualStyleBackColor = true;
+            // 
+            // radioButton6
+            // 
+            this.radioButton6.AutoSize = true;
+            this.radioButton6.Location = new System.Drawing.Point(6, 64);
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.Size = new System.Drawing.Size(81, 17);
+            this.radioButton6.TabIndex = 1;
+            this.radioButton6.Text = "Insignificant";
+            this.radioButton6.UseVisualStyleBackColor = true;
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(6, 41);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(53, 17);
+            this.radioButton5.TabIndex = 0;
+            this.radioButton5.Text = "Trivial";
+            this.radioButton5.UseVisualStyleBackColor = true;
             // 
             // PriorityBox
             // 
@@ -263,118 +410,6 @@
             this.radioButton1.Text = "All";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // LevelBox
-            // 
-            this.LevelBox.Controls.Add(this.radioButton10);
-            this.LevelBox.Controls.Add(this.radioButton9);
-            this.LevelBox.Controls.Add(this.radioButton8);
-            this.LevelBox.Controls.Add(this.radioButton7);
-            this.LevelBox.Controls.Add(this.radioButton6);
-            this.LevelBox.Controls.Add(this.radioButton5);
-            this.LevelBox.Location = new System.Drawing.Point(103, 13);
-            this.LevelBox.Name = "LevelBox";
-            this.LevelBox.Size = new System.Drawing.Size(167, 110);
-            this.LevelBox.TabIndex = 12;
-            this.LevelBox.TabStop = false;
-            this.LevelBox.Text = "Уровень";
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(6, 41);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(53, 17);
-            this.radioButton5.TabIndex = 0;
-            this.radioButton5.Text = "Trivial";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            // 
-            // radioButton6
-            // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(6, 64);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(81, 17);
-            this.radioButton6.TabIndex = 1;
-            this.radioButton6.Text = "Insignificant";
-            this.radioButton6.UseVisualStyleBackColor = true;
-            // 
-            // radioButton7
-            // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(6, 87);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(74, 17);
-            this.radioButton7.TabIndex = 2;
-            this.radioButton7.Text = "Significant";
-            this.radioButton7.UseVisualStyleBackColor = true;
-            // 
-            // radioButton8
-            // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Location = new System.Drawing.Point(95, 19);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(56, 17);
-            this.radioButton8.TabIndex = 3;
-            this.radioButton8.Text = "Critical";
-            this.radioButton8.UseVisualStyleBackColor = true;
-            // 
-            // radioButton9
-            // 
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.Location = new System.Drawing.Point(95, 42);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(66, 17);
-            this.radioButton9.TabIndex = 4;
-            this.radioButton9.Text = "Blocking";
-            this.radioButton9.UseVisualStyleBackColor = true;
-            // 
-            // radioButton10
-            // 
-            this.radioButton10.AutoSize = true;
-            this.radioButton10.Checked = true;
-            this.radioButton10.Location = new System.Drawing.Point(6, 19);
-            this.radioButton10.Name = "radioButton10";
-            this.radioButton10.Size = new System.Drawing.Size(36, 17);
-            this.radioButton10.TabIndex = 5;
-            this.radioButton10.TabStop = true;
-            this.radioButton10.Text = "All";
-            this.radioButton10.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.TypeComboBox);
-            this.groupBox1.Location = new System.Drawing.Point(277, 13);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(133, 58);
-            this.groupBox1.TabIndex = 13;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Тип";
-            // 
-            // TypeComboBox
-            // 
-            this.TypeComboBox.FormattingEnabled = true;
-            this.TypeComboBox.Location = new System.Drawing.Point(6, 19);
-            this.TypeComboBox.Name = "TypeComboBox";
-            this.TypeComboBox.Size = new System.Drawing.Size(121, 21);
-            this.TypeComboBox.TabIndex = 0;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.CodeTextBox);
-            this.groupBox2.Location = new System.Drawing.Point(417, 13);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(161, 58);
-            this.groupBox2.TabIndex = 14;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Поиск по коду";
-            // 
-            // CodeTextBox
-            // 
-            this.CodeTextBox.Location = new System.Drawing.Point(6, 20);
-            this.CodeTextBox.Name = "CodeTextBox";
-            this.CodeTextBox.Size = new System.Drawing.Size(148, 20);
-            this.CodeTextBox.TabIndex = 0;
-            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -399,13 +434,14 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.filterBox.ResumeLayout(false);
-            this.PriorityBox.ResumeLayout(false);
-            this.PriorityBox.PerformLayout();
-            this.LevelBox.ResumeLayout(false);
-            this.LevelBox.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
+            this.filterBox.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.LevelBox.ResumeLayout(false);
+            this.LevelBox.PerformLayout();
+            this.PriorityBox.ResumeLayout(false);
+            this.PriorityBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -443,6 +479,9 @@
         private System.Windows.Forms.ComboBox TypeComboBox;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox CodeTextBox;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label1;
     }
 }
 

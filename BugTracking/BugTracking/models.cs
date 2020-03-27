@@ -67,7 +67,6 @@ namespace BugTracking
         public string Description { get; set; }
         public int ErrorId { get; set; }
         [ForeignKey("ErrorId")]
-        public int Likes { get; set; }
         public virtual Error Error { get; set; }
         public int UserId { get; set; }
         [ForeignKey("UserId")]

@@ -46,6 +46,18 @@ namespace BugTracking
             types.Add("All");
             types.AddRange(db.ErrorTypes.Select(q => q.Name).ToList());
             TypeComboBox.DataSource = types;
+            this.dataGridView1.Columns["User"].Visible = false;
+            this.dataGridView1.Columns["Type"].Visible = false;
+
+            comboBox2.SelectedIndex = 0;
+
+            comboBox1.Items.Add("Нет");
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+                if (column.Visible)
+                    comboBox1.Items.Add(column.Name);
+
+            comboBox1.SelectedIndex = 0;
+
         }
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
@@ -100,6 +112,7 @@ namespace BugTracking
             string type = TypeComboBox.SelectedItem.ToString();
             string code = CodeTextBox.Text;
             dataGridView1.DataSource = GetFilterredErrors(priority, level, type, code);
+            //dataGridView1.Sort(dataGridView1.Columns[comboBox1.SelectedItem.ToString()], ListSortDirection.Ascending);
         }
 
         public int GetErrorTypeId(string name)
@@ -129,6 +142,27 @@ namespace BugTracking
             {
                 filteredErrors = filteredErrors.Where(error => error.Code.Contains(code));
             }
+
+            if (comboBox1.SelectedIndex != 0)
+            {
+                if (comboBox1.SelectedItem.ToString() == "Id")
+                    filteredErrors = comboBox2.SelectedIndex == 0 ? filteredErrors.OrderBy(x => x.Id) : filteredErrors.OrderByDescending(x => x.Id);
+                if (comboBox1.SelectedItem.ToString() == "Date")
+                    filteredErrors = comboBox2.SelectedIndex == 0 ? filteredErrors.OrderBy(x => x.Date) : filteredErrors.OrderByDescending(x => x.Date);
+                if (comboBox1.SelectedItem.ToString() == "Priority")
+                    filteredErrors = comboBox2.SelectedIndex == 0 ? filteredErrors.OrderByDescending(x => x.Priority) : filteredErrors.OrderBy(x => x.Priority);
+                if (comboBox1.SelectedItem.ToString() == "Level")
+                    filteredErrors = comboBox2.SelectedIndex == 0 ? filteredErrors.OrderBy(x => x.Level) : filteredErrors.OrderByDescending(x => x.Level);
+                if (comboBox1.SelectedItem.ToString() == "Code")
+                    filteredErrors = comboBox2.SelectedIndex == 0 ? filteredErrors.OrderBy(x => x.Code) : filteredErrors.OrderByDescending(x => x.Code);
+                if (comboBox1.SelectedItem.ToString() == "Description")
+                    filteredErrors = comboBox2.SelectedIndex == 0 ? filteredErrors.OrderBy(x => x.Description) : filteredErrors.OrderByDescending(x => x.Description);
+                if (comboBox1.SelectedItem.ToString() == "UserId")
+                    filteredErrors = comboBox2.SelectedIndex == 0 ? filteredErrors.OrderBy(x => x.UserId) : filteredErrors.OrderByDescending(x => x.UserId);
+                if (comboBox1.SelectedItem.ToString() == "TypeId")
+                    filteredErrors = comboBox2.SelectedIndex == 0 ? filteredErrors.OrderBy(x => x.TypeId) : filteredErrors.OrderByDescending(x => x.TypeId);
+            }
+
             return filteredErrors.ToList();
         }
         private void Edit_Error(object sender, EventArgs e)
@@ -185,5 +219,7 @@ namespace BugTracking
         {
             filterBox.Visible = !filterBox.Visible;
         }
+
+  
     }
 }
