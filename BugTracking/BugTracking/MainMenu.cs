@@ -219,5 +219,19 @@ namespace BugTracking
         {
             filterBox.Visible = !filterBox.Visible;
         }
+
+        private void KeyDown_MainMenu(object sender, KeyEventArgs e)
+        {
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.U)
+            {
+                Users users = new Users();
+                users.Show();
+            }
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.E)
+            {
+                AddError adderror = new AddError();
+                adderror.Show();
+            }
+        }
     }
 }
