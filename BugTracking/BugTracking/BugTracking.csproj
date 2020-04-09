@@ -57,6 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddError.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
       <DependentUpon>Users.cs</DependentUpon>
     </Compile>
     <Compile Include="UsersFunction.cs" />
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddError.resx">
       <DependentUpon>AddError.cs</DependentUpon>
     </EmbeddedResource>

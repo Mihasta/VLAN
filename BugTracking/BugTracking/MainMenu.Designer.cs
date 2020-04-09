@@ -34,6 +34,7 @@
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ошибкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.типОшибкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -95,17 +96,18 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.выходToolStripMenuItem,
-            this.ошибкиToolStripMenuItem});
+            this.ошибкиToolStripMenuItem,
+            this.оПрограммеToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1071, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(853, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
@@ -120,9 +122,16 @@
             // типОшибкиToolStripMenuItem
             // 
             this.типОшибкиToolStripMenuItem.Name = "типОшибкиToolStripMenuItem";
-            this.типОшибкиToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.типОшибкиToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.типОшибкиToolStripMenuItem.Text = "Типы ошибок";
             this.типОшибкиToolStripMenuItem.Click += new System.EventHandler(this.типОшибкиToolStripMenuItem_Click);
+            // 
+            // оПрограммеToolStripMenuItem
+            // 
+            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.оПрограммеToolStripMenuItem.Text = "О программе";
+            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
             // button1
             // 
@@ -160,7 +169,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(988, 41);
+            this.button4.Location = new System.Drawing.Point(772, 41);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(66, 23);
             this.button4.TabIndex = 6;
@@ -222,7 +231,6 @@
             this.label1.Size = new System.Drawing.Size(130, 13);
             this.label1.TabIndex = 17;
             this.label1.Text = "Сортировать по столбцу";
-       
             // 
             // comboBox2
             // 
@@ -414,7 +422,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1071, 495);
+            this.ClientSize = new System.Drawing.Size(853, 495);
             this.Controls.Add(this.filterBox);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
@@ -482,6 +490,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
     }
 }
 

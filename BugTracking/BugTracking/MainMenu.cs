@@ -57,7 +57,6 @@ namespace BugTracking
                     comboBox1.Items.Add(column.Name);
 
             comboBox1.SelectedIndex = 0;
-
         }
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
@@ -81,7 +80,7 @@ namespace BugTracking
                 };
                 db.Errors.Add(error);
                 db.SaveChanges();
-                Console.WriteLine("Успешно добавлено");
+                //Console.WriteLine("Успешно добавлено");
             }
         }
 
@@ -95,7 +94,7 @@ namespace BugTracking
                 };
                 db.ErrorTypes.Add(type);
                 db.SaveChanges();
-                Console.WriteLine("Успешно добавлено");
+                //Console.WriteLine("Успешно добавлено");
             }
         }
 
@@ -191,7 +190,6 @@ namespace BugTracking
                     Error error = db.Errors.Find(id);
                     db.Errors.Remove(error);
                     db.SaveChanges();
-
                 }
             }
         }
@@ -218,6 +216,12 @@ namespace BugTracking
         private void button7_Click(object sender, EventArgs e)
         {
             filterBox.Visible = !filterBox.Visible;
+        }
+
+        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About op = new About();
+            op.Show();
         }
     }
 }
