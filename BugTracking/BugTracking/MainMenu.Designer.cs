@@ -103,6 +103,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(853, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyDown_MainMenu);
             // 
             // выходToolStripMenuItem
             // 
@@ -434,10 +435,12 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.User);
             this.Controls.Add(this.menuStrip1);
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainMenu";
             this.Text = "BugTracking";
             this.Load += new System.EventHandler(this.MainMenu_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyDown_MainMenu);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

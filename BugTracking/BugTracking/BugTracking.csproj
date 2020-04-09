@@ -94,9 +94,9 @@
     <Compile Include="EditError.Designer.cs">
       <DependentUpon>EditError.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003190525142_LAN.cs" />
-    <Compile Include="Migrations\202003190525142_LAN.designer.cs">
-      <DependentUpon>202003190525142_LAN.cs</DependentUpon>
+    <Compile Include="Migrations\202004090429168_LAN.cs" />
+    <Compile Include="Migrations\202004090429168_LAN.designer.cs">
+      <DependentUpon>202004090429168_LAN.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="TextType.cs">
@@ -169,8 +169,8 @@
     <EmbeddedResource Include="EditError.resx">
       <DependentUpon>EditError.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003190525142_LAN.resx">
-      <DependentUpon>202003190525142_LAN.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004090429168_LAN.resx">
+      <DependentUpon>202004090429168_LAN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TextType.resx">
       <DependentUpon>TextType.cs</DependentUpon>
