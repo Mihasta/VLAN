@@ -225,6 +225,7 @@ namespace BugTracking
         }
         private void KeyDown_MainMenu(object sender, KeyEventArgs e)
         {
+
             if (e.Modifiers == Keys.Control && e.KeyCode == Keys.U)
             {
                 Users users = new Users();
@@ -234,6 +235,40 @@ namespace BugTracking
             {
                 AddError adderror = new AddError();
                 adderror.Show();
+            }
+            if (e.KeyCode == Keys.F1)
+            {
+                About op = new About();
+                op.Show();
+            }
+            if (e.KeyCode == Keys.Delete)
+            {
+                using (BTContext db = new BTContext())
+                {
+                    if (dataGridView1.SelectedRows.Count > 0)
+                    {
+                        int index = dataGridView1.SelectedRows[0].Index;
+                        bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out int id);
+                        if (converted == false)
+                            return;
+                        Error error = db.Errors.Find(id);
+                        db.Errors.Remove(error);
+                        db.SaveChanges();
+                    }
+                }
+            }
+            if (e.KeyCode == Keys.E)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    int index = dataGridView1.SelectedRows[0].Index;
+                    bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out int id);
+                    if (converted == false)
+                        return;
+                    EditError editerror = new EditError(id);
+                    editerror.Show();
+                }
+
             }
         }
     }
