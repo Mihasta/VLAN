@@ -271,5 +271,11 @@ namespace BugTracking
 
             }
         }
+
+        private void создатьОтчетToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReportWindow reportwindow = new ReportWindow();
+            reportwindow.Show();
+        }
     }
 }
