@@ -257,7 +257,7 @@ namespace BugTracking
                     }
                 }
             }
-            if (e.KeyCode == Keys.E)
+            if (e.KeyCode == Keys.D)
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {

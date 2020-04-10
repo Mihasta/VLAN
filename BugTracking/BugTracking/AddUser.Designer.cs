@@ -40,7 +40,6 @@
             this.login = new System.Windows.Forms.TextBox();
             this.password = new System.Windows.Forms.TextBox();
             this.mail = new System.Windows.Forms.TextBox();
-            this.phonenumber = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.status = new System.Windows.Forms.ComboBox();
@@ -52,6 +51,8 @@
             this.tlfcheck = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // name
@@ -137,6 +138,7 @@
             this.login.Name = "login";
             this.login.Size = new System.Drawing.Size(157, 20);
             this.login.TabIndex = 9;
+            this.login.TextChanged += new System.EventHandler(this.login_TextChanged);
             // 
             // password
             // 
@@ -153,14 +155,6 @@
             this.mail.Size = new System.Drawing.Size(157, 20);
             this.mail.TabIndex = 12;
             this.mail.TextChanged += new System.EventHandler(this.mail_TextChanged);
-            // 
-            // phonenumber
-            // 
-            this.phonenumber.Location = new System.Drawing.Point(28, 345);
-            this.phonenumber.Name = "phonenumber";
-            this.phonenumber.Size = new System.Drawing.Size(157, 20);
-            this.phonenumber.TabIndex = 13;
-            this.phonenumber.TextChanged += new System.EventHandler(this.phonenumber_TextChanged);
             // 
             // button1
             // 
@@ -195,7 +189,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(28, 377);
+            this.label8.Location = new System.Drawing.Point(25, 393);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(0, 15);
             this.label8.TabIndex = 17;
@@ -260,17 +254,37 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(25, 371);
+            this.label10.Location = new System.Drawing.Point(25, 368);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(129, 13);
             this.label10.TabIndex = 23;
             this.label10.Text = "*Пример: +79123456578";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.Location = new System.Drawing.Point(208, 137);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(0, 13);
+            this.label12.TabIndex = 25;
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(28, 345);
+            this.maskedTextBox1.Mask = "+7 (900) 000-00-00";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(108, 20);
+            this.maskedTextBox1.TabIndex = 26;
             // 
             // AddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(402, 450);
+            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.tlfcheck);
             this.Controls.Add(this.emailCheck);
@@ -282,7 +296,6 @@
             this.Controls.Add(this.status);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.phonenumber);
             this.Controls.Add(this.mail);
             this.Controls.Add(this.password);
             this.Controls.Add(this.login);
@@ -316,7 +329,6 @@
         private System.Windows.Forms.TextBox login;
         private System.Windows.Forms.TextBox password;
         private System.Windows.Forms.TextBox mail;
-        private System.Windows.Forms.TextBox phonenumber;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox status;
@@ -328,5 +340,7 @@
         private System.Windows.Forms.Label tlfcheck;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
 }
