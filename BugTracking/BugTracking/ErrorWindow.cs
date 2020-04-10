@@ -149,5 +149,32 @@ namespace BugTracking
                 Globals.Like = true;
             }
         }
+
+        private void ErrorWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F5)
+            {
+                RefreshDataGridView(_id);
+            }
+
+            if (e.KeyCode == Keys.Delete)
+            {
+                using (BTContext db = new BTContext())
+                {
+                    if (dataGridView1.SelectedRows.Count > 0)
+                    {
+                        int index = dataGridView1.SelectedRows[0].Index;
+                        int id = 0;
+                        bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out id);
+                        if (converted == false)
+                            return;
+                        Solution solution = db.Solutions.Find(id);
+                        db.Solutions.Remove(solution);
+                        db.SaveChanges();
+
+                    }
+                }
+            }
+        }
     }
 }
