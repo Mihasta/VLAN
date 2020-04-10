@@ -94,20 +94,6 @@ namespace BugTracking
             }
         }
 
-        private void phonenumber_TextChanged(object sender, EventArgs e)
-        {
-            string pattern = @"((\+7[ /]*)?(\d[ /]*){10,11}\d)";
-            string tlf = phonenumber.Text;
-            if (Regex.IsMatch(tlf, pattern, RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250)))
-            {
-                tlfcheck.Text = "";
-            }
-            else
-            {
-                tlfcheck.Text = "Неправильный номер";
-            }
-        }
-
         private void login_TextChanged(object sender, EventArgs e)
         {
             try
