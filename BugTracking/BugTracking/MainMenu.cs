@@ -265,7 +265,29 @@ namespace BugTracking
                     }
                 }
             }
+<<<<<<< HEAD
             
+=======
+            if (e.KeyCode == Keys.D)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    int index = dataGridView1.SelectedRows[0].Index;
+                    bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out int id);
+                    if (converted == false)
+                        return;
+                    EditError editerror = new EditError(id);
+                    editerror.Show();
+                }
+
+            }
+>>>>>>> 91685ae5d00857fec03353d123431dcebeb4c480
+        }
+
+        private void создатьОтчетToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReportWindow reportwindow = new ReportWindow();
+            reportwindow.Show();
         }
     }
 }

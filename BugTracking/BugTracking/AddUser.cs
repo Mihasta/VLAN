@@ -26,7 +26,8 @@ namespace BugTracking
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (PasswordCheck.Text == "" && emailCheck.Text == "" && tlfcheck.Text == "")
+            label12.Text = "";
+            if (PasswordCheck.Text == "" && emailCheck.Text == "" && tlfcheck.Text == "" && label12.Text== "")
             {
                 try
                 {
@@ -40,17 +41,29 @@ namespace BugTracking
                             Password = password.Text,
                             Status = (UserStatus)status.SelectedItem,
                             Mail = mail.Text,
-                            PhoneNumber = phonenumber.Text
+                            PhoneNumber = maskedTextBox1.Text,
                         };
-                        db.Users.Add(user);
-                        db.SaveChanges();
+
+                        var Log = (from p in db.Users
+                                   where p.Login == login.Text
+                                   select p).FirstOrDefault();
+
+                        if (Log != null)
+                        {
+                            label12.Text = "Такой логин уже существует!";
+                        }
+                        else
+                        {
+                            label12.Text = "";
+                            db.Users.Add(user);
+                            db.SaveChanges();
+                            this.Close();
+                        }
                     }
-                    this.Close();
                 }
                 catch (Exception)
                 {
                     label8.Text = "Заполните все поля";
-                    //MessageBox.Show(ex.Message);
                 }
             }
         }
@@ -81,19 +94,20 @@ namespace BugTracking
             }
         }
 
-        private void phonenumber_TextChanged(object sender, EventArgs e)
+        private void login_TextChanged(object sender, EventArgs e)
         {
-            string pattern = @"((\+7[ /]*)?(\d[ /]*){10,11}\d)";
-            string tlf = phonenumber.Text;
-            if (Regex.IsMatch(tlf, pattern, RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250)))
+            try
             {
-                tlfcheck.Text = "";
+                using (BTContext db = new BTContext())
+                {
+
+
+                }
             }
-            else
+            catch(SystemException)
             {
-                tlfcheck.Text = "Неправильный номер";
+                //label12.Text = "Такой логин уже существует!";
             }
         }
-
     }
 }
