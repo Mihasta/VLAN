@@ -225,13 +225,21 @@ namespace BugTracking
         }
         private void KeyDown_MainMenu(object sender, KeyEventArgs e)
         {
+            if(e.KeyCode == Keys.F5)
+            {
+                string priority = PriorityBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
+                string level = LevelBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
+                string type = TypeComboBox.SelectedItem.ToString();
+                string code = CodeTextBox.Text;
+                dataGridView1.DataSource = GetFilterredErrors(priority, level, type, code);
+            }
 
             if (e.Modifiers == Keys.Control && e.KeyCode == Keys.U)
             {
                 Users users = new Users();
                 users.Show();
             }
-            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.E)
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.A)
             {
                 AddError adderror = new AddError();
                 adderror.Show();
@@ -257,7 +265,10 @@ namespace BugTracking
                     }
                 }
             }
-            if (e.KeyCode == Keys.D)
+
+            
+
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.E)
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
@@ -270,6 +281,7 @@ namespace BugTracking
                 }
 
             }
+
         }
 
         private void создатьОтчетToolStripMenuItem_Click(object sender, EventArgs e)
