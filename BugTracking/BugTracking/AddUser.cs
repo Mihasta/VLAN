@@ -41,7 +41,7 @@ namespace BugTracking
                             Password = password.Text,
                             Status = (UserStatus)status.SelectedItem,
                             Mail = mail.Text,
-                            PhoneNumber = maskedTextBox1.Text,
+                            PhoneNumber = maskedTextBox1.Text
                         };
 
                         var Log = (from p in db.Users
@@ -61,7 +61,7 @@ namespace BugTracking
                         }
                     }
                 }
-                catch (Exception)
+                catch 
                 {
                     label8.Text = "Заполните все поля";
                 }
@@ -91,22 +91,6 @@ namespace BugTracking
             else
             {
                 emailCheck.Text = "Неправильная почта";
-            }
-        }
-
-        private void login_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                using (BTContext db = new BTContext())
-                {
-
-
-                }
-            }
-            catch(SystemException)
-            {
-                //label12.Text = "Такой логин уже существует!";
             }
         }
     }

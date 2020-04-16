@@ -138,7 +138,6 @@
             this.login.Name = "login";
             this.login.Size = new System.Drawing.Size(157, 20);
             this.login.TabIndex = 9;
-            this.login.TextChanged += new System.EventHandler(this.login_TextChanged);
             // 
             // password
             // 
