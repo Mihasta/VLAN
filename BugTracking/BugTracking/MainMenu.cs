@@ -265,10 +265,10 @@ namespace BugTracking
                     }
                 }
             }
-<<<<<<< HEAD
+
             
-=======
-            if (e.KeyCode == Keys.D)
+
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.E)
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
@@ -281,7 +281,7 @@ namespace BugTracking
                 }
 
             }
->>>>>>> 91685ae5d00857fec03353d123431dcebeb4c480
+
         }
 
         private void создатьОтчетToolStripMenuItem_Click(object sender, EventArgs e)
