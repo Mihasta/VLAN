@@ -41,7 +41,7 @@ namespace BugTracking
                             Password = password.Text,
                             Status = (UserStatus)status.SelectedItem,
                             Mail = mail.Text,
-                            PhoneNumber = maskedTextBox1.Text
+                            PhoneNumber = maskedTextBox1.Text,
                         };
 
                         var Log = (from p in db.Users

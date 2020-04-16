@@ -7,13 +7,13 @@ namespace BugTracking.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class LAN : IMigrationMetadata
+    public sealed partial class LAN1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(LAN));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(LAN1));
         
         string IMigrationMetadata.Id
         {
-            get { return "202004090429168_LAN"; }
+            get { return "202004160708027_LAN1"; }
         }
         
         string IMigrationMetadata.Source
