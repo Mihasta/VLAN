@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.create = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerStart = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.rb_year = new System.Windows.Forms.RadioButton();
             this.rb_month = new System.Windows.Forms.RadioButton();
             this.rb_week = new System.Windows.Forms.RadioButton();
+            this.rb_day = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,26 +54,26 @@
             this.create.UseVisualStyleBackColor = true;
             this.create.Click += new System.EventHandler(this.create_Click);
             // 
-            // dateTimePicker1
+            // dateTimePickerStart
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(9, 44);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(137, 20);
-            this.dateTimePicker1.TabIndex = 2;
+            this.dateTimePickerStart.Location = new System.Drawing.Point(9, 44);
+            this.dateTimePickerStart.Name = "dateTimePickerStart";
+            this.dateTimePickerStart.Size = new System.Drawing.Size(137, 20);
+            this.dateTimePickerStart.TabIndex = 2;
             // 
-            // dateTimePicker2
+            // dateTimePickerEnd
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(9, 94);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(138, 20);
-            this.dateTimePicker2.TabIndex = 3;
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(9, 94);
+            this.dateTimePickerEnd.Name = "dateTimePickerEnd";
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(138, 20);
+            this.dateTimePickerEnd.TabIndex = 3;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.rb_year);
             this.groupBox1.Controls.Add(this.rb_month);
             this.groupBox1.Controls.Add(this.rb_week);
+            this.groupBox1.Controls.Add(this.rb_day);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(213, 96);
@@ -91,24 +91,13 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // rb_year
-            // 
-            this.rb_year.AutoSize = true;
-            this.rb_year.Location = new System.Drawing.Point(7, 68);
-            this.rb_year.Name = "rb_year";
-            this.rb_year.Size = new System.Drawing.Size(58, 17);
-            this.rb_year.TabIndex = 2;
-            this.rb_year.Text = "За год";
-            this.rb_year.UseVisualStyleBackColor = true;
-            this.rb_year.CheckedChanged += new System.EventHandler(this.rb_CheckedChanged);
-            // 
             // rb_month
             // 
             this.rb_month.AutoSize = true;
-            this.rb_month.Location = new System.Drawing.Point(7, 44);
+            this.rb_month.Location = new System.Drawing.Point(7, 68);
             this.rb_month.Name = "rb_month";
             this.rb_month.Size = new System.Drawing.Size(73, 17);
-            this.rb_month.TabIndex = 1;
+            this.rb_month.TabIndex = 2;
             this.rb_month.Text = "За месяц";
             this.rb_month.UseVisualStyleBackColor = true;
             this.rb_month.CheckedChanged += new System.EventHandler(this.rb_CheckedChanged);
@@ -116,20 +105,31 @@
             // rb_week
             // 
             this.rb_week.AutoSize = true;
-            this.rb_week.Location = new System.Drawing.Point(7, 20);
+            this.rb_week.Location = new System.Drawing.Point(7, 44);
             this.rb_week.Name = "rb_week";
             this.rb_week.Size = new System.Drawing.Size(79, 17);
-            this.rb_week.TabIndex = 0;
+            this.rb_week.TabIndex = 1;
             this.rb_week.Text = "За неделю";
             this.rb_week.UseVisualStyleBackColor = true;
             this.rb_week.CheckedChanged += new System.EventHandler(this.rb_CheckedChanged);
+            // 
+            // rb_day
+            // 
+            this.rb_day.AutoSize = true;
+            this.rb_day.Location = new System.Drawing.Point(7, 20);
+            this.rb_day.Name = "rb_day";
+            this.rb_day.Size = new System.Drawing.Size(65, 17);
+            this.rb_day.TabIndex = 0;
+            this.rb_day.Text = "За день";
+            this.rb_day.UseVisualStyleBackColor = true;
+            this.rb_day.CheckedChanged += new System.EventHandler(this.rb_CheckedChanged);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.dateTimePicker2);
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
+            this.groupBox2.Controls.Add(this.dateTimePickerEnd);
+            this.groupBox2.Controls.Add(this.dateTimePickerStart);
             this.groupBox2.Location = new System.Drawing.Point(12, 114);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(181, 132);
@@ -187,12 +187,12 @@
         #endregion
 
         private System.Windows.Forms.Button create;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePickerStart;
+        private System.Windows.Forms.DateTimePicker dateTimePickerEnd;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton rb_year;
         private System.Windows.Forms.RadioButton rb_month;
         private System.Windows.Forms.RadioButton rb_week;
+        private System.Windows.Forms.RadioButton rb_day;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
