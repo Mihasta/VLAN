@@ -97,9 +97,11 @@
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.dbTypeError);
+            this.KeyPreview = true;
             this.Name = "AddErrorType";
             this.Text = "AddErrorType";
             this.Load += new System.EventHandler(this.AddErrorType_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AddErrorType_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dbTypeError)).EndInit();
             this.ResumeLayout(false);
 

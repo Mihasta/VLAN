@@ -72,5 +72,47 @@ namespace BugTracking
                 }
             }
         }
+
+        private void AddErrorType_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.E)
+            {
+                if (dbTypeError.SelectedRows.Count > 0)
+                {
+
+                    int index = dbTypeError.SelectedRows[0].Index;
+                    int id = 0;
+                    bool converted = Int32.TryParse(dbTypeError[0, index].Value.ToString(), out id);
+                    if (converted == false)
+                        return;
+                    EditTextType ett = new EditTextType(id);
+                    ett.Show();
+                }
+            }
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.A)
+            {
+                BTContext db = new BTContext();
+                dbTypeError.DataSource = db.ErrorTypes.ToList();
+            }
+
+                if (e.KeyCode == Keys.Delete)
+            {
+                using (BTContext db = new BTContext())
+                {
+                    if (dbTypeError.SelectedRows.Count > 0)
+                    {
+                        int index = dbTypeError.SelectedRows[0].Index;
+                        int id = 0;
+                        bool converted = Int32.TryParse(dbTypeError[0, index].Value.ToString(), out id);
+                        if (converted == false)
+                            return;
+                        ErrorType errorType = db.ErrorTypes.Find(id);
+                        db.ErrorTypes.Remove(errorType);
+                        db.SaveChanges();
+                    }
+
+                }
+            }
+        }
     }
 }
