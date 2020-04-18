@@ -17,7 +17,6 @@ namespace BugTracking
         public MainMenu()
         {
             InitializeComponent();
-
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -61,7 +60,7 @@ namespace BugTracking
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -288,6 +287,18 @@ namespace BugTracking
         {
             ReportWindow reportwindow = new ReportWindow();
             reportwindow.Show();
+        }
+
+        private void выходToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void выходИзАккаунтаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SignIn sg = new SignIn();
+            sg.Show();
+            this.Close();
         }
     }
 }

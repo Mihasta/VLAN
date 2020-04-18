@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Validation;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,7 @@ namespace BugTracking
         private void button2_Click(object sender, EventArgs e)
         {
             label12.Text = "";
+            phonenumber.MaxLength = 12;
             if (PasswordCheck.Text == "" && emailCheck.Text == "" && tlfcheck.Text == "" && label12.Text== "")
             {
                 try
@@ -41,7 +43,7 @@ namespace BugTracking
                             Password = password.Text,
                             Status = (UserStatus)status.SelectedItem,
                             Mail = mail.Text,
-                            PhoneNumber = maskedTextBox1.Text,
+                            PhoneNumber = phonenumber.Text
                         };
 
                         var Log = (from p in db.Users
@@ -61,8 +63,22 @@ namespace BugTracking
                         }
                     }
                 }
-                catch 
+                catch //(System.Data.Entity.Validation.DbEntityValidationException dbEx)
                 {
+                    /*Exception raise = dbEx;
+                    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    {
+                        foreach (var validationError in validationErrors.ValidationErrors)
+                        {
+                            string message = string.Format("{0}:{1}",
+                                validationErrors.Entry.Entity.ToString(),
+                                validationError.ErrorMessage);
+                            // raise a new exception nesting
+                            // the current instance as InnerException
+                            raise = new InvalidOperationException(message, raise);
+                        }
+                    }
+                    throw raise;*/
                     label8.Text = "Заполните все поля";
                 }
             }

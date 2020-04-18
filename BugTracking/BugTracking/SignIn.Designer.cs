@@ -128,6 +128,7 @@
             this.Name = "SignIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SignIn";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SignIn_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

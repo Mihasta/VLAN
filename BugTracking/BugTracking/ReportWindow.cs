@@ -41,5 +41,23 @@ namespace BugTracking
             }
             this.Close();
         }
+
+        private void rb_CheckedChanged(object sender, EventArgs e)
+        {
+            groupBox2.Enabled = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            rb_week.Checked = false;
+            rb_month.Checked = false;
+            rb_year.Checked = false;
+            groupBox2.Enabled = true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

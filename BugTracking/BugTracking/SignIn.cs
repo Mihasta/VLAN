@@ -16,6 +16,7 @@ namespace BugTracking
         public SignIn()
         {
             InitializeComponent();
+            KeyPreview = true;
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -55,6 +56,14 @@ namespace BugTracking
             catch (SystemException) 
             {
                 label2.Text = "Неправильный логин или пароль";
+            }
+        }
+
+        private void SignIn_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) 
+            {
+                button1_Click(sender, e);
             }
         }
     }

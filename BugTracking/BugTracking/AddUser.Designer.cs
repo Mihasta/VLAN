@@ -52,7 +52,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.phonenumber = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // name
@@ -269,20 +269,19 @@
             this.label12.Size = new System.Drawing.Size(0, 13);
             this.label12.TabIndex = 25;
             // 
-            // maskedTextBox1
+            // phonenumber
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(28, 345);
-            this.maskedTextBox1.Mask = "+7 (900) 000-00-00";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(108, 20);
-            this.maskedTextBox1.TabIndex = 26;
+            this.phonenumber.Location = new System.Drawing.Point(28, 345);
+            this.phonenumber.Name = "phonenumber";
+            this.phonenumber.Size = new System.Drawing.Size(157, 20);
+            this.phonenumber.TabIndex = 27;
             // 
             // AddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(402, 450);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.phonenumber);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.tlfcheck);
@@ -340,6 +339,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.TextBox phonenumber;
     }
 }
