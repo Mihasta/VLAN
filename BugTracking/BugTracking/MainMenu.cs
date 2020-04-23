@@ -224,6 +224,15 @@ namespace BugTracking
         }
         private void KeyDown_MainMenu(object sender, KeyEventArgs e)
         {
+            if(e.KeyCode == Keys.T)
+            {
+                AddErrorType AET = new AddErrorType();
+                AET.Show();
+            }
+            if(e.KeyCode == Keys.F)
+            {
+                filterBox.Visible = !filterBox.Visible;
+            }
             if(e.KeyCode == Keys.F5)
             {
                 string priority = PriorityBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
@@ -268,7 +277,8 @@ namespace BugTracking
             if (e.Modifiers == Keys.Control && e.KeyCode == Keys.R)
             {
 
-
+                ReportWindow reportwindow = new ReportWindow();
+                reportwindow.Show();
 
             }
 
@@ -311,5 +321,7 @@ namespace BugTracking
             information inf = new information();
             inf.Show();
         }
+
+      
     }
 }

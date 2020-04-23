@@ -39,6 +39,7 @@
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.создатьОтчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.инфОКомпеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -66,7 +67,6 @@
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.инфОКомпеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.filterBox.SuspendLayout();
@@ -125,14 +125,14 @@
             // выходИзАккаунтаToolStripMenuItem
             // 
             this.выходИзАккаунтаToolStripMenuItem.Name = "выходИзАккаунтаToolStripMenuItem";
-            this.выходИзАккаунтаToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.выходИзАккаунтаToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.выходИзАккаунтаToolStripMenuItem.Text = "Выход из аккаунта";
             this.выходИзАккаунтаToolStripMenuItem.Click += new System.EventHandler(this.выходИзАккаунтаToolStripMenuItem_Click);
             // 
             // выходToolStripMenuItem1
             // 
             this.выходToolStripMenuItem1.Name = "выходToolStripMenuItem1";
-            this.выходToolStripMenuItem1.Size = new System.Drawing.Size(175, 22);
+            this.выходToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
             this.выходToolStripMenuItem1.Text = "Выход";
             this.выходToolStripMenuItem1.Click += new System.EventHandler(this.выходToolStripMenuItem1_Click);
             // 
@@ -147,7 +147,7 @@
             // типОшибкиToolStripMenuItem
             // 
             this.типОшибкиToolStripMenuItem.Name = "типОшибкиToolStripMenuItem";
-            this.типОшибкиToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.типОшибкиToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.типОшибкиToolStripMenuItem.Text = "Типы ошибок";
             this.типОшибкиToolStripMenuItem.Click += new System.EventHandler(this.типОшибкиToolStripMenuItem_Click);
             // 
@@ -169,9 +169,16 @@
             // создатьОтчетToolStripMenuItem
             // 
             this.создатьОтчетToolStripMenuItem.Name = "создатьОтчетToolStripMenuItem";
-            this.создатьОтчетToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.создатьОтчетToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.создатьОтчетToolStripMenuItem.Text = "Создать отчет";
             this.создатьОтчетToolStripMenuItem.Click += new System.EventHandler(this.создатьОтчетToolStripMenuItem_Click);
+            // 
+            // инфОКомпеToolStripMenuItem
+            // 
+            this.инфОКомпеToolStripMenuItem.Name = "инфОКомпеToolStripMenuItem";
+            this.инфОКомпеToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.инфОКомпеToolStripMenuItem.Text = "инф о компе";
+            this.инфОКомпеToolStripMenuItem.Click += new System.EventHandler(this.инфОКомпеToolStripMenuItem_Click);
             // 
             // button1
             // 
@@ -307,6 +314,7 @@
             this.CodeTextBox.Name = "CodeTextBox";
             this.CodeTextBox.Size = new System.Drawing.Size(148, 20);
             this.CodeTextBox.TabIndex = 0;
+            
             // 
             // groupBox1
             // 
@@ -457,13 +465,6 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "All";
             this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // инфОКомпеToolStripMenuItem
-            // 
-            this.инфОКомпеToolStripMenuItem.Name = "инфОКомпеToolStripMenuItem";
-            this.инфОКомпеToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
-            this.инфОКомпеToolStripMenuItem.Text = "инф о компе";
-            this.инфОКомпеToolStripMenuItem.Click += new System.EventHandler(this.инфОКомпеToolStripMenuItem_Click);
             // 
             // MainMenu
             // 
