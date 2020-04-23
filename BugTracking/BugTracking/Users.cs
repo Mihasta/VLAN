@@ -12,18 +12,20 @@ using System.Windows.Forms;
 namespace BugTracking
 {
     public partial class Users : Form
+
     {
         //BTContext db;
         public Users()
         {
             InitializeComponent();
-
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             BTContext db = new BTContext();
             dataGridView1.DataSource = db.Users.ToList();
+          
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -97,6 +99,10 @@ namespace BugTracking
                 BTContext db = new BTContext();
                 dataGridView1.DataSource = db.Users.ToList();
             }
+
+            this.dataGridView1.Columns["Errors"].Visible = false;
+            this.dataGridView1.Columns["Solutions"].Visible = false;
+           
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -107,13 +113,13 @@ namespace BugTracking
 
         private void Users_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Modifiers == Keys.Control && e.KeyCode == Keys.A)
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.A)
             {
                 AddUser adduser = new AddUser();
                 adduser.Show();
 
             }
-            if(e.Modifiers == Keys.Control && e.KeyCode == Keys.E)
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.E)
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
@@ -127,7 +133,7 @@ namespace BugTracking
                 }
 
             }
-            if(e.KeyCode == Keys.F5)
+            if (e.KeyCode == Keys.F5)
             {
                 BTContext db = new BTContext();
                 dataGridView1.DataSource = db.Users.ToList();
@@ -153,5 +159,6 @@ namespace BugTracking
 
         }
     }
+       
 }
 

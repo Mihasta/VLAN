@@ -265,9 +265,14 @@ namespace BugTracking
                 }
             }
 
-            
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.R)
+            {
 
-            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.E)
+
+
+            }
+
+                if (e.Modifiers == Keys.Control && e.KeyCode == Keys.E)
             {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
