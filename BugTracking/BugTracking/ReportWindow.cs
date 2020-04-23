@@ -35,12 +35,31 @@ namespace BugTracking
 
                 Document myDocument = new Document(iTextSharp.text.PageSize.A4, 10, 10, 42, 35);
                 PdfWriter.GetInstance(myDocument, new FileStream(fileName, FileMode.Create));
+
+                string ttf = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "ARIAL.TTF");
+                var baseFont = BaseFont.CreateFont(ttf, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+                var font = new iTextSharp.text.Font(baseFont, iTextSharp.text.Font.DEFAULTSIZE, iTextSharp.text.Font.NORMAL);
+
                 myDocument.Open();
 
                 string startDate = GetStartDate();
                 string endDate = GetEndDate();
-
                 var errors = GetErrorsInDateInterval(startDate, endDate);
+
+                myDocument.Add(new Paragraph("Отчет ошибок с " + startDate.ToString() + " по " + endDate.ToString(), font));
+                for (int i = 0; i < errors.Length; i++)
+                {
+                    int s = i + 1;
+                    myDocument.Add(new Paragraph(s + "."));
+                    myDocument.Add(new Paragraph("Дата добавления: " + errors[i].Date.ToString(), font));
+                    myDocument.Add(new Paragraph("Код: " + errors[i].Code.ToString(), font));
+                    myDocument.Add(new Paragraph("Тип: " + GetErrorType(errors[i].TypeId), font));
+                    myDocument.Add(new Paragraph("Приоритет: " + errors[i].Priority.ToString(), font));
+                    myDocument.Add(new Paragraph("Уровень: " + errors[i].Level.ToString(), font));
+                    myDocument.Add(new Paragraph("Описание: " + errors[i].Description.ToString(), font));
+                    myDocument.Add(new Paragraph("Пользователь: " + GetUserString(errors[i].UserId), font));
+                    myDocument.Add(new Paragraph());
+                }
 
 
                 myDocument.Close();
@@ -114,9 +133,25 @@ namespace BugTracking
             DateTime EndDate = DateTime.Parse(eDate);
             BTContext db = new BTContext();
             var errors = (from p in db.Errors
-                          where p.Date > StartDate && p.Date < EndDate
+                          where p.Date >= StartDate && p.Date <= EndDate
                           select p).ToArray();
             return errors;
+        }
+
+        public string GetErrorType(int id)
+        {
+            BTContext db = new BTContext();
+            var type = (from p in db.ErrorTypes where p.Id == id select p).ToArray();
+            return type[0].Name;
+        }
+
+        public string GetUserString(int id)
+        {
+            string userstring = "";
+            BTContext db = new BTContext();
+            var user = (from p in db.Users where p.Id == id select p).ToArray();
+            userstring += user[0].Name + ' ' + user[0].Surname + ", ID = " + user[0].Id;
+            return userstring;
         }
     }
 }
