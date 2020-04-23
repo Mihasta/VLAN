@@ -32,6 +32,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.выходИзАккаунтаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.выходToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ошибкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.типОшибкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,8 +66,7 @@
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.выходИзАккаунтаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.выходToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.инфОКомпеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.filterBox.SuspendLayout();
@@ -102,7 +103,8 @@
             this.выходToolStripMenuItem,
             this.ошибкиToolStripMenuItem,
             this.оПрограммеToolStripMenuItem,
-            this.отчетToolStripMenuItem});
+            this.отчетToolStripMenuItem,
+            this.инфОКомпеToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(853, 24);
@@ -119,6 +121,20 @@
             this.выходToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.выходToolStripMenuItem.Text = "Меню";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
+            // 
+            // выходИзАккаунтаToolStripMenuItem
+            // 
+            this.выходИзАккаунтаToolStripMenuItem.Name = "выходИзАккаунтаToolStripMenuItem";
+            this.выходИзАккаунтаToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.выходИзАккаунтаToolStripMenuItem.Text = "Выход из аккаунта";
+            this.выходИзАккаунтаToolStripMenuItem.Click += new System.EventHandler(this.выходИзАккаунтаToolStripMenuItem_Click);
+            // 
+            // выходToolStripMenuItem1
+            // 
+            this.выходToolStripMenuItem1.Name = "выходToolStripMenuItem1";
+            this.выходToolStripMenuItem1.Size = new System.Drawing.Size(175, 22);
+            this.выходToolStripMenuItem1.Text = "Выход";
+            this.выходToolStripMenuItem1.Click += new System.EventHandler(this.выходToolStripMenuItem1_Click);
             // 
             // ошибкиToolStripMenuItem
             // 
@@ -442,19 +458,12 @@
             this.radioButton1.Text = "All";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // выходИзАккаунтаToolStripMenuItem
+            // инфОКомпеToolStripMenuItem
             // 
-            this.выходИзАккаунтаToolStripMenuItem.Name = "выходИзАккаунтаToolStripMenuItem";
-            this.выходИзАккаунтаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.выходИзАккаунтаToolStripMenuItem.Text = "Выход из аккаунта";
-            this.выходИзАккаунтаToolStripMenuItem.Click += new System.EventHandler(this.выходИзАккаунтаToolStripMenuItem_Click);
-            // 
-            // выходToolStripMenuItem1
-            // 
-            this.выходToolStripMenuItem1.Name = "выходToolStripMenuItem1";
-            this.выходToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.выходToolStripMenuItem1.Text = "Выход";
-            this.выходToolStripMenuItem1.Click += new System.EventHandler(this.выходToolStripMenuItem1_Click);
+            this.инфОКомпеToolStripMenuItem.Name = "инфОКомпеToolStripMenuItem";
+            this.инфОКомпеToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.инфОКомпеToolStripMenuItem.Text = "инф о компе";
+            this.инфОКомпеToolStripMenuItem.Click += new System.EventHandler(this.инфОКомпеToolStripMenuItem_Click);
             // 
             // MainMenu
             // 
@@ -535,6 +544,7 @@
         private System.Windows.Forms.ToolStripMenuItem создатьОтчетToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem выходИзАккаунтаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem инфОКомпеToolStripMenuItem;
     }
 }
 

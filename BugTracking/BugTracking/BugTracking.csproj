@@ -50,6 +50,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -96,6 +97,12 @@
     </Compile>
     <Compile Include="EditError.Designer.cs">
       <DependentUpon>EditError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="information.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="information.Designer.cs">
+      <DependentUpon>information.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202004160708027_LAN1.cs" />
     <Compile Include="Migrations\202004160708027_LAN1.designer.cs">
@@ -176,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditError.resx">
       <DependentUpon>EditError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="information.resx">
+      <DependentUpon>information.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004160708027_LAN1.resx">
       <DependentUpon>202004160708027_LAN1.cs</DependentUpon>

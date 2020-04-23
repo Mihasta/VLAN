@@ -300,5 +300,11 @@ namespace BugTracking
             sg.Show();
             this.Close();
         }
+
+        private void инфОКомпеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            information inf = new information();
+            inf.Show();
+        }
     }
 }
