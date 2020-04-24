@@ -31,13 +31,16 @@ namespace BugTracking
             {
                 User.Visible = false;
                 ошибкиToolStripMenuItem.Visible = false;
+                отчетToolStripMenuItem.Visible = false;
                 button5.Visible = false;
                 button6.Visible = false;
+                
             }
             else if (Globals.user_status == "Moderator")
             {
                 ошибкиToolStripMenuItem.Visible = false;
                 button6.Visible = false;
+
             }
             BTContext db = new BTContext();
             dataGridView1.DataSource = db.Errors.ToList();
@@ -227,42 +230,53 @@ namespace BugTracking
         }
         private void KeyDown_MainMenu(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.T)
+            if (Globals.user_status == "Moderator") 
             {
-                AddErrorType AET = new AddErrorType();
-                AET.Show();
-            }
-            if(e.KeyCode == Keys.F)
-            {
-                filterBox.Visible = !filterBox.Visible;
-            }
-            if(e.KeyCode == Keys.F5)
-            {
-                string priority = PriorityBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
-                string level = LevelBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
-                string type = TypeComboBox.SelectedItem.ToString();
-                string code = CodeTextBox.Text;
-                dataGridView1.DataSource = GetFilterredErrors(priority, level, type, code);
-            }
 
-            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.U)
-            {
-                Users users = new Users();
-                users.Show();
-            }
-            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.A)
-            {
-                AddError adderror = new AddError();
-                adderror.Show();
-            }
-            if (e.KeyCode == Keys.F1)
-            {
-                About op = new About();
-                op.Show();
-            }
-            if (e.KeyCode == Keys.Delete)
-            {
-                using (BTContext db = new BTContext())
+                if (e.Modifiers == Keys.Control && e.KeyCode == Keys.U)
+                {
+                    Users users = new Users();
+                    users.Show();
+                }
+                if (e.Modifiers == Keys.Control && e.KeyCode == Keys.A)
+                {
+                    AddError adderror = new AddError();
+                    adderror.Show();
+                }
+
+                if (e.Modifiers == Keys.Control && e.KeyCode == Keys.R)
+                {
+
+                    ReportWindow reportwindow = new ReportWindow();
+                    reportwindow.Show();
+
+                }
+
+                if (e.KeyCode == Keys.T)
+                {
+                    AddErrorType AET = new AddErrorType();
+                    AET.Show();
+                }
+                if (e.KeyCode == Keys.F)
+                {
+                    filterBox.Visible = !filterBox.Visible;
+                }
+
+                if (e.KeyCode == Keys.F5)
+                {
+                    string priority = PriorityBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
+                    string level = LevelBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
+                    string type = TypeComboBox.SelectedItem.ToString();
+                    string code = CodeTextBox.Text;
+                    dataGridView1.DataSource = GetFilterredErrors(priority, level, type, code);
+                }
+
+                if (e.KeyCode == Keys.F1)
+                {
+                    About op = new About();
+                    op.Show();
+                }
+                if (e.Modifiers == Keys.Control && e.KeyCode == Keys.E)
                 {
                     if (dataGridView1.SelectedRows.Count > 0)
                     {
@@ -270,34 +284,55 @@ namespace BugTracking
                         bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out int id);
                         if (converted == false)
                             return;
-                        Error error = db.Errors.Find(id);
-                        db.Errors.Remove(error);
-                        db.SaveChanges();
+                        EditError editerror = new EditError(id);
+                        editerror.Show();
+                    }
+
+                }
+
+                if (e.KeyCode == Keys.Delete)
+                {
+                    using (BTContext db = new BTContext())
+                    {
+                        if (dataGridView1.SelectedRows.Count > 0)
+                        {
+                            int index = dataGridView1.SelectedRows[0].Index;
+                            bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out int id);
+                            if (converted == false)
+                                return;
+                            Error error = db.Errors.Find(id);
+                            db.Errors.Remove(error);
+                            db.SaveChanges();
+                        }
                     }
                 }
-            }
-
-            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.R)
-            {
-
-                ReportWindow reportwindow = new ReportWindow();
-                reportwindow.Show();
 
             }
-
-                if (e.Modifiers == Keys.Control && e.KeyCode == Keys.E)
+            if (Globals.user_status == "User")
             {
-                if (dataGridView1.SelectedRows.Count > 0)
+                if (e.Modifiers == Keys.Control && e.KeyCode == Keys.A)
                 {
-                    int index = dataGridView1.SelectedRows[0].Index;
-                    bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out int id);
-                    if (converted == false)
-                        return;
-                    EditError editerror = new EditError(id);
-                    editerror.Show();
+                    AddError adderror = new AddError();
+                    adderror.Show();
                 }
 
+                if (e.KeyCode == Keys.F5)
+                {
+                    string priority = PriorityBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
+                    string level = LevelBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
+                    string type = TypeComboBox.SelectedItem.ToString();
+                    string code = CodeTextBox.Text;
+                    dataGridView1.DataSource = GetFilterredErrors(priority, level, type, code);
+                }
+                if (e.KeyCode == Keys.F1)
+                {
+                    About op = new About();
+                    op.Show();
+                }
+
+
             }
+
 
         }
 
@@ -329,5 +364,7 @@ namespace BugTracking
         {
             label2.Text = DateTime.Now.ToString("dd MMMM yyyy | HH:mm:ss");
         }
+
+      
     }
 }
