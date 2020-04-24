@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.User = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -67,6 +68,8 @@
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.filterBox.SuspendLayout();
@@ -125,14 +128,14 @@
             // выходИзАккаунтаToolStripMenuItem
             // 
             this.выходИзАккаунтаToolStripMenuItem.Name = "выходИзАккаунтаToolStripMenuItem";
-            this.выходИзАккаунтаToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.выходИзАккаунтаToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.выходИзАккаунтаToolStripMenuItem.Text = "Выход из аккаунта";
             this.выходИзАккаунтаToolStripMenuItem.Click += new System.EventHandler(this.выходИзАккаунтаToolStripMenuItem_Click);
             // 
             // выходToolStripMenuItem1
             // 
             this.выходToolStripMenuItem1.Name = "выходToolStripMenuItem1";
-            this.выходToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
+            this.выходToolStripMenuItem1.Size = new System.Drawing.Size(175, 22);
             this.выходToolStripMenuItem1.Text = "Выход";
             this.выходToolStripMenuItem1.Click += new System.EventHandler(this.выходToolStripMenuItem1_Click);
             // 
@@ -147,7 +150,7 @@
             // типОшибкиToolStripMenuItem
             // 
             this.типОшибкиToolStripMenuItem.Name = "типОшибкиToolStripMenuItem";
-            this.типОшибкиToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.типОшибкиToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.типОшибкиToolStripMenuItem.Text = "Типы ошибок";
             this.типОшибкиToolStripMenuItem.Click += new System.EventHandler(this.типОшибкиToolStripMenuItem_Click);
             // 
@@ -169,7 +172,7 @@
             // создатьОтчетToolStripMenuItem
             // 
             this.создатьОтчетToolStripMenuItem.Name = "создатьОтчетToolStripMenuItem";
-            this.создатьОтчетToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.создатьОтчетToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.создатьОтчетToolStripMenuItem.Text = "Создать отчет";
             this.создатьОтчетToolStripMenuItem.Click += new System.EventHandler(this.создатьОтчетToolStripMenuItem_Click);
             // 
@@ -183,7 +186,7 @@
             // button1
             // 
             this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(652, 35);
+            this.button1.Location = new System.Drawing.Point(551, 36);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(58, 35);
             this.button1.TabIndex = 3;
@@ -195,7 +198,7 @@
             // button2
             // 
             this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(716, 35);
+            this.button2.Location = new System.Drawing.Point(411, 35);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(83, 35);
             this.button2.TabIndex = 4;
@@ -216,9 +219,9 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(772, 41);
+            this.button4.Location = new System.Drawing.Point(774, 54);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(66, 23);
+            this.button4.Size = new System.Drawing.Size(64, 22);
             this.button4.TabIndex = 6;
             this.button4.Text = "Обновить";
             this.button4.UseVisualStyleBackColor = true;
@@ -314,7 +317,6 @@
             this.CodeTextBox.Name = "CodeTextBox";
             this.CodeTextBox.Size = new System.Drawing.Size(148, 20);
             this.CodeTextBox.TabIndex = 0;
-            
             // 
             // groupBox1
             // 
@@ -466,11 +468,25 @@
             this.radioButton1.Text = "All";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(662, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.TabIndex = 11;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 10;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(853, 495);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.filterBox);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
@@ -546,6 +562,8 @@
         private System.Windows.Forms.ToolStripMenuItem выходИзАккаунтаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem инфОКомпеToolStripMenuItem;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

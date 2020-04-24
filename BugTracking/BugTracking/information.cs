@@ -32,6 +32,7 @@ namespace BugTracking
                 label4.Text = string.Format("Description: {0}", queryObj["Description"]);
                 label5.Text = string.Format("VideoProcessor: {0}", queryObj["VideoProcessor"]);
             }
+
             ManagementObjectSearcher searcher8 =
             new ManagementObjectSearcher("root\\CIMV2",
             "SELECT * FROM Win32_Processor");
@@ -43,6 +44,7 @@ namespace BugTracking
                 label8.Text = string.Format("NumberOfCores: {0}", queryObj["NumberOfCores"]);
                 label9.Text = string.Format("ProcessorId: {0}", queryObj["ProcessorId"]);
             }
+
             ManagementObjectSearcher searcher12 =
             new ManagementObjectSearcher("root\\CIMV2",
             "SELECT * FROM Win32_PhysicalMemory");
@@ -50,9 +52,9 @@ namespace BugTracking
             label10.Text = ("------------- Win32_PhysicalMemory instance --------");
             foreach (ManagementObject queryObj in searcher12.Get())
             {
-                label11.Text = string.Format("BankLabel: {0} ; Capacity: {1} Gb; Speed: {2} ", queryObj["BankLabel"],
-                                  Math.Round(System.Convert.ToDouble(queryObj["Capacity"]) / 1024 / 1024 / 1024, 2),
-                                   queryObj["Speed"]);
+                listBox1.Items.Add(String.Format("BankLabel: {0} ; Capacity: {1} Gb; Speed: {2} ", queryObj["BankLabel"],
+                                       Math.Round(System.Convert.ToDouble(queryObj["Capacity"]) / 1024 / 1024 / 1024, 2),
+                                        queryObj["Speed"]));
             }
         }
     }

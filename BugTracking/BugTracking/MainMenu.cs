@@ -56,6 +56,9 @@ namespace BugTracking
                     comboBox1.Items.Add(column.Name);
 
             comboBox1.SelectedIndex = 0;
+            timer1.Interval = 1000;
+            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Start();
         }
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
@@ -322,6 +325,9 @@ namespace BugTracking
             inf.Show();
         }
 
-      
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label2.Text = DateTime.Now.ToString("dd MMMM yyyy | HH:mm:ss");
+        }
     }
 }
