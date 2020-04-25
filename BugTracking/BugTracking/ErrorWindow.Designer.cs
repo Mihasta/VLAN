@@ -30,6 +30,8 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.statusButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.UserString = new System.Windows.Forms.Label();
             this.Description = new System.Windows.Forms.Label();
             this.DescriptionTextBox = new System.Windows.Forms.TextBox();
@@ -63,6 +65,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.statusButton);
+            this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.UserString);
             this.tabPage1.Controls.Add(this.Description);
             this.tabPage1.Controls.Add(this.DescriptionTextBox);
@@ -78,6 +82,25 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Сведения";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // statusButton
+            // 
+            this.statusButton.Location = new System.Drawing.Point(778, 6);
+            this.statusButton.Name = "statusButton";
+            this.statusButton.Size = new System.Drawing.Size(75, 23);
+            this.statusButton.TabIndex = 10;
+            this.statusButton.Text = "Open";
+            this.statusButton.UseVisualStyleBackColor = true;
+            this.statusButton.Click += new System.EventHandler(this.statusButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(681, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Текущий статус:";
             // 
             // UserString
             // 
@@ -270,5 +293,7 @@
         private System.Windows.Forms.Label Description;
         private System.Windows.Forms.TextBox DescriptionTextBox;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button statusButton;
+        private System.Windows.Forms.Label label1;
     }
 }

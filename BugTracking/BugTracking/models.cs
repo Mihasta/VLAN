@@ -12,6 +12,7 @@ namespace BugTracking
     public enum UserStatus {User, Moderator, Admin};
     public enum ErrorPriority { High, Medium, Low };
     public enum ErrorLevel { Trivial, Insignificant, Significant, Critical, Blocking };
+    public enum ErrorStatus { Open, Closed };
 
     public class Error
     {
@@ -19,6 +20,7 @@ namespace BugTracking
         [Key]
         public int Id { get; set; }
         public DateTime Date { get; set; }
+        public ErrorStatus ErrorStatus { get; set; }
         public ErrorPriority Priority { get; set; }
         public ErrorLevel Level { get; set; }
         public string Code { get; set; }

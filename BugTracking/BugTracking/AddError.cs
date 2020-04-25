@@ -37,6 +37,7 @@ namespace BugTracking
                 Error error = new Error
                 {
                     Date = DateTime.Now,
+                    ErrorStatus = ErrorStatus.Open,
                     Priority = (ErrorPriority)priority.SelectedItem,
                     Level = (ErrorLevel)level.SelectedItem,
                     Code = code.Text,

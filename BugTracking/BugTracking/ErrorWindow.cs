@@ -31,6 +31,7 @@ namespace BugTracking
             Date.Text += error[0].Date;
             UserString.Text += ' ' + GetUserString(error[0].UserId);
             DescriptionTextBox.Text += error[0].Description.ToString();
+            statusButton.Text = error[0].ErrorStatus.ToString();
         }
 
         public string GetErrorType(int id)
@@ -174,6 +175,26 @@ namespace BugTracking
 
                     }
                 }
+            }
+        }
+
+        private void statusButton_Click(object sender, EventArgs e)
+        {
+            if (statusButton.Text == "Open")
+            {
+                BTContext db = new BTContext();
+                var error = (from p in db.Errors where p.Id == _id select p).FirstOrDefault();
+                error.ErrorStatus = ErrorStatus.Closed;
+                db.SaveChanges();
+                statusButton.Text = "Closed";
+            }
+            else
+            {
+                BTContext db = new BTContext();
+                var error = (from p in db.Errors where p.Id == _id select p).FirstOrDefault();
+                error.ErrorStatus = ErrorStatus.Open;
+                db.SaveChanges();
+                statusButton.Text = "Open";
             }
         }
     }
