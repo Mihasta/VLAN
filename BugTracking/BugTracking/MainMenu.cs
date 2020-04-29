@@ -25,6 +25,35 @@ namespace BugTracking
             users.Show();
         }
 
+        private void RefreshDataGridView()
+        {
+            BTContext db = new BTContext();
+            dataGridView1.DataSource = db.Errors.ToList();
+            try
+            {
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    int index = row.Index;
+                    bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out int id);
+                    if (converted == false)
+                        return;
+                    Error error = db.Errors.Find(id);
+                    if (error.ErrorStatus == ErrorStatus.Open)
+                    {
+                        row.DefaultCellStyle.BackColor = Color.Pink;
+                    }
+                    else if (error.ErrorStatus == ErrorStatus.Closed)
+                    {
+                        row.DefaultCellStyle.BackColor = Color.PaleGreen;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void MainMenu_Load(object sender, EventArgs e)
         {
             if (Globals.user_status == "User")
@@ -43,7 +72,7 @@ namespace BugTracking
 
             }
             BTContext db = new BTContext();
-            dataGridView1.DataSource = db.Errors.ToList();
+            RefreshDataGridView();
             var types = new List<string>();
             types.Add("All");
             types.AddRange(db.ErrorTypes.Select(q => q.Name).ToList());
@@ -116,6 +145,7 @@ namespace BugTracking
             string type = TypeComboBox.SelectedItem.ToString();
             string code = CodeTextBox.Text;
             dataGridView1.DataSource = GetFilterredErrors(priority, level, type, code);
+            RefreshDataGridView();
             //dataGridView1.Sort(dataGridView1.Columns[comboBox1.SelectedItem.ToString()], ListSortDirection.Ascending);
         }
 

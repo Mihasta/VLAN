@@ -32,6 +32,23 @@ namespace BugTracking
             UserString.Text += ' ' + GetUserString(error[0].UserId);
             DescriptionTextBox.Text += error[0].Description.ToString();
             statusButton.Text = error[0].ErrorStatus.ToString();
+
+            if (statusButton.Text == "Closed")
+            {
+                button1.Visible = false;
+                button3.Visible = false;
+                button4.Visible = false;
+                button5.Visible = false;
+                label2.Text = "Статус: Закрыт";
+            }
+            else if (statusButton.Text == "Open")
+            {
+                button1.Visible = true;
+                button3.Visible = true;
+                button4.Visible = true;
+                button5.Visible = true;
+                label2.Text = String.Empty;
+            }
         }
 
         public string GetErrorType(int id)
@@ -187,14 +204,24 @@ namespace BugTracking
                 error.ErrorStatus = ErrorStatus.Closed;
                 db.SaveChanges();
                 statusButton.Text = "Closed";
+                button1.Visible = false;
+                button3.Visible = false;
+                button4.Visible = false;
+                button5.Visible = false;
+                label2.Text = "Статус: Закрыт";
             }
-            else
+            else if (statusButton.Text == "Closed")
             {
                 BTContext db = new BTContext();
                 var error = (from p in db.Errors where p.Id == _id select p).FirstOrDefault();
                 error.ErrorStatus = ErrorStatus.Open;
                 db.SaveChanges();
                 statusButton.Text = "Open";
+                button1.Visible = true;
+                button3.Visible = true;
+                button4.Visible = true;
+                button5.Visible = true;
+                label2.Text = String.Empty;
             }
         }
     }
