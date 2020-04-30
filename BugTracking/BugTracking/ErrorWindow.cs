@@ -132,7 +132,7 @@ namespace BugTracking
                 button3.Visible = false;
                 button4.Visible = false;
             }
-            else if (Globals.user_status == "Moderator") 
+            else if (Globals.user_status == "Moderator")
             {
                 button4.Visible = false;
             }
@@ -148,7 +148,7 @@ namespace BugTracking
                 bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out id);
                 if (converted == false)
                     return;
-                if (Globals.Like != true) 
+                if (Globals.Like != true)
                 {
                     using (BTContext db = new BTContext())
                     {
@@ -170,6 +170,26 @@ namespace BugTracking
 
         private void ErrorWindow_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.A)
+            {
+                AddSolution addsolution = new AddSolution(_id);
+                addsolution.Show();
+            }
+
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.E)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    int index = dataGridView1.SelectedRows[0].Index;
+                    int id = 0;
+                    bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out id);
+                    if (converted == false)
+                        return;
+
+                    EditSolution editsolution = new EditSolution(id);
+                    editsolution.Show();
+                }
+            }
             if (e.KeyCode == Keys.F5)
             {
                 RefreshDataGridView(_id);
@@ -192,8 +212,10 @@ namespace BugTracking
 
                     }
                 }
+
             }
         }
+        
 
         private void statusButton_Click(object sender, EventArgs e)
         {
