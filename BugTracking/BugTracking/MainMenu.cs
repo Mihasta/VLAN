@@ -144,8 +144,8 @@ namespace BugTracking
             string level = LevelBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
             string type = TypeComboBox.SelectedItem.ToString();
             string code = CodeTextBox.Text;
-            dataGridView1.DataSource = GetFilterredErrors(priority, level, type, code);
             RefreshDataGridView();
+            dataGridView1.DataSource = GetFilterredErrors(priority, level, type, code);
             //dataGridView1.Sort(dataGridView1.Columns[comboBox1.SelectedItem.ToString()], ListSortDirection.Ascending);
         }
 
