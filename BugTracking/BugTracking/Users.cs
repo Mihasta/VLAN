@@ -102,7 +102,7 @@ namespace BugTracking
 
             this.dataGridView1.Columns["Errors"].Visible = false;
             this.dataGridView1.Columns["Solutions"].Visible = false;
-           
+            this.dataGridView1.Columns["Like"].Visible = false;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -156,9 +156,7 @@ namespace BugTracking
                     }
                 }
             }
-
         }
     }
-       
 }
 

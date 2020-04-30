@@ -16,7 +16,6 @@ namespace BugTracking
 
     public class Error
     {
-
         [Key]
         public int Id { get; set; }
         public DateTime Date { get; set; }
@@ -56,14 +55,13 @@ namespace BugTracking
         public string Mail { get; set; }
         [StringLength(12)]
         public string PhoneNumber { get; set; }
-
         public ICollection<Error> Errors { get; set; }
         public ICollection<Solution> Solutions { get; set; }
+        public string Like { get; set; }
     }
 
     public class Solution 
     {
-
         [Key]
         public int Id { get; set; }
         public string Description { get; set; }

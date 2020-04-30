@@ -38,7 +38,6 @@ namespace BugTracking
                     {
                         if (textBox2.Text == Pass[0].Password)
                         {
-                            Globals.Like = false;
                             Globals.user_id = Login[0].Id;
                             Globals.user_status = Login[0].Status.ToString();
                             Console.WriteLine(Globals.user_id);
@@ -70,7 +69,6 @@ namespace BugTracking
 
     public static class Globals
     {
-        public static bool Like;
         public static int user_id;
         public static string user_status;
     }
