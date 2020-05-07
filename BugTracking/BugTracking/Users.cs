@@ -86,21 +86,21 @@ namespace BugTracking
         }
         private void Users_Load_1(object sender, EventArgs e)
         {
+            BTContext db = new BTContext();
+            dataGridView1.DataSource = db.Users.ToList();
+
             if (Globals.user_status == "Moderator")
             {
-                button1.Visible = false;
+               
                 button5.Visible = false;
                 button4.Visible = false;
+                this.dataGridView1.Columns["Password"].Visible = false;
             }
-            else if (Globals.user_status == "Admin")
-            {
-                BTContext db = new BTContext();
-                dataGridView1.DataSource = db.Users.ToList();
-            }
-
+   
             this.dataGridView1.Columns["Errors"].Visible = false;
             this.dataGridView1.Columns["Solutions"].Visible = false;
             this.dataGridView1.Columns["Like"].Visible = false;
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -112,6 +112,25 @@ namespace BugTracking
         private void Users_KeyDown(object sender, KeyEventArgs e)
 
         {
+            if (Globals.user_status == "Moderator")
+            {
+                if (e.KeyCode == Keys.F5)
+                {
+                    BTContext db = new BTContext();
+                    dataGridView1.DataSource = db.Users.ToList();
+
+                }
+
+                if (e.Modifiers == Keys.Control && e.KeyCode == Keys.A)
+                {
+                    AddUser adduser = new AddUser();
+                    adduser.Show();
+
+                }
+
+            }
+            if (Globals.user_status == "Admin")
+            {
                 if (e.Modifiers == Keys.Control && e.KeyCode == Keys.A)
                 {
                     AddUser adduser = new AddUser();
@@ -155,6 +174,7 @@ namespace BugTracking
                         }
                     }
                 }
+            }
         }
     }
 }
