@@ -70,6 +70,10 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.ErrorStatusBox = new System.Windows.Forms.GroupBox();
+            this.radioButton11 = new System.Windows.Forms.RadioButton();
+            this.radioButton12 = new System.Windows.Forms.RadioButton();
+            this.radioButton13 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.filterBox.SuspendLayout();
@@ -77,6 +81,7 @@
             this.groupBox1.SuspendLayout();
             this.LevelBox.SuspendLayout();
             this.PriorityBox.SuspendLayout();
+            this.ErrorStatusBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // User
@@ -128,14 +133,14 @@
             // выходИзАккаунтаToolStripMenuItem
             // 
             this.выходИзАккаунтаToolStripMenuItem.Name = "выходИзАккаунтаToolStripMenuItem";
-            this.выходИзАккаунтаToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.выходИзАккаунтаToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.выходИзАккаунтаToolStripMenuItem.Text = "Выход из аккаунта";
             this.выходИзАккаунтаToolStripMenuItem.Click += new System.EventHandler(this.выходИзАккаунтаToolStripMenuItem_Click);
             // 
             // выходToolStripMenuItem1
             // 
             this.выходToolStripMenuItem1.Name = "выходToolStripMenuItem1";
-            this.выходToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
+            this.выходToolStripMenuItem1.Size = new System.Drawing.Size(175, 22);
             this.выходToolStripMenuItem1.Text = "Выход";
             this.выходToolStripMenuItem1.Click += new System.EventHandler(this.выходToolStripMenuItem1_Click);
             // 
@@ -150,7 +155,7 @@
             // типОшибкиToolStripMenuItem
             // 
             this.типОшибкиToolStripMenuItem.Name = "типОшибкиToolStripMenuItem";
-            this.типОшибкиToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.типОшибкиToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.типОшибкиToolStripMenuItem.Text = "Типы ошибок";
             this.типОшибкиToolStripMenuItem.Click += new System.EventHandler(this.типОшибкиToolStripMenuItem_Click);
             // 
@@ -168,12 +173,11 @@
             this.отчетToolStripMenuItem.Name = "отчетToolStripMenuItem";
             this.отчетToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.отчетToolStripMenuItem.Text = "Отчет";
-            
             // 
             // создатьОтчетToolStripMenuItem
             // 
             this.создатьОтчетToolStripMenuItem.Name = "создатьОтчетToolStripMenuItem";
-            this.создатьОтчетToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.создатьОтчетToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.создатьОтчетToolStripMenuItem.Text = "Создать отчет";
             this.создатьОтчетToolStripMenuItem.Click += new System.EventHandler(this.создатьОтчетToolStripMenuItem_Click);
             // 
@@ -260,6 +264,7 @@
             // 
             // filterBox
             // 
+            this.filterBox.Controls.Add(this.ErrorStatusBox);
             this.filterBox.Controls.Add(this.label1);
             this.filterBox.Controls.Add(this.comboBox2);
             this.filterBox.Controls.Add(this.comboBox1);
@@ -277,7 +282,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(280, 99);
+            this.label1.Location = new System.Drawing.Point(285, 106);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 13);
             this.label1.TabIndex = 17;
@@ -289,7 +294,7 @@
             this.comboBox2.Items.AddRange(new object[] {
             "По возрастанию",
             "По убыванию"});
-            this.comboBox2.Location = new System.Drawing.Point(584, 96);
+            this.comboBox2.Location = new System.Drawing.Point(584, 103);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(150, 21);
             this.comboBox2.TabIndex = 16;
@@ -297,7 +302,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(423, 96);
+            this.comboBox1.Location = new System.Drawing.Point(423, 103);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(155, 21);
             this.comboBox1.TabIndex = 15;
@@ -322,7 +327,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.TypeComboBox);
-            this.groupBox1.Location = new System.Drawing.Point(277, 13);
+            this.groupBox1.Location = new System.Drawing.Point(584, 13);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(133, 58);
             this.groupBox1.TabIndex = 13;
@@ -482,6 +487,52 @@
             this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // ErrorStatusBox
+            // 
+            this.ErrorStatusBox.Controls.Add(this.radioButton13);
+            this.ErrorStatusBox.Controls.Add(this.radioButton12);
+            this.ErrorStatusBox.Controls.Add(this.radioButton11);
+            this.ErrorStatusBox.Location = new System.Drawing.Point(283, 13);
+            this.ErrorStatusBox.Name = "ErrorStatusBox";
+            this.ErrorStatusBox.Size = new System.Drawing.Size(127, 90);
+            this.ErrorStatusBox.TabIndex = 18;
+            this.ErrorStatusBox.TabStop = false;
+            this.ErrorStatusBox.Text = "Статус";
+            // 
+            // radioButton11
+            // 
+            this.radioButton11.AutoSize = true;
+            this.radioButton11.Checked = true;
+            this.radioButton11.Location = new System.Drawing.Point(6, 19);
+            this.radioButton11.Name = "radioButton11";
+            this.radioButton11.Size = new System.Drawing.Size(36, 17);
+            this.radioButton11.TabIndex = 0;
+            this.radioButton11.TabStop = true;
+            this.radioButton11.Text = "All";
+            this.radioButton11.UseVisualStyleBackColor = true;
+            // 
+            // radioButton12
+            // 
+            this.radioButton12.AutoSize = true;
+            this.radioButton12.Location = new System.Drawing.Point(6, 41);
+            this.radioButton12.Name = "radioButton12";
+            this.radioButton12.Size = new System.Drawing.Size(51, 17);
+            this.radioButton12.TabIndex = 1;
+            this.radioButton12.TabStop = true;
+            this.radioButton12.Text = "Open";
+            this.radioButton12.UseVisualStyleBackColor = true;
+            // 
+            // radioButton13
+            // 
+            this.radioButton13.AutoSize = true;
+            this.radioButton13.Location = new System.Drawing.Point(6, 65);
+            this.radioButton13.Name = "radioButton13";
+            this.radioButton13.Size = new System.Drawing.Size(57, 17);
+            this.radioButton13.TabIndex = 2;
+            this.radioButton13.TabStop = true;
+            this.radioButton13.Text = "Closed";
+            this.radioButton13.UseVisualStyleBackColor = true;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -517,6 +568,8 @@
             this.LevelBox.PerformLayout();
             this.PriorityBox.ResumeLayout(false);
             this.PriorityBox.PerformLayout();
+            this.ErrorStatusBox.ResumeLayout(false);
+            this.ErrorStatusBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -565,6 +618,10 @@
         private System.Windows.Forms.ToolStripMenuItem инфОКомпеToolStripMenuItem;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.GroupBox ErrorStatusBox;
+        private System.Windows.Forms.RadioButton radioButton13;
+        private System.Windows.Forms.RadioButton radioButton12;
+        private System.Windows.Forms.RadioButton radioButton11;
     }
 }
 

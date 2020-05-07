@@ -140,13 +140,30 @@ namespace BugTracking
 
         private void button4_Click(object sender, EventArgs e)
         {
+            BTContext db = new BTContext();
             string priority = PriorityBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
             string level = LevelBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
             string type = TypeComboBox.SelectedItem.ToString();
             string code = CodeTextBox.Text;
-            dataGridView1.DataSource = GetFilterredErrors(priority, level, type, code);
-            RefreshDataGridView();
-            //dataGridView1.Sort(dataGridView1.Columns[comboBox1.SelectedItem.ToString()], ListSortDirection.Ascending);
+            string status = ErrorStatusBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
+            dataGridView1.DataSource = GetFilterredErrors(priority, level, type, code, status);
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                int index = row.Index;
+                bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out int id);
+                if (converted == false)
+                    return;
+                Error error = db.Errors.Find(id);
+                if (error.ErrorStatus == ErrorStatus.Open)
+                {
+                    row.DefaultCellStyle.BackColor = Color.Pink;
+                }
+                else if (error.ErrorStatus == ErrorStatus.Closed)
+                {
+                    row.DefaultCellStyle.BackColor = Color.PaleGreen;
+                }
+            }
         }
 
         public int GetErrorTypeId(string name)
@@ -155,7 +172,7 @@ namespace BugTracking
             var type = (from p in db.ErrorTypes where p.Name == name select p).ToArray();
             return type[0].Id;
         }
-        public List<Error> GetFilterredErrors(string priority, string level, string type, string code)
+        public List<Error> GetFilterredErrors(string priority, string level, string type, string code, string status)
         {
             BTContext db = new BTContext();
             IQueryable<Error> filteredErrors = db.Errors;
@@ -176,7 +193,10 @@ namespace BugTracking
             {
                 filteredErrors = filteredErrors.Where(error => error.Code.Contains(code));
             }
-
+            if (status != "All") 
+            {
+                filteredErrors = filteredErrors.Where(error => error.ErrorStatus.ToString() == status);
+            }
             if (comboBox1.SelectedIndex != 0)
             {
                 if (comboBox1.SelectedItem.ToString() == "Id")
@@ -298,7 +318,8 @@ namespace BugTracking
                     string level = LevelBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
                     string type = TypeComboBox.SelectedItem.ToString();
                     string code = CodeTextBox.Text;
-                    dataGridView1.DataSource = GetFilterredErrors(priority, level, type, code);
+                    string status = ErrorStatusBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
+                    dataGridView1.DataSource = GetFilterredErrors(priority, level, type, code, status);
                 }
 
                 if (e.KeyCode == Keys.F1)
@@ -352,18 +373,15 @@ namespace BugTracking
                     string level = LevelBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
                     string type = TypeComboBox.SelectedItem.ToString();
                     string code = CodeTextBox.Text;
-                    dataGridView1.DataSource = GetFilterredErrors(priority, level, type, code);
+                    string status = ErrorStatusBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
+                    dataGridView1.DataSource = GetFilterredErrors(priority, level, type, code, status);
                 }
                 if (e.KeyCode == Keys.F1)
                 {
                     About op = new About();
                     op.Show();
                 }
-
-
             }
-
-
         }
 
         private void создатьОтчетToolStripMenuItem_Click(object sender, EventArgs e)
@@ -394,7 +412,5 @@ namespace BugTracking
         {
             label2.Text = DateTime.Now.ToString("dd MMMM yyyy | HH:mm:ss");
         }
-
-      
     }
 }
