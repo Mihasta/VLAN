@@ -33,21 +33,24 @@ namespace BugTracking
             DescriptionTextBox.Text += error[0].Description.ToString();
             statusButton.Text = error[0].ErrorStatus.ToString();
 
-            if (statusButton.Text == "Closed")
+            switch (statusButton.Text)
             {
-                button1.Visible = false;
-                button3.Visible = false;
-                button4.Visible = false;
-                button5.Visible = false;
-                label2.Text = "Статус: Закрыт";
-            }
-            else if (statusButton.Text == "Open")
-            {
-                button1.Visible = true;
-                button3.Visible = true;
-                button4.Visible = true;
-                button5.Visible = true;
-                label2.Text = String.Empty;
+                case "Open":
+                    button1.Visible = true;
+                    button3.Visible = true;
+                    button4.Visible = true;
+                    button5.Visible = true;
+                    label2.Text = String.Empty;
+                    break;
+                case "Closed":
+                    button1.Visible = false;
+                    button3.Visible = false;
+                    button4.Visible = false;
+                    button5.Visible = false;
+                    label2.Text = "Статус: Закрыт";
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -177,81 +180,88 @@ namespace BugTracking
 
         private void ErrorWindow_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.A)
+            switch (e.KeyCode)
             {
-                AddSolution addsolution = new AddSolution(_id);
-                addsolution.Show();
-            }
-
-            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.E)
-            {
-                if (dataGridView1.SelectedRows.Count > 0)
-                {
-                    int index = dataGridView1.SelectedRows[0].Index;
-                    int id = 0;
-                    bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out id);
-                    if (converted == false)
-                        return;
-
-                    EditSolution editsolution = new EditSolution(id);
-                    editsolution.Show();
-                }
-            }
-            if (e.KeyCode == Keys.F5)
-            {
-                RefreshDataGridView(_id);
-            }
-
-            if (e.KeyCode == Keys.Delete)
-            {
-                using (BTContext db = new BTContext())
-                {
-                    if (dataGridView1.SelectedRows.Count > 0)
+                case Keys.A:
+                    if (e.Modifiers == Keys.Control)
                     {
-                        int index = dataGridView1.SelectedRows[0].Index;
-                        int id = 0;
-                        bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out id);
-                        if (converted == false)
-                            return;
-                        Solution solution = db.Solutions.Find(id);
-                        db.Solutions.Remove(solution);
-                        db.SaveChanges();
-
+                        if (tabControl1.SelectedTab.Name == "tabPage2" && statusButton.Text == "Open")
+                        {
+                            AddSolution addsolution = new AddSolution(_id);
+                            addsolution.Show();
+                        }
                     }
-                }
-
+                    break;
+                case Keys.E:
+                    if (e.Modifiers == Keys.Control)
+                    {
+                        if (tabControl1.SelectedTab.Name == "tabPage2" && statusButton.Text == "Open")
+                        {
+                            if (dataGridView1.SelectedRows.Count > 0)
+                            {
+                                int index = dataGridView1.SelectedRows[0].Index;
+                                int id = 0;
+                                bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out id);
+                                if (converted == false)
+                                    return;
+                                EditSolution editsolution = new EditSolution(id);
+                                editsolution.Show();
+                            }
+                        }
+                    }
+                    break;
+                case Keys.Delete:
+                    if (tabControl1.SelectedTab.Name == "tabPage2" && statusButton.Text == "Open")
+                    {
+                        if (dataGridView1.SelectedRows.Count > 0)
+                        {
+                            BTContext db = new BTContext();
+                            int index = dataGridView1.SelectedRows[0].Index;
+                            int id = 0;
+                            bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out id);
+                            if (converted == false)
+                                return;
+                            Solution solution = db.Solutions.Find(id);
+                            db.Solutions.Remove(solution);
+                            db.SaveChanges();
+                        }
+                    }        
+                    break;
+                case Keys.F5:
+                    if (tabControl1.SelectedTab.Name == "tabPage2" && statusButton.Text == "Open")
+                    {
+                        RefreshDataGridView(_id);
+                    }
+                    break;
+                default:
+                    break;
             }
         }
-        
-
         private void statusButton_Click(object sender, EventArgs e)
         {
-            if (statusButton.Text == "Open")
+            BTContext db = new BTContext();
+            var error = (from p in db.Errors where p.Id == _id select p).FirstOrDefault();
+            db.SaveChanges();
+            switch (statusButton.Text)
             {
-                BTContext db = new BTContext();
-                var error = (from p in db.Errors where p.Id == _id select p).FirstOrDefault();
-                error.ErrorStatus = ErrorStatus.Closed;
-                db.SaveChanges();
-                statusButton.Text = "Closed";
-                button1.Visible = false;
-                button3.Visible = false;
-                button4.Visible = false;
-                button5.Visible = false;
-                label2.Text = "Статус: Закрыт";
+                case "Open":
+                    error.ErrorStatus = ErrorStatus.Closed;
+                    label2.Text = "Статус: Закрыт";
+                    statusButton.Text = "Closed";
+                    break;
+                case "Closed":
+                    error.ErrorStatus = ErrorStatus.Open;
+                    label2.Text = String.Empty;
+                    statusButton.Text = "Open";
+                    break;
+                default:
+                    break;
             }
-            else if (statusButton.Text == "Closed")
-            {
-                BTContext db = new BTContext();
-                var error = (from p in db.Errors where p.Id == _id select p).FirstOrDefault();
-                error.ErrorStatus = ErrorStatus.Open;
-                db.SaveChanges();
-                statusButton.Text = "Open";
-                button1.Visible = true;
-                button3.Visible = true;
-                button4.Visible = true;
-                button5.Visible = true;
-                label2.Text = String.Empty;
-            }
+            db.SaveChanges();
+            button1.Visible = !button1.Visible;
+            button3.Visible = !button1.Visible;
+            button4.Visible = !button1.Visible;
+            button5.Visible = !button1.Visible;
         }
     }
 }

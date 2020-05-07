@@ -104,9 +104,9 @@
     <Compile Include="information.Designer.cs">
       <DependentUpon>information.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004300834039_LAN.cs" />
-    <Compile Include="Migrations\202004300834039_LAN.designer.cs">
-      <DependentUpon>202004300834039_LAN.cs</DependentUpon>
+    <Compile Include="Migrations\202005070304007_LAN.cs" />
+    <Compile Include="Migrations\202005070304007_LAN.designer.cs">
+      <DependentUpon>202005070304007_LAN.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ReportWindow.cs">
@@ -187,8 +187,8 @@
     <EmbeddedResource Include="information.resx">
       <DependentUpon>information.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004300834039_LAN.resx">
-      <DependentUpon>202004300834039_LAN.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005070304007_LAN.resx">
+      <DependentUpon>202005070304007_LAN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportWindow.resx">
       <DependentUpon>ReportWindow.cs</DependentUpon>
