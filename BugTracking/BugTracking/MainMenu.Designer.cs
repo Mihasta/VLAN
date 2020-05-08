@@ -49,6 +49,10 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.filterBox = new System.Windows.Forms.GroupBox();
+            this.ErrorStatusBox = new System.Windows.Forms.GroupBox();
+            this.radioButton13 = new System.Windows.Forms.RadioButton();
+            this.radioButton12 = new System.Windows.Forms.RadioButton();
+            this.radioButton11 = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -70,25 +74,23 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.ErrorStatusBox = new System.Windows.Forms.GroupBox();
-            this.radioButton11 = new System.Windows.Forms.RadioButton();
-            this.radioButton12 = new System.Windows.Forms.RadioButton();
-            this.radioButton13 = new System.Windows.Forms.RadioButton();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.filterBox.SuspendLayout();
+            this.ErrorStatusBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.LevelBox.SuspendLayout();
             this.PriorityBox.SuspendLayout();
-            this.ErrorStatusBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // User
             // 
-            this.User.Location = new System.Drawing.Point(196, 28);
+            this.User.Location = new System.Drawing.Point(12, 59);
             this.User.Name = "User";
-            this.User.Size = new System.Drawing.Size(162, 49);
+            this.User.Size = new System.Drawing.Size(111, 26);
             this.User.TabIndex = 0;
             this.User.Text = "Пользователи";
             this.User.UseVisualStyleBackColor = true;
@@ -98,10 +100,10 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 82);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 91);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(826, 377);
+            this.dataGridView1.Size = new System.Drawing.Size(826, 368);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
             // 
@@ -191,7 +193,7 @@
             // button1
             // 
             this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(551, 36);
+            this.button1.Location = new System.Drawing.Point(710, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(58, 35);
             this.button1.TabIndex = 3;
@@ -203,7 +205,7 @@
             // button2
             // 
             this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(411, 35);
+            this.button2.Location = new System.Drawing.Point(621, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(83, 35);
             this.button2.TabIndex = 4;
@@ -214,9 +216,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(13, 29);
+            this.button3.Location = new System.Drawing.Point(12, 27);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(177, 48);
+            this.button3.Size = new System.Drawing.Size(111, 26);
             this.button3.TabIndex = 5;
             this.button3.Text = "Добавить ошибку";
             this.button3.UseVisualStyleBackColor = true;
@@ -234,9 +236,9 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(364, 28);
+            this.button5.Location = new System.Drawing.Point(129, 27);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(149, 48);
+            this.button5.Size = new System.Drawing.Size(137, 26);
             this.button5.TabIndex = 7;
             this.button5.Text = "Редактировать ошибку";
             this.button5.UseVisualStyleBackColor = true;
@@ -244,9 +246,9 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(519, 28);
+            this.button6.Location = new System.Drawing.Point(272, 27);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(127, 48);
+            this.button6.Size = new System.Drawing.Size(127, 26);
             this.button6.TabIndex = 8;
             this.button6.Text = "Удалить ошибку";
             this.button6.UseVisualStyleBackColor = true;
@@ -278,6 +280,52 @@
             this.filterBox.TabIndex = 10;
             this.filterBox.TabStop = false;
             this.filterBox.Visible = false;
+            // 
+            // ErrorStatusBox
+            // 
+            this.ErrorStatusBox.Controls.Add(this.radioButton13);
+            this.ErrorStatusBox.Controls.Add(this.radioButton12);
+            this.ErrorStatusBox.Controls.Add(this.radioButton11);
+            this.ErrorStatusBox.Location = new System.Drawing.Point(283, 13);
+            this.ErrorStatusBox.Name = "ErrorStatusBox";
+            this.ErrorStatusBox.Size = new System.Drawing.Size(127, 90);
+            this.ErrorStatusBox.TabIndex = 18;
+            this.ErrorStatusBox.TabStop = false;
+            this.ErrorStatusBox.Text = "Статус";
+            // 
+            // radioButton13
+            // 
+            this.radioButton13.AutoSize = true;
+            this.radioButton13.Location = new System.Drawing.Point(6, 65);
+            this.radioButton13.Name = "radioButton13";
+            this.radioButton13.Size = new System.Drawing.Size(57, 17);
+            this.radioButton13.TabIndex = 2;
+            this.radioButton13.TabStop = true;
+            this.radioButton13.Text = "Closed";
+            this.radioButton13.UseVisualStyleBackColor = true;
+            // 
+            // radioButton12
+            // 
+            this.radioButton12.AutoSize = true;
+            this.radioButton12.Location = new System.Drawing.Point(6, 41);
+            this.radioButton12.Name = "radioButton12";
+            this.radioButton12.Size = new System.Drawing.Size(51, 17);
+            this.radioButton12.TabIndex = 1;
+            this.radioButton12.TabStop = true;
+            this.radioButton12.Text = "Open";
+            this.radioButton12.UseVisualStyleBackColor = true;
+            // 
+            // radioButton11
+            // 
+            this.radioButton11.AutoSize = true;
+            this.radioButton11.Checked = true;
+            this.radioButton11.Location = new System.Drawing.Point(6, 19);
+            this.radioButton11.Name = "radioButton11";
+            this.radioButton11.Size = new System.Drawing.Size(36, 17);
+            this.radioButton11.TabIndex = 0;
+            this.radioButton11.TabStop = true;
+            this.radioButton11.Text = "All";
+            this.radioButton11.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -487,57 +535,33 @@
             this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // ErrorStatusBox
+            // button8
             // 
-            this.ErrorStatusBox.Controls.Add(this.radioButton13);
-            this.ErrorStatusBox.Controls.Add(this.radioButton12);
-            this.ErrorStatusBox.Controls.Add(this.radioButton11);
-            this.ErrorStatusBox.Location = new System.Drawing.Point(283, 13);
-            this.ErrorStatusBox.Name = "ErrorStatusBox";
-            this.ErrorStatusBox.Size = new System.Drawing.Size(127, 90);
-            this.ErrorStatusBox.TabIndex = 18;
-            this.ErrorStatusBox.TabStop = false;
-            this.ErrorStatusBox.Text = "Статус";
+            this.button8.Location = new System.Drawing.Point(129, 59);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(219, 26);
+            this.button8.TabIndex = 12;
+            this.button8.Text = "Отобразить добавленные вами ошибки";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // radioButton11
+            // button9
             // 
-            this.radioButton11.AutoSize = true;
-            this.radioButton11.Checked = true;
-            this.radioButton11.Location = new System.Drawing.Point(6, 19);
-            this.radioButton11.Name = "radioButton11";
-            this.radioButton11.Size = new System.Drawing.Size(36, 17);
-            this.radioButton11.TabIndex = 0;
-            this.radioButton11.TabStop = true;
-            this.radioButton11.Text = "All";
-            this.radioButton11.UseVisualStyleBackColor = true;
-            // 
-            // radioButton12
-            // 
-            this.radioButton12.AutoSize = true;
-            this.radioButton12.Location = new System.Drawing.Point(6, 41);
-            this.radioButton12.Name = "radioButton12";
-            this.radioButton12.Size = new System.Drawing.Size(51, 17);
-            this.radioButton12.TabIndex = 1;
-            this.radioButton12.TabStop = true;
-            this.radioButton12.Text = "Open";
-            this.radioButton12.UseVisualStyleBackColor = true;
-            // 
-            // radioButton13
-            // 
-            this.radioButton13.AutoSize = true;
-            this.radioButton13.Location = new System.Drawing.Point(6, 65);
-            this.radioButton13.Name = "radioButton13";
-            this.radioButton13.Size = new System.Drawing.Size(57, 17);
-            this.radioButton13.TabIndex = 2;
-            this.radioButton13.TabStop = true;
-            this.radioButton13.Text = "Closed";
-            this.radioButton13.UseVisualStyleBackColor = true;
+            this.button9.Location = new System.Drawing.Point(354, 59);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(229, 26);
+            this.button9.TabIndex = 13;
+            this.button9.Text = "Отобразить добавленные вами решения";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(853, 495);
+            this.ClientSize = new System.Drawing.Size(853, 496);
+            this.Controls.Add(this.button9);
+            this.Controls.Add(this.button8);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.filterBox);
             this.Controls.Add(this.button7);
@@ -561,6 +585,8 @@
             this.menuStrip1.PerformLayout();
             this.filterBox.ResumeLayout(false);
             this.filterBox.PerformLayout();
+            this.ErrorStatusBox.ResumeLayout(false);
+            this.ErrorStatusBox.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -568,8 +594,6 @@
             this.LevelBox.PerformLayout();
             this.PriorityBox.ResumeLayout(false);
             this.PriorityBox.PerformLayout();
-            this.ErrorStatusBox.ResumeLayout(false);
-            this.ErrorStatusBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -622,6 +646,8 @@
         private System.Windows.Forms.RadioButton radioButton13;
         private System.Windows.Forms.RadioButton radioButton12;
         private System.Windows.Forms.RadioButton radioButton11;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
     }
 }
 
