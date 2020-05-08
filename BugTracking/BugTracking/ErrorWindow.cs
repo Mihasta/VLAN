@@ -157,61 +157,90 @@ namespace BugTracking
 
         private void ErrorWindow_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode)
+            if (Globals.user_status == "Moderator")
             {
-                case Keys.A:
-                    if (e.Modifiers == Keys.Control)
-                    {
-                        if (tabControl1.SelectedTab.Name == "tabPage2" && statusButton.Text == "Open")
+                switch (e.KeyCode)
+                {
+                    case Keys.A:
+                        if (e.Modifiers == Keys.Control)
                         {
-                            AddSolution addsolution = new AddSolution(_id);
-                            addsolution.Show();
+                            if (tabControl1.SelectedTab.Name == "tabPage2" && statusButton.Text == "Open")
+                            {
+                                AddSolution addsolution = new AddSolution(_id);
+                                addsolution.Show();
+                            }
                         }
-                    }
-                    break;
-                case Keys.E:
-                    if (e.Modifiers == Keys.Control)
-                    {
+                        break;
+                    case Keys.E:
+                        if (e.Modifiers == Keys.Control)
+                        {
+                            if (tabControl1.SelectedTab.Name == "tabPage2" && statusButton.Text == "Open")
+                            {
+                                if (dataGridView1.SelectedRows.Count > 0)
+                                {
+                                    int index = dataGridView1.SelectedRows[0].Index;
+                                    int id = 0;
+                                    bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out id);
+                                    if (converted == false)
+                                        return;
+                                    EditSolution editsolution = new EditSolution(id);
+                                    editsolution.Show();
+                                }
+                            }
+                        }
+                        break;
+                    case Keys.Delete:
                         if (tabControl1.SelectedTab.Name == "tabPage2" && statusButton.Text == "Open")
                         {
                             if (dataGridView1.SelectedRows.Count > 0)
                             {
+                                BTContext db = new BTContext();
                                 int index = dataGridView1.SelectedRows[0].Index;
                                 int id = 0;
                                 bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out id);
                                 if (converted == false)
                                     return;
-                                EditSolution editsolution = new EditSolution(id);
-                                editsolution.Show();
+                                Solution solution = db.Solutions.Find(id);
+                                db.Solutions.Remove(solution);
+                                db.SaveChanges();
                             }
                         }
-                    }
-                    break;
-                case Keys.Delete:
-                    if (tabControl1.SelectedTab.Name == "tabPage2" && statusButton.Text == "Open")
-                    {
-                        if (dataGridView1.SelectedRows.Count > 0)
+                        break;
+                    case Keys.F5:
+                        if (tabControl1.SelectedTab.Name == "tabPage2" && statusButton.Text == "Open")
                         {
-                            BTContext db = new BTContext();
-                            int index = dataGridView1.SelectedRows[0].Index;
-                            int id = 0;
-                            bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out id);
-                            if (converted == false)
-                                return;
-                            Solution solution = db.Solutions.Find(id);
-                            db.Solutions.Remove(solution);
-                            db.SaveChanges();
+                            RefreshDataGridView(_id);
                         }
-                    }        
-                    break;
-                case Keys.F5:
-                    if (tabControl1.SelectedTab.Name == "tabPage2" && statusButton.Text == "Open")
-                    {
-                        RefreshDataGridView(_id);
-                    }
-                    break;
-                default:
-                    break;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            if (Globals.user_status == "User")
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.A:
+                        if (e.Modifiers == Keys.Control)
+                        {
+                            if (tabControl1.SelectedTab.Name == "tabPage2" && statusButton.Text == "Open")
+                            {
+                                AddSolution addsolution = new AddSolution(_id);
+                                addsolution.Show();
+                            }
+                        }
+                        break;
+                    case Keys.F5:
+                        if (tabControl1.SelectedTab.Name == "tabPage2" && statusButton.Text == "Open")
+                        {
+                            RefreshDataGridView(_id);
+                        }
+                        break;
+                    default:
+                        break;
+
+                }
+
             }
         }
         private void statusButton_Click(object sender, EventArgs e)
