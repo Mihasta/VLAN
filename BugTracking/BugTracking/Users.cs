@@ -13,17 +13,104 @@ namespace BugTracking
 {
     public partial class Users : Form
     {
+        public DataGridView dgv { get { return dataGridView1; } }
         public Users()
         {
             InitializeComponent();
-            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             BTContext db = new BTContext();
             dataGridView1.DataSource = db.Users.ToList();
-          
+            if (checkBox1.Checked == true)
+            {
+                this.dataGridView1.Columns["Id"].Visible = true;
+            }
+            else
+            {
+                this.dataGridView1.Columns["Id"].Visible = false;
+            }
+            if (checkBox2.Checked == true)
+            {
+                this.dataGridView1.Columns["Name"].Visible = true;
+            }
+            else
+            {
+                this.dataGridView1.Columns["Name"].Visible = false;
+            }
+            if (checkBox3.Checked == true)
+            {
+                this.dataGridView1.Columns["Surname"].Visible = true;
+            }
+            else
+            {
+                this.dataGridView1.Columns["Surname"].Visible = false;
+            }
+            if (checkBox4.Checked == true)
+            {
+                this.dataGridView1.Columns["Login"].Visible = true;
+            }
+            else
+            {
+                this.dataGridView1.Columns["Login"].Visible = false;
+            }
+            if (checkBox5.Checked == true)
+            {
+                this.dataGridView1.Columns["Password"].Visible = true;
+            }
+            else
+            {
+                this.dataGridView1.Columns["Password"].Visible = false;
+            }
+            if (checkBox6.Checked == true)
+            {
+                this.dataGridView1.Columns["Status"].Visible = true;
+            }
+            else
+            {
+                this.dataGridView1.Columns["Status"].Visible = false;
+            }
+            if (checkBox7.Checked == true)
+            {
+                this.dataGridView1.Columns["Mail"].Visible = true;
+            }
+            else
+            {
+                this.dataGridView1.Columns["Mail"].Visible = false;
+            }
+            if (checkBox8.Checked == true)
+            {
+                this.dataGridView1.Columns["PhoneNumber"].Visible = true;
+            }
+            else
+            {
+                this.dataGridView1.Columns["PhoneNumber"].Visible = false;
+            }
+            if (checkBox11.Checked == true)
+            {
+                this.dataGridView1.Columns["Errors"].Visible = true;
+            }
+            else
+            {
+                this.dataGridView1.Columns["Errors"].Visible = false;
+            }
+            if (checkBox9.Checked == true)
+            {
+                this.dataGridView1.Columns["Solutions"].Visible = true;
+            }
+            else
+            {
+                this.dataGridView1.Columns["Solutions"].Visible = false;
+            }
+            if (checkBox10.Checked == true)
+            {
+                this.dataGridView1.Columns["Like"].Visible = true;
+            }
+            else
+            {
+                this.dataGridView1.Columns["Like"].Visible = false;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -96,11 +183,99 @@ namespace BugTracking
             {
                 BTContext db = new BTContext();
                 dataGridView1.DataSource = db.Users.ToList();
-            }
 
+            }
             this.dataGridView1.Columns["Errors"].Visible = false;
             this.dataGridView1.Columns["Solutions"].Visible = false;
             this.dataGridView1.Columns["Like"].Visible = false;
+            if (this.dataGridView1.Columns["Id"].Visible == true)
+            {
+                checkBox1.Checked = true;
+            }
+            else
+            {
+                checkBox1.Checked = false;
+            }
+            if (this.dataGridView1.Columns["Name"].Visible == true)
+            {
+                checkBox2.Checked = true;
+            }
+            else
+            {
+                checkBox2.Checked = false;
+            }
+            if (this.dataGridView1.Columns["Surname"].Visible == true)
+            {
+                checkBox3.Checked = true;
+            }
+            else
+            {
+                checkBox3.Checked = false;
+            }
+            if (this.dataGridView1.Columns["Login"].Visible == true)
+            {
+                checkBox4.Checked = true;
+            }
+            else
+            {
+                checkBox4.Checked = false;
+            }
+            if (this.dataGridView1.Columns["Password"].Visible == true)
+            {
+                checkBox5.Checked = true;
+            }
+            else
+            {
+                checkBox5.Checked = false;
+            }
+            if (this.dataGridView1.Columns["Status"].Visible == true)
+            {
+                checkBox6.Checked = true;
+            }
+            else
+            {
+                checkBox6.Checked = false;
+            }
+            if (this.dataGridView1.Columns["Mail"].Visible == true)
+            {
+                checkBox7.Checked = true;
+            }
+            else
+            {
+                checkBox7.Checked = false;
+            }
+            if (this.dataGridView1.Columns["Phonenumber"].Visible == true)
+            {
+                checkBox8.Checked = true;
+            }
+            else
+            {
+                checkBox8.Checked = false;
+            }
+            if (this.dataGridView1.Columns["Errors"].Visible == true)
+            {
+                checkBox9.Checked = true;
+            }
+            else
+            {
+                checkBox9.Checked = false;
+            }
+            if (this.dataGridView1.Columns["Solutions"].Visible == true)
+            {
+                checkBox10.Checked = true;
+            }
+            else
+            {
+                checkBox10.Checked = false;
+            }
+            if (this.dataGridView1.Columns["Like"].Visible == true)
+            {
+                checkBox11.Checked = true;
+            }
+            else
+            {
+                checkBox11.Checked = false;
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -155,6 +330,11 @@ namespace BugTracking
                         }
                     }
                 }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Editbd.Visible = !Editbd.Visible;
         }
     }
 }
