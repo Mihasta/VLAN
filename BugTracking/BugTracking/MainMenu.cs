@@ -13,6 +13,8 @@ namespace BugTracking
 {
     public partial class MainMenu : Form
     {
+        private bool personal_errors = false;
+        private bool personal_solutions = false;
 
         public MainMenu()
         {
@@ -176,6 +178,10 @@ namespace BugTracking
         {
             BTContext db = new BTContext();
             IQueryable<Error> filteredErrors = db.Errors;
+            if (personal_errors == true)
+            {
+                filteredErrors = filteredErrors.Where(error => error.UserId == Globals.user_id);
+            }
             if (priority != "All")
             {
                 filteredErrors = filteredErrors.Where(error => error.Priority.ToString() == priority);
@@ -411,6 +417,41 @@ namespace BugTracking
         private void timer1_Tick(object sender, EventArgs e)
         {
             label2.Text = DateTime.Now.ToString("dd MMMM yyyy | HH:mm:ss");
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            switch(personal_errors)
+            {
+                case true:
+                    button8.BackColor = SystemColors.Control;
+                    break;
+                case false:
+                    button8.BackColor = Color.Gray;
+                    break;
+                default:
+                    break;
+            }
+            personal_errors = !personal_errors;
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            BTContext db = new BTContext();
+            switch (personal_solutions)
+            {
+                case true:
+                    button9.BackColor = SystemColors.Control;
+                    dataGridView1.DataSource = db.Errors.ToList();
+                    break;
+                case false:
+                    button9.BackColor = Color.Gray;
+                    dataGridView1.DataSource = db.Solutions.Where(s => s.UserId == Globals.user_id).ToList();
+                    break;
+                default:
+                    break;
+            }
+            personal_solutions = !personal_solutions;
         }
     }
 }
