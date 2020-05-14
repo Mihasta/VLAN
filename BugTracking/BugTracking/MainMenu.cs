@@ -13,7 +13,6 @@ namespace BugTracking
 {
     public partial class MainMenu : Form
     {
-        private bool personal_errors = false;
         private bool personal_solutions = false;
 
         public MainMenu()
@@ -30,32 +29,47 @@ namespace BugTracking
         private void RefreshDataGridView()
         {
             BTContext db = new BTContext();
-            dataGridView1.DataSource = db.Errors.ToList();
-            try
+
+            string priority = PriorityBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
+            string level = LevelBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
+            string type = TypeComboBox.SelectedItem.ToString();
+            string code = CodeTextBox.Text;
+            string status = ErrorStatusBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
+            dataGridView1.DataSource = GetFilterredErrors(priority, level, type, code, status);
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                foreach (DataGridViewRow row in dataGridView1.Rows)
+                int index = row.Index;
+                bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out int id);
+                if (converted == false)
+                    return;
+                Error error = db.Errors.Find(id);
+                if (error.ErrorStatus == ErrorStatus.Open)
                 {
-                    int index = row.Index;
-                    bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out int id);
-                    if (converted == false)
-                        return;
-                    Error error = db.Errors.Find(id);
-                    if (error.ErrorStatus == ErrorStatus.Open)
-                    {
-                        row.DefaultCellStyle.BackColor = Color.Pink;
-                    }
-                    else if (error.ErrorStatus == ErrorStatus.Closed)
-                    {
-                        row.DefaultCellStyle.BackColor = Color.PaleGreen;
-                    }
+                    row.DefaultCellStyle.BackColor = Color.Pink;
+                }
+                else if (error.ErrorStatus == ErrorStatus.Closed)
+                {
+                    row.DefaultCellStyle.BackColor = Color.PaleGreen;
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
+            this.dataGridView1.Columns["User"].Visible = false;
+            this.dataGridView1.Columns["Type"].Visible = false;
         }
 
+        private void FixFilter()
+        {
+            BTContext db = new BTContext();
+
+            var types = new List<string>();
+            types.Add("All");
+            types.AddRange(db.ErrorTypes.Select(q => q.Name).ToList());
+            TypeComboBox.DataSource = types;
+
+            SortBox1.SelectedIndex = 0;
+            SortBox2.SelectedIndex = 0;
+        }
         private void MainMenu_Load(object sender, EventArgs e)
         {
             if (Globals.user_status == "User")
@@ -73,28 +87,20 @@ namespace BugTracking
                 button6.Visible = false;
 
             }
-            BTContext db = new BTContext();
+
+            FixFilter();
+
             RefreshDataGridView();
-            var types = new List<string>();
-            types.Add("All");
-            types.AddRange(db.ErrorTypes.Select(q => q.Name).ToList());
-            TypeComboBox.DataSource = types;
-            this.dataGridView1.Columns["User"].Visible = false;
-            this.dataGridView1.Columns["Type"].Visible = false;
 
-            comboBox2.SelectedIndex = 0;
-
-            comboBox1.Items.Add("Нет");
-            foreach (DataGridViewColumn column in dataGridView1.Columns)
-                if (column.Visible)
-                    comboBox1.Items.Add(column.Name);
-
-            comboBox1.SelectedIndex = 0;
             timer1.Interval = 1000;
             timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Start();
         }
 
+        void errorcontrol_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            RefreshDataGridView();
+        }
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -134,38 +140,16 @@ namespace BugTracking
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void AddError(object sender, EventArgs e)
         {
             AddError adderror = new AddError();
             adderror.Show();
+            adderror.FormClosed += new FormClosedEventHandler(errorcontrol_FormClosed);
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void RefreshButton(object sender, EventArgs e)
         {
-            BTContext db = new BTContext();
-            string priority = PriorityBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
-            string level = LevelBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
-            string type = TypeComboBox.SelectedItem.ToString();
-            string code = CodeTextBox.Text;
-            string status = ErrorStatusBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
-            dataGridView1.DataSource = GetFilterredErrors(priority, level, type, code, status);
-
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                int index = row.Index;
-                bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out int id);
-                if (converted == false)
-                    return;
-                Error error = db.Errors.Find(id);
-                if (error.ErrorStatus == ErrorStatus.Open)
-                {
-                    row.DefaultCellStyle.BackColor = Color.Pink;
-                }
-                else if (error.ErrorStatus == ErrorStatus.Closed)
-                {
-                    row.DefaultCellStyle.BackColor = Color.PaleGreen;
-                }
-            }
+            RefreshDataGridView();
         }
 
         public int GetErrorTypeId(string name)
@@ -178,7 +162,7 @@ namespace BugTracking
         {
             BTContext db = new BTContext();
             IQueryable<Error> filteredErrors = db.Errors;
-            if (personal_errors == true)
+            if (PersonalErrorsCheckBox.Checked == true)
             {
                 filteredErrors = filteredErrors.Where(error => error.UserId == Globals.user_id);
             }
@@ -203,24 +187,24 @@ namespace BugTracking
             {
                 filteredErrors = filteredErrors.Where(error => error.ErrorStatus.ToString() == status);
             }
-            if (comboBox1.SelectedIndex != 0)
+            if (SortBox1.SelectedIndex != 0)
             {
-                if (comboBox1.SelectedItem.ToString() == "Id")
-                    filteredErrors = comboBox2.SelectedIndex == 0 ? filteredErrors.OrderBy(x => x.Id) : filteredErrors.OrderByDescending(x => x.Id);
-                if (comboBox1.SelectedItem.ToString() == "Date")
-                    filteredErrors = comboBox2.SelectedIndex == 0 ? filteredErrors.OrderBy(x => x.Date) : filteredErrors.OrderByDescending(x => x.Date);
-                if (comboBox1.SelectedItem.ToString() == "Priority")
-                    filteredErrors = comboBox2.SelectedIndex == 0 ? filteredErrors.OrderByDescending(x => x.Priority) : filteredErrors.OrderBy(x => x.Priority);
-                if (comboBox1.SelectedItem.ToString() == "Level")
-                    filteredErrors = comboBox2.SelectedIndex == 0 ? filteredErrors.OrderBy(x => x.Level) : filteredErrors.OrderByDescending(x => x.Level);
-                if (comboBox1.SelectedItem.ToString() == "Code")
-                    filteredErrors = comboBox2.SelectedIndex == 0 ? filteredErrors.OrderBy(x => x.Code) : filteredErrors.OrderByDescending(x => x.Code);
-                if (comboBox1.SelectedItem.ToString() == "Description")
-                    filteredErrors = comboBox2.SelectedIndex == 0 ? filteredErrors.OrderBy(x => x.Description) : filteredErrors.OrderByDescending(x => x.Description);
-                if (comboBox1.SelectedItem.ToString() == "UserId")
-                    filteredErrors = comboBox2.SelectedIndex == 0 ? filteredErrors.OrderBy(x => x.UserId) : filteredErrors.OrderByDescending(x => x.UserId);
-                if (comboBox1.SelectedItem.ToString() == "TypeId")
-                    filteredErrors = comboBox2.SelectedIndex == 0 ? filteredErrors.OrderBy(x => x.TypeId) : filteredErrors.OrderByDescending(x => x.TypeId);
+                if (SortBox1.SelectedItem.ToString() == "Id")
+                    filteredErrors = SortBox2.SelectedIndex == 0 ? filteredErrors.OrderBy(x => x.Id) : filteredErrors.OrderByDescending(x => x.Id);
+                if (SortBox1.SelectedItem.ToString() == "Date")
+                    filteredErrors = SortBox2.SelectedIndex == 0 ? filteredErrors.OrderBy(x => x.Date) : filteredErrors.OrderByDescending(x => x.Date);
+                if (SortBox1.SelectedItem.ToString() == "Priority")
+                    filteredErrors = SortBox2.SelectedIndex == 0 ? filteredErrors.OrderByDescending(x => x.Priority) : filteredErrors.OrderBy(x => x.Priority);
+                if (SortBox1.SelectedItem.ToString() == "Level")
+                    filteredErrors = SortBox2.SelectedIndex == 0 ? filteredErrors.OrderBy(x => x.Level) : filteredErrors.OrderByDescending(x => x.Level);
+                if (SortBox1.SelectedItem.ToString() == "Code")
+                    filteredErrors = SortBox2.SelectedIndex == 0 ? filteredErrors.OrderBy(x => x.Code) : filteredErrors.OrderByDescending(x => x.Code);
+                if (SortBox1.SelectedItem.ToString() == "Description")
+                    filteredErrors = SortBox2.SelectedIndex == 0 ? filteredErrors.OrderBy(x => x.Description) : filteredErrors.OrderByDescending(x => x.Description);
+                if (SortBox1.SelectedItem.ToString() == "UserId")
+                    filteredErrors = SortBox2.SelectedIndex == 0 ? filteredErrors.OrderBy(x => x.UserId) : filteredErrors.OrderByDescending(x => x.UserId);
+                if (SortBox1.SelectedItem.ToString() == "TypeId")
+                    filteredErrors = SortBox2.SelectedIndex == 0 ? filteredErrors.OrderBy(x => x.TypeId) : filteredErrors.OrderByDescending(x => x.TypeId);
             }
 
             return filteredErrors.ToList();
@@ -235,6 +219,7 @@ namespace BugTracking
                     return;
                 EditError editerror = new EditError(id);
                 editerror.Show();
+                editerror.FormClosed += new FormClosedEventHandler(errorcontrol_FormClosed);
             }
         }
 
@@ -251,6 +236,7 @@ namespace BugTracking
                     Error error = db.Errors.Find(id);
                     db.Errors.Remove(error);
                     db.SaveChanges();
+                    RefreshDataGridView();
                 }
             }
         }
@@ -271,6 +257,7 @@ namespace BugTracking
                     return;
                 ErrorWindow errorwindow = new ErrorWindow(id);
                 errorwindow.Show();
+                errorwindow.FormClosed += new FormClosedEventHandler(errorcontrol_FormClosed);
             }
         }
 
@@ -319,15 +306,7 @@ namespace BugTracking
                         filterBox.Visible = !filterBox.Visible;
                         break;
                     case Keys.F5:
-
-                        {
-                            string priority = PriorityBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
-                            string level = LevelBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
-                            string type = TypeComboBox.SelectedItem.ToString();
-                            string code = CodeTextBox.Text;
-                            string status = ErrorStatusBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
-                            dataGridView1.DataSource = GetFilterredErrors(priority, level, type, code, status);
-                        }
+                        RefreshDataGridView();
                         break;
                     case Keys.F1:
                         About op = new About();
@@ -429,22 +408,6 @@ namespace BugTracking
         private void timer1_Tick(object sender, EventArgs e)
         {
             label2.Text = DateTime.Now.ToString("dd MMMM yyyy | HH:mm:ss");
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            switch(personal_errors)
-            {
-                case true:
-                    button8.BackColor = SystemColors.Control;
-                    break;
-                case false:
-                    button8.BackColor = Color.Gray;
-                    break;
-                default:
-                    break;
-            }
-            personal_errors = !personal_errors;
         }
 
         private void button9_Click(object sender, EventArgs e)

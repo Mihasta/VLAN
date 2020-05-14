@@ -49,13 +49,14 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.filterBox = new System.Windows.Forms.GroupBox();
+            this.PersonalErrorsCheckBox = new System.Windows.Forms.CheckBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.SortBox1 = new System.Windows.Forms.ComboBox();
+            this.SortBox2 = new System.Windows.Forms.ComboBox();
             this.ErrorStatusBox = new System.Windows.Forms.GroupBox();
             this.radioButton13 = new System.Windows.Forms.RadioButton();
             this.radioButton12 = new System.Windows.Forms.RadioButton();
             this.radioButton11 = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.CodeTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -74,25 +75,28 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.filterBox.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.ErrorStatusBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.LevelBox.SuspendLayout();
             this.PriorityBox.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // User
             // 
-            this.User.Location = new System.Drawing.Point(12, 59);
+            this.User.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.User.Location = new System.Drawing.Point(12, 27);
             this.User.Name = "User";
-            this.User.Size = new System.Drawing.Size(111, 26);
+            this.User.Size = new System.Drawing.Size(36, 35);
             this.User.TabIndex = 0;
-            this.User.Text = "Пользователи";
+            this.User.Text = "👤";
             this.User.UseVisualStyleBackColor = true;
             this.User.Click += new System.EventHandler(this.button1_Click_1);
             // 
@@ -100,10 +104,10 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 91);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 68);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(826, 368);
+            this.dataGridView1.Size = new System.Drawing.Size(826, 417);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
             // 
@@ -216,47 +220,51 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(12, 27);
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button3.Location = new System.Drawing.Point(54, 27);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(111, 26);
+            this.button3.Size = new System.Drawing.Size(36, 35);
             this.button3.TabIndex = 5;
-            this.button3.Text = "Добавить ошибку";
+            this.button3.Text = "➕";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.AddError);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(774, 54);
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button4.Location = new System.Drawing.Point(180, 27);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(64, 22);
+            this.button4.Size = new System.Drawing.Size(36, 35);
             this.button4.TabIndex = 6;
-            this.button4.Text = "Обновить";
+            this.button4.Text = "🔄";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.RefreshButton);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(129, 27);
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button5.Location = new System.Drawing.Point(96, 27);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(137, 26);
+            this.button5.Size = new System.Drawing.Size(36, 35);
             this.button5.TabIndex = 7;
-            this.button5.Text = "Редактировать ошибку";
+            this.button5.Text = "🔧";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.Edit_Error);
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(272, 27);
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button6.Location = new System.Drawing.Point(138, 27);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(127, 26);
+            this.button6.Size = new System.Drawing.Size(36, 35);
             this.button6.TabIndex = 8;
-            this.button6.Text = "Удалить ошибку";
+            this.button6.Text = "🗑️";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.Delete_Error);
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(12, 465);
+            this.button7.Location = new System.Drawing.Point(12, 491);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 23);
             this.button7.TabIndex = 9;
@@ -266,29 +274,79 @@
             // 
             // filterBox
             // 
+            this.filterBox.Controls.Add(this.groupBox4);
+            this.filterBox.Controls.Add(this.groupBox3);
             this.filterBox.Controls.Add(this.ErrorStatusBox);
-            this.filterBox.Controls.Add(this.label1);
-            this.filterBox.Controls.Add(this.comboBox2);
-            this.filterBox.Controls.Add(this.comboBox1);
             this.filterBox.Controls.Add(this.groupBox2);
             this.filterBox.Controls.Add(this.groupBox1);
             this.filterBox.Controls.Add(this.LevelBox);
             this.filterBox.Controls.Add(this.PriorityBox);
-            this.filterBox.Location = new System.Drawing.Point(12, 330);
+            this.filterBox.Location = new System.Drawing.Point(12, 356);
             this.filterBox.Name = "filterBox";
             this.filterBox.Size = new System.Drawing.Size(826, 129);
             this.filterBox.TabIndex = 10;
             this.filterBox.TabStop = false;
             this.filterBox.Visible = false;
             // 
+            // PersonalErrorsCheckBox
+            // 
+            this.PersonalErrorsCheckBox.AutoSize = true;
+            this.PersonalErrorsCheckBox.Location = new System.Drawing.Point(12, 19);
+            this.PersonalErrorsCheckBox.Name = "PersonalErrorsCheckBox";
+            this.PersonalErrorsCheckBox.Size = new System.Drawing.Size(156, 17);
+            this.PersonalErrorsCheckBox.TabIndex = 20;
+            this.PersonalErrorsCheckBox.Text = "Отобразить ваши ошибки";
+            this.PersonalErrorsCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.SortBox1);
+            this.groupBox3.Controls.Add(this.SortBox2);
+            this.groupBox3.Location = new System.Drawing.Point(495, 13);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(138, 110);
+            this.groupBox3.TabIndex = 19;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Сортировка по ст.";
+            // 
+            // SortBox1
+            // 
+            this.SortBox1.FormattingEnabled = true;
+            this.SortBox1.Items.AddRange(new object[] {
+            "Нет",
+            "Id",
+            "Date",
+            "ErrorStatus",
+            "Priority",
+            "Level",
+            "Code",
+            "Description",
+            "UserId",
+            "TypeId"});
+            this.SortBox1.Location = new System.Drawing.Point(6, 19);
+            this.SortBox1.Name = "SortBox1";
+            this.SortBox1.Size = new System.Drawing.Size(126, 21);
+            this.SortBox1.TabIndex = 15;
+            // 
+            // SortBox2
+            // 
+            this.SortBox2.FormattingEnabled = true;
+            this.SortBox2.Items.AddRange(new object[] {
+            "По возрастанию",
+            "По убыванию"});
+            this.SortBox2.Location = new System.Drawing.Point(6, 46);
+            this.SortBox2.Name = "SortBox2";
+            this.SortBox2.Size = new System.Drawing.Size(126, 21);
+            this.SortBox2.TabIndex = 16;
+            // 
             // ErrorStatusBox
             // 
             this.ErrorStatusBox.Controls.Add(this.radioButton13);
             this.ErrorStatusBox.Controls.Add(this.radioButton12);
             this.ErrorStatusBox.Controls.Add(this.radioButton11);
-            this.ErrorStatusBox.Location = new System.Drawing.Point(283, 13);
+            this.ErrorStatusBox.Location = new System.Drawing.Point(276, 13);
             this.ErrorStatusBox.Name = "ErrorStatusBox";
-            this.ErrorStatusBox.Size = new System.Drawing.Size(127, 90);
+            this.ErrorStatusBox.Size = new System.Drawing.Size(74, 110);
             this.ErrorStatusBox.TabIndex = 18;
             this.ErrorStatusBox.TabStop = false;
             this.ErrorStatusBox.Text = "Статус";
@@ -307,7 +365,7 @@
             // radioButton12
             // 
             this.radioButton12.AutoSize = true;
-            this.radioButton12.Location = new System.Drawing.Point(6, 41);
+            this.radioButton12.Location = new System.Drawing.Point(6, 42);
             this.radioButton12.Name = "radioButton12";
             this.radioButton12.Size = new System.Drawing.Size(51, 17);
             this.radioButton12.TabIndex = 1;
@@ -327,40 +385,12 @@
             this.radioButton11.Text = "All";
             this.radioButton11.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(285, 106);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 13);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Сортировать по столбцу";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "По возрастанию",
-            "По убыванию"});
-            this.comboBox2.Location = new System.Drawing.Point(584, 103);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(150, 21);
-            this.comboBox2.TabIndex = 16;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(423, 103);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(155, 21);
-            this.comboBox1.TabIndex = 15;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.CodeTextBox);
-            this.groupBox2.Location = new System.Drawing.Point(417, 13);
+            this.groupBox2.Location = new System.Drawing.Point(356, 13);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(161, 58);
+            this.groupBox2.Size = new System.Drawing.Size(133, 58);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Поиск по коду";
@@ -369,15 +399,15 @@
             // 
             this.CodeTextBox.Location = new System.Drawing.Point(6, 20);
             this.CodeTextBox.Name = "CodeTextBox";
-            this.CodeTextBox.Size = new System.Drawing.Size(148, 20);
+            this.CodeTextBox.Size = new System.Drawing.Size(121, 20);
             this.CodeTextBox.TabIndex = 0;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.TypeComboBox);
-            this.groupBox1.Location = new System.Drawing.Point(584, 13);
+            this.groupBox1.Location = new System.Drawing.Point(356, 74);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(133, 58);
+            this.groupBox1.Size = new System.Drawing.Size(133, 49);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Тип";
@@ -535,19 +565,9 @@
             this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(129, 59);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(219, 26);
-            this.button8.TabIndex = 12;
-            this.button8.Text = "Отобразить добавленные вами ошибки";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(354, 59);
+            this.button9.Location = new System.Drawing.Point(294, 36);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(229, 26);
             this.button9.TabIndex = 13;
@@ -555,13 +575,22 @@
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.PersonalErrorsCheckBox);
+            this.groupBox4.Location = new System.Drawing.Point(641, 19);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(179, 104);
+            this.groupBox4.TabIndex = 21;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Дополнительно";
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(853, 496);
+            this.ClientSize = new System.Drawing.Size(853, 526);
             this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.filterBox);
             this.Controls.Add(this.button7);
@@ -584,7 +613,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.filterBox.ResumeLayout(false);
-            this.filterBox.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ErrorStatusBox.ResumeLayout(false);
             this.ErrorStatusBox.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -594,6 +623,8 @@
             this.LevelBox.PerformLayout();
             this.PriorityBox.ResumeLayout(false);
             this.PriorityBox.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -631,9 +662,8 @@
         private System.Windows.Forms.ComboBox TypeComboBox;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox CodeTextBox;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox SortBox1;
+        private System.Windows.Forms.ComboBox SortBox2;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отчетToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem создатьОтчетToolStripMenuItem;
@@ -646,8 +676,10 @@
         private System.Windows.Forms.RadioButton radioButton13;
         private System.Windows.Forms.RadioButton radioButton12;
         private System.Windows.Forms.RadioButton radioButton11;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.CheckBox PersonalErrorsCheckBox;
+        private System.Windows.Forms.GroupBox groupBox4;
     }
 }
 
