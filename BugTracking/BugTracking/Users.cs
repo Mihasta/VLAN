@@ -188,49 +188,50 @@ namespace BugTracking
             }
             if (Globals.user_status == "Admin")
             {
-                if (e.Modifiers == Keys.Control && e.KeyCode == Keys.A)
+                switch(e.KeyCode)
                 {
-                    AddUser adduser = new AddUser();
-                    adduser.Show();
-
-                }
-                if (e.Modifiers == Keys.Control && e.KeyCode == Keys.E)
-                {
-                    if (dataGridView1.SelectedRows.Count > 0)
-                    {
-                        int index = dataGridView1.SelectedRows[0].Index;
-                        int id = 0;
-                        bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out id);
-                        if (converted == false)
-                            return;
-                        EditUser edituser = new EditUser(id);
-                        edituser.Show();
-                    }
-
-                }
-                if (e.KeyCode == Keys.F5)
-                {
-                    BTContext db = new BTContext();
-                    dataGridView1.DataSource = db.Users.ToList();
-
-                }
-                if (e.KeyCode == Keys.Delete)
-                {
-                    using (BTContext db = new BTContext())
-                    {
-                        if (dataGridView1.SelectedRows.Count > 0)
+                    case Keys.A:
+                        AddUser adduser = new AddUser();
+                        adduser.Show();
+                        break;
+                    case Keys.E:
+                        if (e.Modifiers == Keys.Control)
                         {
-                            int index = dataGridView1.SelectedRows[0].Index;
-                            int id = 0;
-                            bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out id);
-                            if (converted == false)
-                                return;
-                            User user = db.Users.Find(id);
-                            db.Users.Remove(user);
-                            db.SaveChanges();
+                            if (dataGridView1.SelectedRows.Count > 0)
+                            {
+                                int index = dataGridView1.SelectedRows[0].Index;
+                                int id = 0;
+                                bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out id);
+                                if (converted == false)
+                                    return;
+                                EditUser edituser = new EditUser(id);
+                                edituser.Show();
+                            }
                         }
-                    }
+                        break;
+
+                    case Keys.Delete:
+
+                        using (BTContext db = new BTContext())
+                        {
+                            if (dataGridView1.SelectedRows.Count > 0)
+                            {
+                                int index = dataGridView1.SelectedRows[0].Index;
+                                int id = 0;
+                                bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out id);
+                                if (converted == false)
+                                    return;
+                                User user = db.Users.Find(id);
+                                db.Users.Remove(user);
+                                db.SaveChanges();
+                            }
+                        }
+                        break;
+                    default:
+                        break;
+
                 }
+
             }
         }
 
