@@ -95,6 +95,13 @@ namespace BugTracking
             timer1.Interval = 1000;
             timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Start();
+
+            ToolTip tt = new ToolTip();
+            tt.SetToolTip(User, "Пользователи");
+            tt.SetToolTip(button3, "Добавить ошибку");
+            tt.SetToolTip(button5, "Редактировать ошибку");
+            tt.SetToolTip(button6, "Удадлить ошибку");
+            tt.SetToolTip(button4, "Обновить");
         }
 
         void errorcontrol_FormClosed(object sender, FormClosedEventArgs e)
@@ -273,7 +280,7 @@ namespace BugTracking
         }
         private void KeyDown_MainMenu(object sender, KeyEventArgs e)
         {
-            if (Globals.user_status == "Moderator")
+            if (Globals.user_status == "Moderator" || Globals.user_status == "Admin")
             {
                 switch (e.KeyCode)
                 {
@@ -308,9 +315,13 @@ namespace BugTracking
                     case Keys.F5:
                         RefreshDataGridView();
                         break;
-                    case Keys.F1:
+                    case Keys.F12:
                         About op = new About();
                         op.Show();
+                        break;
+                    case Keys.F1:
+                        help hel = new help();
+                        hel.Show();
                         break;
                     case Keys.E:
                         if (e.Modifiers == Keys.Control)
@@ -348,7 +359,7 @@ namespace BugTracking
             }
             if (Globals.user_status == "User")
             {
-                switch (e.KeyCode) 
+                switch (e.KeyCode)
                 {
                     case Keys.A:
 
@@ -358,24 +369,24 @@ namespace BugTracking
                             AddError adderror = new AddError();
                             adderror.Show();
                         }
-               break;
+                        break;
 
                     case Keys.F5:
-                
-                    string priority = PriorityBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
-                    string level = LevelBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
-                    string type = TypeComboBox.SelectedItem.ToString();
-                    string code = CodeTextBox.Text;
-                    string status = ErrorStatusBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
-                    dataGridView1.DataSource = GetFilterredErrors(priority, level, type, code, status);
+
+                        string priority = PriorityBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
+                        string level = LevelBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
+                        string type = TypeComboBox.SelectedItem.ToString();
+                        string code = CodeTextBox.Text;
+                        string status = ErrorStatusBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
+                        dataGridView1.DataSource = GetFilterredErrors(priority, level, type, code, status);
                         break;
                     case Keys.F1:
-               
-                    About op = new About();
-                    op.Show();
+                        About op = new About();
+                        op.Show();
                         break;
                     default:
                         break;
+                
 
             }
         }

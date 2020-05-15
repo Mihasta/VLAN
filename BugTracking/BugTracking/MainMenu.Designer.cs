@@ -49,6 +49,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.filterBox = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.PersonalErrorsCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.SortBox1 = new System.Windows.Forms.ComboBox();
@@ -76,17 +77,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button9 = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.filterBox.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.ErrorStatusBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.LevelBox.SuspendLayout();
             this.PriorityBox.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // User
@@ -287,6 +288,16 @@
             this.filterBox.TabIndex = 10;
             this.filterBox.TabStop = false;
             this.filterBox.Visible = false;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.PersonalErrorsCheckBox);
+            this.groupBox4.Location = new System.Drawing.Point(641, 19);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(179, 104);
+            this.groupBox4.TabIndex = 21;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Дополнительно";
             // 
             // PersonalErrorsCheckBox
             // 
@@ -575,21 +586,22 @@
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
-            // groupBox4
+            // label1
             // 
-            this.groupBox4.Controls.Add(this.PersonalErrorsCheckBox);
-            this.groupBox4.Location = new System.Drawing.Point(641, 19);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(179, 104);
-            this.groupBox4.TabIndex = 21;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Дополнительно";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(621, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(147, 13);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Нажмите F1 для подсказки";
+            this.label1.Visible = false;
             // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(853, 526);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.filterBox);
@@ -613,6 +625,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.filterBox.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.ErrorStatusBox.ResumeLayout(false);
             this.ErrorStatusBox.PerformLayout();
@@ -623,8 +637,6 @@
             this.LevelBox.PerformLayout();
             this.PriorityBox.ResumeLayout(false);
             this.PriorityBox.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -680,6 +692,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.CheckBox PersonalErrorsCheckBox;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label1;
     }
 }
 
