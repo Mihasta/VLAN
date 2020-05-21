@@ -23,13 +23,12 @@ namespace BugTracking
         private void button1_Click_1(object sender, EventArgs e)
         {
             Users users = new Users();
-            users.Show();
+            users.ShowDialog();
         }
 
         private void RefreshDataGridView()
         {
             BTContext db = new BTContext();
-
             string priority = PriorityBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
             string level = LevelBox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
             string type = TypeComboBox.SelectedItem.ToString();
@@ -53,7 +52,7 @@ namespace BugTracking
                     row.DefaultCellStyle.BackColor = Color.PaleGreen;
                 }
             }
-
+            dataGridView1.ClearSelection();
             this.dataGridView1.Columns["User"].Visible = false;
             this.dataGridView1.Columns["Type"].Visible = false;
         }
@@ -100,19 +99,15 @@ namespace BugTracking
             tt.SetToolTip(User, "Пользователи");
             tt.SetToolTip(button3, "Добавить ошибку");
             tt.SetToolTip(button5, "Редактировать ошибку");
-            tt.SetToolTip(button6, "Удадлить ошибку");
+            tt.SetToolTip(button6, "Удалить ошибку");
             tt.SetToolTip(button4, "Обновить");
+            dataGridView1.ClearSelection();
         }
 
         void errorcontrol_FormClosed(object sender, FormClosedEventArgs e)
         {
             RefreshDataGridView();
         }
-        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             using (BTContext db = new BTContext())
@@ -150,7 +145,7 @@ namespace BugTracking
         private void AddError(object sender, EventArgs e)
         {
             AddError adderror = new AddError();
-            adderror.Show();
+            adderror.ShowDialog();
             adderror.FormClosed += new FormClosedEventHandler(errorcontrol_FormClosed);
         }
 
@@ -213,8 +208,22 @@ namespace BugTracking
                 if (SortBox1.SelectedItem.ToString() == "TypeId")
                     filteredErrors = SortBox2.SelectedIndex == 0 ? filteredErrors.OrderBy(x => x.TypeId) : filteredErrors.OrderByDescending(x => x.TypeId);
             }
-
             return filteredErrors.ToList();
+        }
+        private void CodeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                dataGridView1.CurrentCell = null;
+                if (row.Cells[5].Value.ToString().Contains(CodeTextBox.Text))
+                {
+                    row.Visible = true;
+                }
+                else
+                {
+                    row.Visible = false;
+                }
+            }
         }
         private void Edit_Error(object sender, EventArgs e)
         {
@@ -225,11 +234,10 @@ namespace BugTracking
                 if (converted == false)
                     return;
                 EditError editerror = new EditError(id);
-                editerror.Show();
+                editerror.ShowDialog();
                 editerror.FormClosed += new FormClosedEventHandler(errorcontrol_FormClosed);
             }
         }
-
         private void Delete_Error(object sender, EventArgs e)
         {
             using (BTContext db = new BTContext())
@@ -251,7 +259,7 @@ namespace BugTracking
         private void типОшибкиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddErrorType AET = new AddErrorType();
-            AET.Show();
+            AET.ShowDialog();
         }
 
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -263,7 +271,7 @@ namespace BugTracking
                 if (converted == false)
                     return;
                 ErrorWindow errorwindow = new ErrorWindow(id);
-                errorwindow.Show();
+                errorwindow.ShowDialog();
                 errorwindow.FormClosed += new FormClosedEventHandler(errorcontrol_FormClosed);
             }
         }
@@ -276,7 +284,7 @@ namespace BugTracking
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             About op = new About();
-            op.Show();
+            op.ShowDialog();
         }
         private void KeyDown_MainMenu(object sender, KeyEventArgs e)
         {
@@ -288,26 +296,26 @@ namespace BugTracking
                         if (e.Modifiers == Keys.Control)
                         {
                             Users users = new Users();
-                            users.Show();
+                            users.ShowDialog();
                         }
                         break;
                     case Keys.A:
                         if (e.Modifiers == Keys.Control)
                         {
                             AddError adderror = new AddError();
-                            adderror.Show();
+                            adderror.ShowDialog();
                         }
                         break;
                     case Keys.R:
                         if (e.Modifiers == Keys.Control)
                         {
                             ReportWindow reportwindow = new ReportWindow();
-                            reportwindow.Show();
+                            reportwindow.ShowDialog();
                         }
                         break;
                     case Keys.T:
                         AddErrorType AET = new AddErrorType();
-                        AET.Show();
+                        AET.ShowDialog();
                         break;
                     case Keys.F:
                         filterBox.Visible = !filterBox.Visible;
@@ -317,11 +325,11 @@ namespace BugTracking
                         break;
                     case Keys.F12:
                         About op = new About();
-                        op.Show();
+                        op.ShowDialog();
                         break;
                     case Keys.F1:
                         help hel = new help();
-                        hel.Show();
+                        hel.ShowDialog();
                         break;
                     case Keys.E:
                         if (e.Modifiers == Keys.Control)
@@ -333,7 +341,7 @@ namespace BugTracking
                                 if (converted == false)
                                     return;
                                 EditError editerror = new EditError(id);
-                                editerror.Show();
+                                editerror.ShowDialog();
                             }
                         }
                         break;
@@ -367,7 +375,7 @@ namespace BugTracking
                         {
 
                             AddError adderror = new AddError();
-                            adderror.Show();
+                            adderror.ShowDialog();
                         }
                         break;
 
@@ -382,7 +390,7 @@ namespace BugTracking
                         break;
                     case Keys.F1:
                         About op = new About();
-                        op.Show();
+                        op.ShowDialog();
                         break;
                     default:
                         break;
@@ -395,7 +403,7 @@ namespace BugTracking
         private void создатьОтчетToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ReportWindow reportwindow = new ReportWindow();
-            reportwindow.Show();
+            reportwindow.ShowDialog();
         }
 
         private void выходToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -413,7 +421,7 @@ namespace BugTracking
         private void инфОКомпеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             information inf = new information();
-            inf.Show();
+            inf.ShowDialog();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -438,6 +446,16 @@ namespace BugTracking
                     break;
             }
             personal_solutions = !personal_solutions;
+        }
+
+        private void черныйToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Gray;
+        }
+
+        private void белыйToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.White;
         }
     }
 }

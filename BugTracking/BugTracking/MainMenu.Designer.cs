@@ -78,6 +78,9 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button9 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.темыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.белыйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.черныйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.filterBox.SuspendLayout();
@@ -119,7 +122,8 @@
             this.ошибкиToolStripMenuItem,
             this.оПрограммеToolStripMenuItem,
             this.отчетToolStripMenuItem,
-            this.инфОКомпеToolStripMenuItem});
+            this.инфОКомпеToolStripMenuItem,
+            this.темыToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(853, 24);
@@ -135,7 +139,6 @@
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
             this.выходToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.выходToolStripMenuItem.Text = "Меню";
-            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
             // выходИзАккаунтаToolStripMenuItem
             // 
@@ -412,6 +415,7 @@
             this.CodeTextBox.Name = "CodeTextBox";
             this.CodeTextBox.Size = new System.Drawing.Size(121, 20);
             this.CodeTextBox.TabIndex = 0;
+            this.CodeTextBox.TextChanged += new System.EventHandler(this.CodeTextBox_TextChanged);
             // 
             // groupBox1
             // 
@@ -596,6 +600,29 @@
             this.label1.Text = "Нажмите F1 для подсказки";
             this.label1.Visible = false;
             // 
+            // темыToolStripMenuItem
+            // 
+            this.темыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.белыйToolStripMenuItem,
+            this.черныйToolStripMenuItem});
+            this.темыToolStripMenuItem.Name = "темыToolStripMenuItem";
+            this.темыToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.темыToolStripMenuItem.Text = "Темы";
+            // 
+            // белыйToolStripMenuItem
+            // 
+            this.белыйToolStripMenuItem.Name = "белыйToolStripMenuItem";
+            this.белыйToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.белыйToolStripMenuItem.Text = "Белый";
+            this.белыйToolStripMenuItem.Click += new System.EventHandler(this.белыйToolStripMenuItem_Click);
+            // 
+            // черныйToolStripMenuItem
+            // 
+            this.черныйToolStripMenuItem.Name = "черныйToolStripMenuItem";
+            this.черныйToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.черныйToolStripMenuItem.Text = "Черный";
+            this.черныйToolStripMenuItem.Click += new System.EventHandler(this.черныйToolStripMenuItem_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -615,6 +642,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.User);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainMenu";
@@ -693,6 +721,9 @@
         private System.Windows.Forms.CheckBox PersonalErrorsCheckBox;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem темыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem белыйToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem черныйToolStripMenuItem;
     }
 }
 

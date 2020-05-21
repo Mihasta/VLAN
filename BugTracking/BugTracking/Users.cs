@@ -20,38 +20,6 @@ namespace BugTracking
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            CheckBox[] cb = new CheckBox[11];
-            cb[0] = checkBox1;
-            cb[1] = checkBox2;
-            cb[2] = checkBox3;
-            cb[3] = checkBox4;
-            cb[4] = checkBox5;
-            cb[5] = checkBox6;
-            cb[6] = checkBox7;
-            cb[7] = checkBox8;
-            cb[8] = checkBox11;
-            cb[9] = checkBox9;
-            cb[10] = checkBox10;
-            BTContext db = new BTContext();
-            dataGridView1.DataSource = db.Users.ToList();
-            int i = 0;
-            foreach (DataGridViewColumn col in dataGridView1.Columns)
-            {
-                if (cb[i].Checked == true)
-                {
-                    col.Visible=true;
-                }
-                else
-                {
-                    col.Visible=false;
-                }
-                i++;
-            }
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             using (BTContext db = new BTContext())
@@ -159,6 +127,12 @@ namespace BugTracking
                 }
                 i++;
             }
+            ToolTip tt = new ToolTip();
+
+            tt.SetToolTip(button3, "Добавить пользователя");
+            tt.SetToolTip(button4, "Редактировать пользователя");
+            tt.SetToolTip(button5, "Удалить пользователя");
+            tt.SetToolTip(button7, "Обновить");
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -239,6 +213,38 @@ namespace BugTracking
         private void button6_Click(object sender, EventArgs e)
         {
             Editbd.Visible = !Editbd.Visible;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            CheckBox[] cb = new CheckBox[11];
+            cb[0] = checkBox1;
+            cb[1] = checkBox2;
+            cb[2] = checkBox3;
+            cb[3] = checkBox4;
+            cb[4] = checkBox5;
+            cb[5] = checkBox6;
+            cb[6] = checkBox7;
+            cb[7] = checkBox8;
+            cb[8] = checkBox11;
+            cb[9] = checkBox9;
+            cb[10] = checkBox10;
+            BTContext db = new BTContext();
+            dataGridView1.DataSource = db.Users.ToList();
+            int i = 0;
+            foreach (DataGridViewColumn col in dataGridView1.Columns)
+            {
+                if (cb[i].Checked == true)
+                {
+                    col.Visible = true;
+                }
+                else
+                {
+                    col.Visible = false;
+                }
+                i++;
+            }
+
         }
     }
 }
