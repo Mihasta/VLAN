@@ -116,6 +116,12 @@
       <DependentUpon>202005070304007_LAN.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="PersonalSolutions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonalSolutions.Designer.cs">
+      <DependentUpon>PersonalSolutions.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005070304007_LAN.resx">
       <DependentUpon>202005070304007_LAN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonalSolutions.resx">
+      <DependentUpon>PersonalSolutions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportWindow.resx">
       <DependentUpon>ReportWindow.cs</DependentUpon>
