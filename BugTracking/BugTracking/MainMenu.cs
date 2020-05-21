@@ -13,8 +13,6 @@ namespace BugTracking
 {
     public partial class MainMenu : Form
     {
-        private bool personal_solutions = false;
-
         public MainMenu()
         {
             InitializeComponent();
@@ -423,21 +421,8 @@ namespace BugTracking
 
         private void button9_Click(object sender, EventArgs e)
         {
-            BTContext db = new BTContext();
-            switch (personal_solutions)
-            {
-                case true:
-                    button9.BackColor = SystemColors.Control;
-                    dataGridView1.DataSource = db.Errors.ToList();
-                    break;
-                case false:
-                    button9.BackColor = Color.Gray;
-                    dataGridView1.DataSource = db.Solutions.Where(s => s.UserId == Globals.user_id).ToList();
-                    break;
-                default:
-                    break;
-            }
-            personal_solutions = !personal_solutions;
+            PersonalSolutions ps = new PersonalSolutions();
+            ps.Show();
         }
     }
 }
