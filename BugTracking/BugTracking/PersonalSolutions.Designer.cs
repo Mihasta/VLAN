@@ -72,9 +72,11 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
+            this.KeyPreview = true;
             this.Name = "PersonalSolutions";
             this.Text = "PersonalSolutions";
             this.Load += new System.EventHandler(this.PersonalSolutions_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PersonalSolutions_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
