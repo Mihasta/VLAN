@@ -16,7 +16,7 @@ namespace BugTracking
         public void RefreshDataGridView(int id)
         {
             BTContext db = new BTContext();
-            dataGridView1.DataSource = db.Solutions.Where(s => s.ErrorId == id).ToList();
+            dataGridView1.DataSource = db.Solutions.Where(s => s.ErrorId == id).OrderBy(x => x.Likes).ToList();
         }
 
         public void FillInfo(int id)
@@ -52,6 +52,8 @@ namespace BugTracking
                 default:
                     break;
             }
+
+            comboBox1.SelectedIndex = 0;
         }
 
         public string GetErrorType(int id)
@@ -337,6 +339,22 @@ namespace BugTracking
             button3.Visible = !button1.Visible;
             button4.Visible = !button1.Visible;
             button5.Visible = !button1.Visible;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BTContext db = new BTContext();
+            switch (comboBox1.SelectedIndex)
+            {
+                case 0:
+                    dataGridView1.DataSource = db.Solutions.Where(s => s.ErrorId == _id).OrderByDescending(x => x.Likes).ToList();
+                    break;
+                case 1:
+                    dataGridView1.DataSource = db.Solutions.Where(s => s.ErrorId == _id).OrderByDescending(x => x.Date).ToList();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
