@@ -139,6 +139,15 @@ namespace BugTracking
             {
                 button4.Visible = false;
             }
+
+            ToolTip tt = new ToolTip();
+
+            tt.SetToolTip(button1, "Добавить решение");
+            tt.SetToolTip(button3, "Редактировать решение");
+            tt.SetToolTip(button4, "Удалить решение");
+            tt.SetToolTip(button5, "Поставить лайк решению");
+            tt.SetToolTip(button2, "Обновить");
+
         }
 
         private void button5_Click(object sender, EventArgs e)

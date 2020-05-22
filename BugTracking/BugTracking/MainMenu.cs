@@ -74,14 +74,14 @@ namespace BugTracking
                 User.Visible = false;
                 ошибкиToolStripMenuItem.Visible = false;
                 отчетToolStripMenuItem.Visible = false;
-                button5.Visible = false;
-                button6.Visible = false;
+                EditError.Visible = false;
+                DelError.Visible = false;
 
             }
             else if (Globals.user_status == "Moderator")
             {
                 ошибкиToolStripMenuItem.Visible = false;
-                button6.Visible = false;
+                DelError.Visible = false;
 
             }
 
@@ -95,10 +95,10 @@ namespace BugTracking
 
             ToolTip tt = new ToolTip();
             tt.SetToolTip(User, "Пользователи");
-            tt.SetToolTip(button3, "Добавить ошибку");
-            tt.SetToolTip(button5, "Редактировать ошибку");
-            tt.SetToolTip(button6, "Удалить ошибку");
-            tt.SetToolTip(button4, "Обновить");
+            tt.SetToolTip(adderror1, "Добавить ошибку");
+            tt.SetToolTip(EditError, "Редактировать ошибку");
+            tt.SetToolTip(DelError, "Удалить ошибку");
+            tt.SetToolTip(Refresh, "Обновить");
             dataGridView1.ClearSelection();
         }
 
@@ -122,7 +122,6 @@ namespace BugTracking
                 };
                 db.Errors.Add(error);
                 db.SaveChanges();
-                //Console.WriteLine("Успешно добавлено");
             }
         }
 
@@ -136,7 +135,6 @@ namespace BugTracking
                 };
                 db.ErrorTypes.Add(type);
                 db.SaveChanges();
-                //Console.WriteLine("Успешно добавлено");
             }
         }
 

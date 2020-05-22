@@ -98,8 +98,8 @@ namespace BugTracking
             if (Globals.user_status == "Moderator")
             {
                
-                button5.Visible = false;
-                button4.Visible = false;
+                DelUser.Visible = false;
+                EditUser.Visible = false;
                 this.dataGridView1.Columns["Password"].Visible = false;
             }
             else if (Globals.user_status == "Admin")
@@ -129,10 +129,10 @@ namespace BugTracking
             }
             ToolTip tt = new ToolTip();
 
-            tt.SetToolTip(button3, "Добавить пользователя");
-            tt.SetToolTip(button4, "Редактировать пользователя");
-            tt.SetToolTip(button5, "Удалить пользователя");
-            tt.SetToolTip(button7, "Обновить");
+            tt.SetToolTip(addUser, "Добавить пользователя");
+            tt.SetToolTip(EditUser, "Редактировать пользователя");
+            tt.SetToolTip(DelUser, "Удалить пользователя");
+            tt.SetToolTip(Refresh, "Обновить");
         }
 
         private void timer1_Tick(object sender, EventArgs e)

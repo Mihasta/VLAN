@@ -28,33 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.Add1TypeError = new System.Windows.Forms.Button();
+            this.Refresh = new System.Windows.Forms.Button();
             this.dbTypeError = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.EditTypeError = new System.Windows.Forms.Button();
+            this.DelTypeError = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dbTypeError)).BeginInit();
             this.SuspendLayout();
             // 
-            // button8
+            // Add1TypeError
             // 
-            this.button8.Location = new System.Drawing.Point(133, 12);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(97, 43);
-            this.button8.TabIndex = 16;
-            this.button8.Text = "ДобавитьТип Ошибки";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.Add1TypeError.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Add1TypeError.Location = new System.Drawing.Point(156, 18);
+            this.Add1TypeError.Name = "Add1TypeError";
+            this.Add1TypeError.Size = new System.Drawing.Size(138, 43);
+            this.Add1TypeError.TabIndex = 16;
+            this.Add1TypeError.Text = "➕";
+            this.Add1TypeError.UseVisualStyleBackColor = true;
+            this.Add1TypeError.Click += new System.EventHandler(this.button8_Click);
             // 
-            // button7
+            // Refresh
             // 
-            this.button7.Location = new System.Drawing.Point(544, 22);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(68, 23);
-            this.button7.TabIndex = 15;
-            this.button7.Text = "Обновить";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Refresh.Location = new System.Drawing.Point(444, 18);
+            this.Refresh.Name = "Refresh";
+            this.Refresh.Size = new System.Drawing.Size(138, 43);
+            this.Refresh.TabIndex = 15;
+            this.Refresh.Text = "🔄";
+            this.Refresh.UseVisualStyleBackColor = true;
+            this.Refresh.Click += new System.EventHandler(this.button7_Click);
             // 
             // dbTypeError
             // 
@@ -63,39 +65,41 @@
             this.dbTypeError.Location = new System.Drawing.Point(12, 67);
             this.dbTypeError.Name = "dbTypeError";
             this.dbTypeError.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dbTypeError.Size = new System.Drawing.Size(600, 377);
+            this.dbTypeError.Size = new System.Drawing.Size(570, 377);
             this.dbTypeError.TabIndex = 14;
             this.dbTypeError.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dbTypeError_CellContentClick);
             // 
-            // button1
+            // EditTypeError
             // 
-            this.button1.Location = new System.Drawing.Point(18, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 43);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Редактировать";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.EditTypeError.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EditTypeError.Location = new System.Drawing.Point(12, 18);
+            this.EditTypeError.Name = "EditTypeError";
+            this.EditTypeError.Size = new System.Drawing.Size(138, 43);
+            this.EditTypeError.TabIndex = 17;
+            this.EditTypeError.Text = "🔧";
+            this.EditTypeError.UseVisualStyleBackColor = true;
+            this.EditTypeError.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // DelTypeError
             // 
-            this.button2.Location = new System.Drawing.Point(262, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(97, 43);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Удалить";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Delete_ErrorType);
+            this.DelTypeError.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DelTypeError.Location = new System.Drawing.Point(300, 18);
+            this.DelTypeError.Name = "DelTypeError";
+            this.DelTypeError.Size = new System.Drawing.Size(138, 43);
+            this.DelTypeError.TabIndex = 18;
+            this.DelTypeError.Text = "🗑️";
+            this.DelTypeError.UseVisualStyleBackColor = true;
+            this.DelTypeError.Click += new System.EventHandler(this.Delete_ErrorType);
             // 
             // AddErrorType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 461);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
+            this.ClientSize = new System.Drawing.Size(593, 453);
+            this.Controls.Add(this.DelTypeError);
+            this.Controls.Add(this.EditTypeError);
+            this.Controls.Add(this.Add1TypeError);
+            this.Controls.Add(this.Refresh);
             this.Controls.Add(this.dbTypeError);
             this.KeyPreview = true;
             this.Name = "AddErrorType";
@@ -108,10 +112,10 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button Add1TypeError;
+        private System.Windows.Forms.Button Refresh;
         private System.Windows.Forms.DataGridView dbTypeError;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button EditTypeError;
+        private System.Windows.Forms.Button DelTypeError;
     }
 }

@@ -30,9 +30,9 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.addUser = new System.Windows.Forms.Button();
+            this.EditUser = new System.Windows.Forms.Button();
+            this.DelUser = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.Editbd = new System.Windows.Forms.GroupBox();
             this.checkBox11 = new System.Windows.Forms.CheckBox();
@@ -46,7 +46,7 @@
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button7 = new System.Windows.Forms.Button();
+            this.Refresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.Editbd.SuspendLayout();
             this.SuspendLayout();
@@ -72,38 +72,38 @@
             this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // addUser
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(12, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(66, 35);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "👤➕";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.addUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addUser.Location = new System.Drawing.Point(12, 12);
+            this.addUser.Name = "addUser";
+            this.addUser.Size = new System.Drawing.Size(66, 35);
+            this.addUser.TabIndex = 3;
+            this.addUser.Text = "👤➕";
+            this.addUser.UseVisualStyleBackColor = true;
+            this.addUser.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // EditUser
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.Location = new System.Drawing.Point(84, 12);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(68, 35);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "👤🔧";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.Edit_User);
+            this.EditUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EditUser.Location = new System.Drawing.Point(84, 12);
+            this.EditUser.Name = "EditUser";
+            this.EditUser.Size = new System.Drawing.Size(68, 35);
+            this.EditUser.TabIndex = 4;
+            this.EditUser.Text = "👤🔧";
+            this.EditUser.UseVisualStyleBackColor = true;
+            this.EditUser.Click += new System.EventHandler(this.Edit_User);
             // 
-            // button5
+            // DelUser
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button5.Location = new System.Drawing.Point(158, 12);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(68, 35);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "👤🗑️";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.Delete_User);
+            this.DelUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DelUser.Location = new System.Drawing.Point(158, 12);
+            this.DelUser.Name = "DelUser";
+            this.DelUser.Size = new System.Drawing.Size(68, 35);
+            this.DelUser.TabIndex = 5;
+            this.DelUser.Text = "👤🗑️";
+            this.DelUser.UseVisualStyleBackColor = true;
+            this.DelUser.Click += new System.EventHandler(this.Delete_User);
             // 
             // button6
             // 
@@ -246,28 +246,28 @@
             this.checkBox1.Text = "Id";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // Refresh
             // 
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button7.Location = new System.Drawing.Point(232, 12);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(68, 35);
-            this.button7.TabIndex = 8;
-            this.button7.Text = "🔄";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Refresh.Location = new System.Drawing.Point(232, 12);
+            this.Refresh.Name = "Refresh";
+            this.Refresh.Size = new System.Drawing.Size(68, 35);
+            this.Refresh.TabIndex = 8;
+            this.Refresh.Text = "🔄";
+            this.Refresh.UseVisualStyleBackColor = true;
+            this.Refresh.Click += new System.EventHandler(this.button7_Click);
             // 
             // Users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 509);
-            this.Controls.Add(this.button7);
+            this.Controls.Add(this.Refresh);
             this.Controls.Add(this.Editbd);
             this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.DelUser);
+            this.Controls.Add(this.EditUser);
+            this.Controls.Add(this.addUser);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView1);
             this.KeyPreview = true;
@@ -284,9 +284,9 @@
 
         #endregion
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button addUser;
+        private System.Windows.Forms.Button EditUser;
+        private System.Windows.Forms.Button DelUser;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.GroupBox Editbd;
@@ -301,6 +301,6 @@
         private System.Windows.Forms.CheckBox checkBox11;
         private System.Windows.Forms.CheckBox checkBox10;
         private System.Windows.Forms.CheckBox checkBox9;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button Refresh;
     }
 }

@@ -27,6 +27,12 @@ namespace BugTracking
         {
             BTContext db = new BTContext();
             dbTypeError.DataSource = db.ErrorTypes.ToList();
+
+            ToolTip tt = new ToolTip();
+            tt.SetToolTip(EditTypeError, "Редактировать тип ошибки");
+            tt.SetToolTip(Add1TypeError, "Добавить тип ошибки");
+            tt.SetToolTip(DelTypeError, "Удалить тип ошибки");
+            tt.SetToolTip(Refresh, "Обновить список");
         }
 
         private void button8_Click(object sender, EventArgs e)

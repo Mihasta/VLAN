@@ -41,12 +41,15 @@
             this.отчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.создатьОтчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.инфОКомпеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.темыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.белыйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.черныйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.adderror1 = new System.Windows.Forms.Button();
+            this.Refresh = new System.Windows.Forms.Button();
+            this.EditError = new System.Windows.Forms.Button();
+            this.DelError = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.filterBox = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -78,9 +81,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button9 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.темыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.белыйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.черныйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.filterBox.SuspendLayout();
@@ -198,6 +198,29 @@
             this.инфОКомпеToolStripMenuItem.Text = "инф о компе";
             this.инфОКомпеToolStripMenuItem.Click += new System.EventHandler(this.инфОКомпеToolStripMenuItem_Click);
             // 
+            // темыToolStripMenuItem
+            // 
+            this.темыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.белыйToolStripMenuItem,
+            this.черныйToolStripMenuItem});
+            this.темыToolStripMenuItem.Name = "темыToolStripMenuItem";
+            this.темыToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.темыToolStripMenuItem.Text = "Темы";
+            // 
+            // белыйToolStripMenuItem
+            // 
+            this.белыйToolStripMenuItem.Name = "белыйToolStripMenuItem";
+            this.белыйToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.белыйToolStripMenuItem.Text = "Белый";
+            this.белыйToolStripMenuItem.Click += new System.EventHandler(this.белыйToolStripMenuItem_Click);
+            // 
+            // черныйToolStripMenuItem
+            // 
+            this.черныйToolStripMenuItem.Name = "черныйToolStripMenuItem";
+            this.черныйToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.черныйToolStripMenuItem.Text = "Черный";
+            this.черныйToolStripMenuItem.Click += new System.EventHandler(this.черныйToolStripMenuItem_Click);
+            // 
             // button1
             // 
             this.button1.Enabled = false;
@@ -222,49 +245,49 @@
             this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // adderror1
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(54, 27);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(36, 35);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "➕";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.AddError);
+            this.adderror1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.adderror1.Location = new System.Drawing.Point(54, 27);
+            this.adderror1.Name = "adderror1";
+            this.adderror1.Size = new System.Drawing.Size(36, 35);
+            this.adderror1.TabIndex = 5;
+            this.adderror1.Text = "➕";
+            this.adderror1.UseVisualStyleBackColor = true;
+            this.adderror1.Click += new System.EventHandler(this.AddError);
             // 
-            // button4
+            // Refresh
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.Location = new System.Drawing.Point(180, 27);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(36, 35);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "🔄";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.RefreshButton);
+            this.Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Refresh.Location = new System.Drawing.Point(180, 27);
+            this.Refresh.Name = "Refresh";
+            this.Refresh.Size = new System.Drawing.Size(36, 35);
+            this.Refresh.TabIndex = 6;
+            this.Refresh.Text = "🔄";
+            this.Refresh.UseVisualStyleBackColor = true;
+            this.Refresh.Click += new System.EventHandler(this.RefreshButton);
             // 
-            // button5
+            // EditError
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button5.Location = new System.Drawing.Point(96, 27);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(36, 35);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "🔧";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.Edit_Error);
+            this.EditError.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EditError.Location = new System.Drawing.Point(96, 27);
+            this.EditError.Name = "EditError";
+            this.EditError.Size = new System.Drawing.Size(36, 35);
+            this.EditError.TabIndex = 7;
+            this.EditError.Text = "🔧";
+            this.EditError.UseVisualStyleBackColor = true;
+            this.EditError.Click += new System.EventHandler(this.Edit_Error);
             // 
-            // button6
+            // DelError
             // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button6.Location = new System.Drawing.Point(138, 27);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(36, 35);
-            this.button6.TabIndex = 8;
-            this.button6.Text = "🗑️";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.Delete_Error);
+            this.DelError.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DelError.Location = new System.Drawing.Point(138, 27);
+            this.DelError.Name = "DelError";
+            this.DelError.Size = new System.Drawing.Size(36, 35);
+            this.DelError.TabIndex = 8;
+            this.DelError.Text = "🗑️";
+            this.DelError.UseVisualStyleBackColor = true;
+            this.DelError.Click += new System.EventHandler(this.Delete_Error);
             // 
             // button7
             // 
@@ -600,29 +623,6 @@
             this.label1.Text = "Нажмите F1 для подсказки";
             this.label1.Visible = false;
             // 
-            // темыToolStripMenuItem
-            // 
-            this.темыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.белыйToolStripMenuItem,
-            this.черныйToolStripMenuItem});
-            this.темыToolStripMenuItem.Name = "темыToolStripMenuItem";
-            this.темыToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
-            this.темыToolStripMenuItem.Text = "Темы";
-            // 
-            // белыйToolStripMenuItem
-            // 
-            this.белыйToolStripMenuItem.Name = "белыйToolStripMenuItem";
-            this.белыйToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.белыйToolStripMenuItem.Text = "Белый";
-            this.белыйToolStripMenuItem.Click += new System.EventHandler(this.белыйToolStripMenuItem_Click);
-            // 
-            // черныйToolStripMenuItem
-            // 
-            this.черныйToolStripMenuItem.Name = "черныйToolStripMenuItem";
-            this.черныйToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.черныйToolStripMenuItem.Text = "Черный";
-            this.черныйToolStripMenuItem.Click += new System.EventHandler(this.черныйToolStripMenuItem_Click);
-            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -633,10 +633,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.filterBox);
             this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.DelError);
+            this.Controls.Add(this.EditError);
+            this.Controls.Add(this.Refresh);
+            this.Controls.Add(this.adderror1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
@@ -678,10 +678,10 @@
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button adderror1;
+        private System.Windows.Forms.Button Refresh;
+        private System.Windows.Forms.Button EditError;
+        private System.Windows.Forms.Button DelError;
         private System.Windows.Forms.ToolStripMenuItem ошибкиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem типОшибкиToolStripMenuItem;
         private System.Windows.Forms.Button button7;
