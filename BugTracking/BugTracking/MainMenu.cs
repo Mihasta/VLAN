@@ -440,5 +440,7 @@ namespace BugTracking
         {
             this.BackColor = Color.White;
         }
+
+       
     }
 }

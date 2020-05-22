@@ -13,7 +13,7 @@ namespace BugTracking
 {
     public partial class Users : Form
     {
-        
+
 
         public Users()
         {
@@ -80,6 +80,8 @@ namespace BugTracking
         }
         private void Users_Load_1(object sender, EventArgs e)
         {
+            /*var types = new List<string>();
+            types.Add("All");*/
             CheckBox[] cb = new CheckBox[11];
             cb[0] = checkBox1;
             cb[1] = checkBox2;
@@ -97,7 +99,7 @@ namespace BugTracking
 
             if (Globals.user_status == "Moderator")
             {
-               
+
                 DelUser.Visible = false;
                 EditUser.Visible = false;
                 this.dataGridView1.Columns["Password"].Visible = false;
@@ -113,10 +115,10 @@ namespace BugTracking
             this.dataGridView1.Columns["Solutions"].Visible = false;
             this.dataGridView1.Columns["Like"].Visible = false;
 
-            int i=0;
+            int i = 0;
 
             foreach (DataGridViewColumn col in dataGridView1.Columns)
-            {   
+            {
                 if (col.Visible == true)
                 {
                     cb[i].Checked = true;
@@ -133,6 +135,7 @@ namespace BugTracking
             tt.SetToolTip(EditUser, "Редактировать пользователя");
             tt.SetToolTip(DelUser, "Удалить пользователя");
             tt.SetToolTip(Refresh, "Обновить");
+     
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -163,7 +166,7 @@ namespace BugTracking
             }
             if (Globals.user_status == "Admin")
             {
-                switch(e.KeyCode)
+                switch (e.KeyCode)
                 {
                     case Keys.A:
                         AddUser adduser = new AddUser();
@@ -217,6 +220,8 @@ namespace BugTracking
 
         private void button7_Click(object sender, EventArgs e)
         {
+            string status = Statusbox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
+            dataGridView1.DataSource = GetFilterredUsers(status);
             CheckBox[] cb = new CheckBox[11];
             cb[0] = checkBox1;
             cb[1] = checkBox2;
@@ -230,7 +235,7 @@ namespace BugTracking
             cb[9] = checkBox9;
             cb[10] = checkBox10;
             BTContext db = new BTContext();
-            dataGridView1.DataSource = db.Users.ToList();
+            //dataGridView1.DataSource = db.Users.ToList();
             int i = 0;
             foreach (DataGridViewColumn col in dataGridView1.Columns)
             {
@@ -246,6 +251,18 @@ namespace BugTracking
             }
 
         }
+        public List<User> GetFilterredUsers(string status)
+        {
+            BTContext db = new BTContext();
+            IQueryable<User> filteredUsers = db.Users;
+            if (status != "All")
+            {
+                filteredUsers = filteredUsers.Where(user => user.Status.ToString() == status);
+            }
+            return filteredUsers.ToList();
+
+        }
+
     }
 }
     
