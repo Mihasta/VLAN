@@ -589,7 +589,6 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "All";
             this.radioButton1.UseVisualStyleBackColor = true;
-          
             // 
             // label2
             // 

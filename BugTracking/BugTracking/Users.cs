@@ -169,8 +169,11 @@ namespace BugTracking
                 switch (e.KeyCode)
                 {
                     case Keys.A:
-                        AddUser adduser = new AddUser();
-                        adduser.Show();
+                        if (e.Modifiers == Keys.Control) {
+                            AddUser adduser = new AddUser();
+                            adduser.Show();
+                        }
+                            
                         break;
                     case Keys.E:
                         if (e.Modifiers == Keys.Control)
@@ -263,6 +266,26 @@ namespace BugTracking
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            groupBox1.Visible = !groupBox1.Visible;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                dataGridView1.CurrentCell = null;
+                if (row.Cells[3].Value.ToString().Contains(textBox1.Text))
+                {
+                    row.Visible = true;
+                }
+                else
+                {
+                    row.Visible = false;
+                }
+            }
+        }
     }
 }
     
