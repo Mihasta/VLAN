@@ -38,7 +38,7 @@ namespace BugTracking
                     Description = description.Text,
                     ErrorId = _id,
                     UserId = Globals.user_id,
-                    Date = DateTime.Now             
+                    Date = DateTime.Now
                 };
                 db.Solutions.Add(solution);
                 db.SaveChanges();

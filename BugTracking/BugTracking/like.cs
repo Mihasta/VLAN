@@ -16,6 +16,15 @@ namespace BugTracking
             using (BTContext db = new BTContext())
             {
                 var user = db.Users.First(x => x.Id == Globals.user_id);
+                if (user.Like == null)
+                {
+                    user.Like = String.Empty;
+                    db.SaveChanges();
+                }
+            }
+            using (BTContext db = new BTContext())
+            {
+                var user = db.Users.First(x => x.Id == Globals.user_id);
                 l = user.Like;
                 if (l.Contains(_id.ToString()))
                 {

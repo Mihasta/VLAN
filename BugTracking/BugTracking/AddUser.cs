@@ -43,7 +43,8 @@ namespace BugTracking
                             Password = password.Text,
                             Status = (UserStatus)status.SelectedItem,
                             Mail = mail.Text,
-                            PhoneNumber = phonenumber.Text
+                            PhoneNumber = phonenumber.Text,
+                            Like = String.Empty
                         };
 
                         var Log = (from p in db.Users
