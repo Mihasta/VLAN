@@ -150,6 +150,14 @@ namespace BugTracking
             tt.SetToolTip(button5, "Поставить лайк решению");
             tt.SetToolTip(button2, "Обновить");
 
+            dataGridView1.Columns[0].Width = Convert.ToInt32(dataGridView1.Columns[0].Width * 0.3);
+            dataGridView1.Columns[1].HeaderText = "Решение";
+            dataGridView1.Columns[2].HeaderText = "Id ошибки";
+            dataGridView1.Columns[3].HeaderText = "Ошибка";
+            dataGridView1.Columns[4].HeaderText = "id пользователя";
+            dataGridView1.Columns[5].HeaderText = "Пользователь";
+            dataGridView1.Columns[6].HeaderText = "Дата и Время";
+            dataGridView1.Columns[7].HeaderText = "Кол-во лайков";
         }
 
         private void button5_Click(object sender, EventArgs e)

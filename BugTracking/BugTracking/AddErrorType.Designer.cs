@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.Add1TypeError = new System.Windows.Forms.Button();
-            this.Refresh = new System.Windows.Forms.Button();
+            this.refresh = new System.Windows.Forms.Button();
             this.dbTypeError = new System.Windows.Forms.DataGridView();
             this.EditTypeError = new System.Windows.Forms.Button();
             this.DelTypeError = new System.Windows.Forms.Button();
@@ -47,16 +47,16 @@
             this.Add1TypeError.UseVisualStyleBackColor = true;
             this.Add1TypeError.Click += new System.EventHandler(this.button8_Click);
             // 
-            // Refresh
+            // refresh
             // 
-            this.Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Refresh.Location = new System.Drawing.Point(444, 18);
-            this.Refresh.Name = "Refresh";
-            this.Refresh.Size = new System.Drawing.Size(138, 43);
-            this.Refresh.TabIndex = 15;
-            this.Refresh.Text = "🔄";
-            this.Refresh.UseVisualStyleBackColor = true;
-            this.Refresh.Click += new System.EventHandler(this.button7_Click);
+            this.refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.refresh.Location = new System.Drawing.Point(444, 18);
+            this.refresh.Name = "refresh";
+            this.refresh.Size = new System.Drawing.Size(138, 43);
+            this.refresh.TabIndex = 15;
+            this.refresh.Text = "🔄";
+            this.refresh.UseVisualStyleBackColor = true;
+            this.refresh.Click += new System.EventHandler(this.button7_Click);
             // 
             // dbTypeError
             // 
@@ -99,7 +99,7 @@
             this.Controls.Add(this.DelTypeError);
             this.Controls.Add(this.EditTypeError);
             this.Controls.Add(this.Add1TypeError);
-            this.Controls.Add(this.Refresh);
+            this.Controls.Add(this.refresh);
             this.Controls.Add(this.dbTypeError);
             this.KeyPreview = true;
             this.Name = "AddErrorType";
@@ -113,7 +113,7 @@
 
         #endregion
         private System.Windows.Forms.Button Add1TypeError;
-        private System.Windows.Forms.Button Refresh;
+        private System.Windows.Forms.Button refresh;
         private System.Windows.Forms.DataGridView dbTypeError;
         private System.Windows.Forms.Button EditTypeError;
         private System.Windows.Forms.Button DelTypeError;

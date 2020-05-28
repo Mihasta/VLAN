@@ -37,6 +37,10 @@ namespace BugTracking
         public int Id { get; set; }
         public string Name { get; set; }
         public virtual ICollection<Error> Errors { get; set; }
+        public override string ToString()
+        {
+            return Name;
+        }
     }
     public class User
     {
@@ -58,6 +62,10 @@ namespace BugTracking
         public ICollection<Error> Errors { get; set; }
         public ICollection<Solution> Solutions { get; set; }
         public string Like { get; set; }
+        public override string ToString()
+        {
+            return Name + " " + Surname;
+        }
     }
 
     public class Solution 

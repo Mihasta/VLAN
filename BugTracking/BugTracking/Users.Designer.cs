@@ -46,7 +46,7 @@
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.Refresh = new System.Windows.Forms.Button();
+            this.refresh = new System.Windows.Forms.Button();
             this.Statusbox = new System.Windows.Forms.GroupBox();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
@@ -258,16 +258,16 @@
             this.checkBox1.Text = "Id";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // Refresh
+            // refresh
             // 
-            this.Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Refresh.Location = new System.Drawing.Point(232, 12);
-            this.Refresh.Name = "Refresh";
-            this.Refresh.Size = new System.Drawing.Size(68, 35);
-            this.Refresh.TabIndex = 8;
-            this.Refresh.Text = "🔄";
-            this.Refresh.UseVisualStyleBackColor = true;
-            this.Refresh.Click += new System.EventHandler(this.button7_Click);
+            this.refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.refresh.Location = new System.Drawing.Point(232, 12);
+            this.refresh.Name = "refresh";
+            this.refresh.Size = new System.Drawing.Size(68, 35);
+            this.refresh.TabIndex = 8;
+            this.refresh.Text = "🔄";
+            this.refresh.UseVisualStyleBackColor = true;
+            this.refresh.Click += new System.EventHandler(this.button7_Click);
             // 
             // Statusbox
             // 
@@ -373,7 +373,7 @@
             this.ClientSize = new System.Drawing.Size(955, 604);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.Refresh);
+            this.Controls.Add(this.refresh);
             this.Controls.Add(this.Editbd);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.DelUser);
@@ -417,7 +417,7 @@
         private System.Windows.Forms.CheckBox checkBox11;
         private System.Windows.Forms.CheckBox checkBox10;
         private System.Windows.Forms.CheckBox checkBox9;
-        private System.Windows.Forms.Button Refresh;
+        private System.Windows.Forms.Button refresh;
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;

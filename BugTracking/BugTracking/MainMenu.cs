@@ -51,8 +51,8 @@ namespace BugTracking
                 }
             }
             dataGridView1.ClearSelection();
-            this.dataGridView1.Columns["User"].Visible = false;
-            this.dataGridView1.Columns["Type"].Visible = false;
+            //this.dataGridView1.Columns["User"].Visible = false;
+            //this.dataGridView1.Columns["Type"].Visible = false;
         }
 
         private void FixFilter()
@@ -98,8 +98,20 @@ namespace BugTracking
             tt.SetToolTip(adderror1, "Добавить ошибку");
             tt.SetToolTip(EditError, "Редактировать ошибку");
             tt.SetToolTip(DelError, "Удалить ошибку");
-            tt.SetToolTip(Refresh, "Обновить");
+            tt.SetToolTip(refresh, "Обновить");
             dataGridView1.ClearSelection();
+            dataGridView1.Columns[0].Width = Convert.ToInt32(dataGridView1.Columns[0].Width * 0.3); 
+            dataGridView1.Columns[1].HeaderText = "Дата и Время";
+            dataGridView1.Columns[2].HeaderText = "Статус ошибки";
+            dataGridView1.Columns[3].HeaderText = "Приоритет";
+            dataGridView1.Columns[4].HeaderText = "Уровень";
+            dataGridView1.Columns[5].HeaderText = "Код Ошибки";
+            dataGridView1.Columns[6].HeaderText = "Решение";
+            dataGridView1.Columns[7].Width = Convert.ToInt32(dataGridView1.Columns[7].Width * 0.45);
+            dataGridView1.Columns[8].HeaderText = "Пользователь";
+            dataGridView1.Columns[9].Width = Convert.ToInt32(dataGridView1.Columns[8].Width * 0.45);
+            dataGridView1.Columns[10].HeaderText = "Тип ошибки";
+
         }
 
         void errorcontrol_FormClosed(object sender, FormClosedEventArgs e)
@@ -440,7 +452,5 @@ namespace BugTracking
         {
             this.BackColor = Color.White;
         }
-
-       
     }
 }

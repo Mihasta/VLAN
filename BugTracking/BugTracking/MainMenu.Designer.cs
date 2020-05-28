@@ -47,7 +47,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.adderror1 = new System.Windows.Forms.Button();
-            this.Refresh = new System.Windows.Forms.Button();
+            this.refresh = new System.Windows.Forms.Button();
             this.EditError = new System.Windows.Forms.Button();
             this.DelError = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -107,11 +107,14 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 68);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(826, 417);
+            this.dataGridView1.Size = new System.Drawing.Size(978, 417);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
             // 
@@ -126,7 +129,7 @@
             this.темыToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(853, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1005, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyDown_MainMenu);
@@ -143,14 +146,14 @@
             // выходИзАккаунтаToolStripMenuItem
             // 
             this.выходИзАккаунтаToolStripMenuItem.Name = "выходИзАккаунтаToolStripMenuItem";
-            this.выходИзАккаунтаToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.выходИзАккаунтаToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.выходИзАккаунтаToolStripMenuItem.Text = "Выход из аккаунта";
             this.выходИзАккаунтаToolStripMenuItem.Click += new System.EventHandler(this.выходИзАккаунтаToolStripMenuItem_Click);
             // 
             // выходToolStripMenuItem1
             // 
             this.выходToolStripMenuItem1.Name = "выходToolStripMenuItem1";
-            this.выходToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
+            this.выходToolStripMenuItem1.Size = new System.Drawing.Size(175, 22);
             this.выходToolStripMenuItem1.Text = "Выход";
             this.выходToolStripMenuItem1.Click += new System.EventHandler(this.выходToolStripMenuItem1_Click);
             // 
@@ -165,7 +168,7 @@
             // типОшибкиToolStripMenuItem
             // 
             this.типОшибкиToolStripMenuItem.Name = "типОшибкиToolStripMenuItem";
-            this.типОшибкиToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.типОшибкиToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.типОшибкиToolStripMenuItem.Text = "Типы ошибок";
             this.типОшибкиToolStripMenuItem.Click += new System.EventHandler(this.типОшибкиToolStripMenuItem_Click);
             // 
@@ -187,7 +190,7 @@
             // создатьОтчетToolStripMenuItem
             // 
             this.создатьОтчетToolStripMenuItem.Name = "создатьОтчетToolStripMenuItem";
-            this.создатьОтчетToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.создатьОтчетToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.создатьОтчетToolStripMenuItem.Text = "Создать отчет";
             this.создатьОтчетToolStripMenuItem.Click += new System.EventHandler(this.создатьОтчетToolStripMenuItem_Click);
             // 
@@ -204,7 +207,7 @@
             this.белыйToolStripMenuItem,
             this.черныйToolStripMenuItem});
             this.темыToolStripMenuItem.Name = "темыToolStripMenuItem";
-            this.темыToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.темыToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.темыToolStripMenuItem.Text = "Темы";
             // 
             // белыйToolStripMenuItem
@@ -256,16 +259,16 @@
             this.adderror1.UseVisualStyleBackColor = true;
             this.adderror1.Click += new System.EventHandler(this.AddError);
             // 
-            // Refresh
+            // refresh
             // 
-            this.Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Refresh.Location = new System.Drawing.Point(180, 27);
-            this.Refresh.Name = "Refresh";
-            this.Refresh.Size = new System.Drawing.Size(36, 35);
-            this.Refresh.TabIndex = 6;
-            this.Refresh.Text = "🔄";
-            this.Refresh.UseVisualStyleBackColor = true;
-            this.Refresh.Click += new System.EventHandler(this.RefreshButton);
+            this.refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.refresh.Location = new System.Drawing.Point(180, 27);
+            this.refresh.Name = "refresh";
+            this.refresh.Size = new System.Drawing.Size(36, 35);
+            this.refresh.TabIndex = 6;
+            this.refresh.Text = "🔄";
+            this.refresh.UseVisualStyleBackColor = true;
+            this.refresh.Click += new System.EventHandler(this.RefreshButton);
             // 
             // EditError
             // 
@@ -310,7 +313,7 @@
             this.filterBox.Controls.Add(this.PriorityBox);
             this.filterBox.Location = new System.Drawing.Point(12, 356);
             this.filterBox.Name = "filterBox";
-            this.filterBox.Size = new System.Drawing.Size(826, 129);
+            this.filterBox.Size = new System.Drawing.Size(978, 129);
             this.filterBox.TabIndex = 10;
             this.filterBox.TabStop = false;
             this.filterBox.Visible = false;
@@ -318,9 +321,9 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.PersonalErrorsCheckBox);
-            this.groupBox4.Location = new System.Drawing.Point(641, 19);
+            this.groupBox4.Location = new System.Drawing.Point(639, 13);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(179, 104);
+            this.groupBox4.Size = new System.Drawing.Size(179, 110);
             this.groupBox4.TabIndex = 21;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Дополнительно";
@@ -627,7 +630,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(853, 526);
+            this.ClientSize = new System.Drawing.Size(1005, 526);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.label2);
@@ -635,7 +638,7 @@
             this.Controls.Add(this.button7);
             this.Controls.Add(this.DelError);
             this.Controls.Add(this.EditError);
-            this.Controls.Add(this.Refresh);
+            this.Controls.Add(this.refresh);
             this.Controls.Add(this.adderror1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -679,7 +682,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button adderror1;
-        private System.Windows.Forms.Button Refresh;
+        private System.Windows.Forms.Button refresh;
         private System.Windows.Forms.Button EditError;
         private System.Windows.Forms.Button DelError;
         private System.Windows.Forms.ToolStripMenuItem ошибкиToolStripMenuItem;

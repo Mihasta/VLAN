@@ -134,8 +134,19 @@ namespace BugTracking
             tt.SetToolTip(addUser, "Добавить пользователя");
             tt.SetToolTip(EditUser, "Редактировать пользователя");
             tt.SetToolTip(DelUser, "Удалить пользователя");
-            tt.SetToolTip(Refresh, "Обновить");
-     
+            tt.SetToolTip(refresh, "Обновить");
+
+            dataGridView1.Columns[0].Width = Convert.ToInt32(dataGridView1.Columns[7].Width * 0.3);
+            dataGridView1.Columns[1].HeaderText = "Имя";
+            dataGridView1.Columns[2].HeaderText = "Имя";
+            dataGridView1.Columns[3].HeaderText = "Логин";
+            dataGridView1.Columns[4].HeaderText = "Пароль";
+            dataGridView1.Columns[5].HeaderText = "Статус";
+            dataGridView1.Columns[6].HeaderText = "E-mail";
+            dataGridView1.Columns[7].HeaderText = "Номер телефона";
+            dataGridView1.Columns[8].HeaderText = "Ошибки";
+            dataGridView1.Columns[9].HeaderText = "Решения";
+            dataGridView1.Columns[10].HeaderText = "Лайки";
         }
 
         private void timer1_Tick(object sender, EventArgs e)
