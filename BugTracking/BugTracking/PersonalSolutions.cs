@@ -21,6 +21,14 @@ namespace BugTracking
         {
             BTContext db = new BTContext();
             dataGridView1.DataSource = db.Solutions.Where(s => s.UserId == Globals.user_id).ToList();
+            dataGridView1.Columns[0].Width = Convert.ToInt32(dataGridView1.Columns[0].Width * 0.3);
+            dataGridView1.Columns[1].HeaderText = "Описание";
+            dataGridView1.Columns[2].HeaderText = "Id ошибки";
+            dataGridView1.Columns[3].HeaderText = "Ошибка";
+            dataGridView1.Columns[4].HeaderText = "Id пользователя";
+            dataGridView1.Columns[5].HeaderText = "Пользователь";
+            dataGridView1.Columns[6].HeaderText = "Дата и Время";
+            
         }
 
         private void RefreshDataGridView()
@@ -103,5 +111,7 @@ namespace BugTracking
                     break;
             }
         }
+
+        
     }
 }
