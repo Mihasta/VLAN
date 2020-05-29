@@ -82,7 +82,7 @@ namespace BugTracking
         {
             /*var types = new List<string>();
             types.Add("All");*/
-            CheckBox[] cb = new CheckBox[11];
+            CheckBox[] cb = new CheckBox[10];
             cb[0] = checkBox1;
             cb[1] = checkBox2;
             cb[2] = checkBox3;
@@ -92,8 +92,7 @@ namespace BugTracking
             cb[6] = checkBox7;
             cb[7] = checkBox8;
             cb[8] = checkBox9;
-            cb[9] = checkBox10;
-            cb[10] = checkBox11;
+            cb[9] = checkBox11;
             BTContext db = new BTContext();
             dataGridView1.DataSource = db.Users.ToList();
 
@@ -110,10 +109,8 @@ namespace BugTracking
             }
             this.dataGridView1.Columns["Errors"].Visible = false;
             this.dataGridView1.Columns["Solutions"].Visible = false;
-            this.dataGridView1.Columns["Like"].Visible = false;
             this.dataGridView1.Columns["Errors"].Visible = false;
             this.dataGridView1.Columns["Solutions"].Visible = false;
-            this.dataGridView1.Columns["Like"].Visible = false;
 
             int i = 0;
 
@@ -146,7 +143,6 @@ namespace BugTracking
             dataGridView1.Columns[7].HeaderText = "Номер телефона";
             dataGridView1.Columns[8].HeaderText = "Ошибки";
             dataGridView1.Columns[9].HeaderText = "Решения";
-            dataGridView1.Columns[10].HeaderText = "Лайки";
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -236,7 +232,7 @@ namespace BugTracking
         {
             string status = Statusbox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
             dataGridView1.DataSource = GetFilterredUsers(status);
-            CheckBox[] cb = new CheckBox[11];
+            CheckBox[] cb = new CheckBox[10];
             cb[0] = checkBox1;
             cb[1] = checkBox2;
             cb[2] = checkBox3;
@@ -247,7 +243,6 @@ namespace BugTracking
             cb[7] = checkBox8;
             cb[8] = checkBox11;
             cb[9] = checkBox9;
-            cb[10] = checkBox10;
             BTContext db = new BTContext();
             //dataGridView1.DataSource = db.Users.ToList();
             int i = 0;

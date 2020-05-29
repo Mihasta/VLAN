@@ -15,25 +15,24 @@ namespace BugTracking
             string l = "";
             using (BTContext db = new BTContext())
             {
-                var user = db.Users.First(x => x.Id == Globals.user_id);
-                if (user.Like == null)
+                var solution = db.Solutions.First(x => x.ErrorId == _id);
+                if (solution.LikedUsersId == null)
                 {
-                    user.Like = String.Empty;
+                    solution.LikedUsersId = String.Empty;
                     db.SaveChanges();
                 }
             }
             using (BTContext db = new BTContext())
             {
-                var user = db.Users.First(x => x.Id == Globals.user_id);
-                l = user.Like;
-                if (l.Contains(_id.ToString()))
+                var solution = db.Solutions.First(x => x.ErrorId == _id);
+                l = solution.LikedUsersId;
+                if (l.Contains(Globals.user_id.ToString()))
                 {
                     MessageBox.Show("Вы не можете поставить больше 1 лайка на решения");
                 }
                 else
                 {
-                    user.Like += _id.ToString() + " ";
-                    var solution = db.Solutions.First(x => x.Id == id);
+                    solution.LikedUsersId += Globals.user_id.ToString() + " ";
                     i = solution.Likes;
                     i++;
                     solution.Likes = i;

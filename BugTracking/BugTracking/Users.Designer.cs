@@ -36,7 +36,6 @@
             this.button6 = new System.Windows.Forms.Button();
             this.Editbd = new System.Windows.Forms.GroupBox();
             this.checkBox11 = new System.Windows.Forms.CheckBox();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
             this.checkBox9 = new System.Windows.Forms.CheckBox();
             this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.checkBox7 = new System.Windows.Forms.CheckBox();
@@ -130,7 +129,6 @@
             // Editbd
             // 
             this.Editbd.Controls.Add(this.checkBox11);
-            this.Editbd.Controls.Add(this.checkBox10);
             this.Editbd.Controls.Add(this.checkBox9);
             this.Editbd.Controls.Add(this.checkBox8);
             this.Editbd.Controls.Add(this.checkBox7);
@@ -156,16 +154,6 @@
             this.checkBox11.TabIndex = 10;
             this.checkBox11.Text = "Ошибки";
             this.checkBox11.UseVisualStyleBackColor = true;
-            // 
-            // checkBox10
-            // 
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.Location = new System.Drawing.Point(698, 19);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(58, 17);
-            this.checkBox10.TabIndex = 9;
-            this.checkBox10.Text = "Лайки";
-            this.checkBox10.UseVisualStyleBackColor = true;
             // 
             // checkBox9
             // 
@@ -415,7 +403,6 @@
         private System.Windows.Forms.CheckBox checkBox5;
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.CheckBox checkBox11;
-        private System.Windows.Forms.CheckBox checkBox10;
         private System.Windows.Forms.CheckBox checkBox9;
         private System.Windows.Forms.Button refresh;
         private System.Windows.Forms.RadioButton radioButton4;

@@ -16,7 +16,7 @@ namespace BugTracking
         public void RefreshDataGridView(int id)
         {
             BTContext db = new BTContext();
-            dataGridView1.DataSource = db.Solutions.Where(s => s.ErrorId == id).OrderBy(x => x.Likes).ToList();
+            dataGridView1.DataSource = db.Solutions.Where(s => s.ErrorId == id).OrderByDescending(x => x.Likes).ToList();
         }
 
         public void FillInfo(int id)

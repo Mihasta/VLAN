@@ -61,7 +61,6 @@ namespace BugTracking
         public string PhoneNumber { get; set; }
         public ICollection<Error> Errors { get; set; }
         public ICollection<Solution> Solutions { get; set; }
-        public string Like { get; set; }
         public override string ToString()
         {
             return Name + " " + Surname;
@@ -81,6 +80,7 @@ namespace BugTracking
         public virtual User User { get; set; }
         public DateTime Date { get; set; }
         public int Likes { get; set; }
+        public string LikedUsersId { get; set; }
     }
 
     public class Report 
