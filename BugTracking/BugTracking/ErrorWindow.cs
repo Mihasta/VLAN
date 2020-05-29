@@ -15,8 +15,24 @@ namespace BugTracking
         private static int _id;
         public void RefreshDataGridView(int id)
         {
+            string l = "";
             BTContext db = new BTContext();
             dataGridView1.DataSource = db.Solutions.Where(s => s.ErrorId == id).OrderByDescending(x => x.Likes).ToList();
+            var solution = db.Solutions.First(x => x.ErrorId == _id);
+            l = solution.LikedUsersId;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                int index = row.Index;
+                if (l.Contains(Globals.user_id.ToString()))
+                {
+                    row.DefaultCellStyle.BackColor = Color.PaleGreen;
+                }
+                else
+                {
+                    row.DefaultCellStyle.BackColor = Color.Pink;
+                }
+            }
+            
         }
 
         public void FillInfo(int id)
@@ -88,6 +104,7 @@ namespace BugTracking
         private void button2_Click(object sender, EventArgs e)
         {
             RefreshDataGridView(_id);
+            dataGridView1.ClearSelection();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -362,6 +379,39 @@ namespace BugTracking
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            string l = "";
+            int i=0,m;
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int index = dataGridView1.SelectedRows[0].Index;
+                int id = 0;
+                bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out id);
+                if (converted == false)
+                    return;
+                using (BTContext db = new BTContext())
+                {
+                    var solution = db.Solutions.First(x => x.ErrorId == _id);
+                    l = solution.LikedUsersId;
+                    if (l.Contains(Globals.user_id.ToString()))
+                    {
+                        m = l.IndexOf(Globals.user_id.ToString());
+                        l = l.Remove(m, Globals.user_id.ToString().Length);
+                        solution.LikedUsersId = l;
+                        i = solution.Likes;
+                        i--;
+                        solution.Likes = i;
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Вы не поставили лайк на это решение");
+                    }
+                }
             }
         }
     }
