@@ -1,0 +1,10 @@
+Id = 1
+Name = 1
+Surname = 1
+Login = 1
+Password = 1
+Status = 1
+Mail = 1
+PhoneNumber = 1
+Errors = 0
+Solutions = 0

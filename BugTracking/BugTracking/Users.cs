@@ -1,11 +1,12 @@
 ﻿using System;
+using System.IO;
+using System.Text;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,8 +14,6 @@ namespace BugTracking
 {
     public partial class Users : Form
     {
-
-
         public Users()
         {
             InitializeComponent();
@@ -128,6 +127,7 @@ namespace BugTracking
                 }
                 i++;
             }
+
             ToolTip tt = new ToolTip();
 
             tt.SetToolTip(addUser, "Добавить пользователя");
@@ -232,6 +232,7 @@ namespace BugTracking
 
         private void button7_Click(object sender, EventArgs e)
         {
+            string Path = @"..\..\..\Settings.txt";
             string status = Statusbox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
             dataGridView1.DataSource = GetFilterredUsers(status);
             CheckBox[] cb = new CheckBox[10];
@@ -260,7 +261,28 @@ namespace BugTracking
                 }
                 i++;
             }
-
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(Path, false))
+                {
+                    foreach (DataGridViewColumn col in dataGridView1.Columns)
+                    {
+                        if (col.Visible == true)
+                        {
+                            sw.WriteLine(col.Name + " = 1");
+                        }
+                        else
+                        {
+                            sw.WriteLine(col.Name + " = 0");
+                        }
+                        i++;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("4mo");
+            }
         }
         public List<User> GetFilterredUsers(string status)
         {
