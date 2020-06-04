@@ -83,17 +83,6 @@ namespace BugTracking
         {
             /*var types = new List<string>();
             types.Add("All");*/
-            CheckBox[] cb = new CheckBox[10];
-            cb[0] = checkBox1;
-            cb[1] = checkBox2;
-            cb[2] = checkBox3;
-            cb[3] = checkBox4;
-            cb[4] = checkBox5;
-            cb[5] = checkBox6;
-            cb[6] = checkBox7;
-            cb[7] = checkBox8;
-            cb[8] = checkBox9;
-            cb[9] = checkBox11;
             BTContext db = new BTContext();
             dataGridView1.DataSource = db.Users.ToList();
 
@@ -107,25 +96,6 @@ namespace BugTracking
             else if (Globals.user_status == "Admin")
             {
                 dataGridView1.DataSource = db.Users.ToList();
-            }
-            this.dataGridView1.Columns["Errors"].Visible = false;
-            this.dataGridView1.Columns["Solutions"].Visible = false;
-            this.dataGridView1.Columns["Errors"].Visible = false;
-            this.dataGridView1.Columns["Solutions"].Visible = false;
-
-            int i = 0;
-
-            foreach (DataGridViewColumn col in dataGridView1.Columns)
-            {
-                if (col.Visible == true)
-                {
-                    cb[i].Checked = true;
-                }
-                else
-                {
-                    cb[i].Checked = false;
-                }
-                i++;
             }
 
             ToolTip tt = new ToolTip();
@@ -145,6 +115,13 @@ namespace BugTracking
             dataGridView1.Columns[7].HeaderText = "Номер телефона";
             dataGridView1.Columns[8].HeaderText = "Ошибки";
             dataGridView1.Columns[9].HeaderText = "Решения";
+
+            dataGridView1.Columns["Errors"].Visible = false;
+            dataGridView1.Columns["Solutions"].Visible = false;
+
+            CreateSettings();
+            FixCheckBoxes();
+            TableUpdate();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -232,9 +209,59 @@ namespace BugTracking
 
         private void button7_Click(object sender, EventArgs e)
         {
-            string Path = @"..\..\..\Settings.txt";
             string status = Statusbox.Controls.OfType<RadioButton>().Single(rb => rb.Checked).Text;
             dataGridView1.DataSource = GetFilterredUsers(status);
+            ChangeSettings();
+            TableUpdate();
+        }
+
+        private void TableUpdate()
+        {
+            string Path = @"..\..\..\Settings.txt";
+            foreach (string line in File.ReadLines(Path))
+            {
+                if (line.Contains("1"))
+                {
+                    dataGridView1.Columns[line.Substring(0, line.IndexOf(" "))].Visible = true;
+                }
+                else
+                {
+                    dataGridView1.Columns[line.Substring(0, line.IndexOf(" "))].Visible = false;
+                }
+            }
+        }
+
+        private void CreateSettings()
+        {
+            string Path = @"..\..\..\Settings.txt";
+            if (File.Exists(Path) == false)
+            {
+                try
+                {
+                    using (StreamWriter sw = new StreamWriter(Path, false))
+                    {
+                        foreach (DataGridViewColumn col in dataGridView1.Columns)
+                        {
+                            if (col.Visible == true)
+                            {
+                                sw.WriteLine(col.Name + " = 1");
+                            }
+                            else
+                            {
+                                sw.WriteLine(col.Name + " = 0");
+                            }
+                        }
+                    }
+                }
+                catch (Exception exp)
+                {
+                    MessageBox.Show(exp.Message);
+                }
+            }
+        }
+        private void ChangeSettings()
+        {
+            string Path = @"..\..\..\Settings.txt";
             CheckBox[] cb = new CheckBox[10];
             cb[0] = checkBox1;
             cb[1] = checkBox2;
@@ -246,42 +273,50 @@ namespace BugTracking
             cb[7] = checkBox8;
             cb[8] = checkBox11;
             cb[9] = checkBox9;
-            BTContext db = new BTContext();
-            //dataGridView1.DataSource = db.Users.ToList();
             int i = 0;
-            foreach (DataGridViewColumn col in dataGridView1.Columns)
+            using (StreamWriter sw = new StreamWriter(Path, false))
             {
-                if (cb[i].Checked == true)
+                foreach (DataGridViewColumn col in dataGridView1.Columns)
                 {
-                    col.Visible = true;
+                    if (cb[i].Checked == true)
+                    {
+                        sw.WriteLine(col.Name + " = 1");
+                    }
+                    else
+                    {
+                        sw.WriteLine(col.Name + " = 0");
+                    }
+                    i++;
+                }
+            }       
+        }
+
+        private void FixCheckBoxes()
+        {
+            string Path = @"..\..\..\Settings.txt";
+            CheckBox[] cb = new CheckBox[10];
+            cb[0] = checkBox1;
+            cb[1] = checkBox2;
+            cb[2] = checkBox3;
+            cb[3] = checkBox4;
+            cb[4] = checkBox5;
+            cb[5] = checkBox6;
+            cb[6] = checkBox7;
+            cb[7] = checkBox8;
+            cb[8] = checkBox11;
+            cb[9] = checkBox9;
+            int i = 0;
+            foreach (string line in File.ReadLines(Path))
+            {
+                if (line.Contains("1"))
+                {
+                    cb[i].Checked = true;
                 }
                 else
                 {
-                    col.Visible = false;
+                    cb[i].Checked = false;
                 }
                 i++;
-            }
-            try
-            {
-                using (StreamWriter sw = new StreamWriter(Path, false))
-                {
-                    foreach (DataGridViewColumn col in dataGridView1.Columns)
-                    {
-                        if (col.Visible == true)
-                        {
-                            sw.WriteLine(col.Name + " = 1");
-                        }
-                        else
-                        {
-                            sw.WriteLine(col.Name + " = 0");
-                        }
-                        i++;
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("4mo");
             }
         }
         public List<User> GetFilterredUsers(string status)

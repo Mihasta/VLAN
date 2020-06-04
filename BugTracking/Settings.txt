@@ -6,5 +6,5 @@ Password = 1
 Status = 1
 Mail = 1
 PhoneNumber = 1
-Errors = 0
+Errors = 1
 Solutions = 0
