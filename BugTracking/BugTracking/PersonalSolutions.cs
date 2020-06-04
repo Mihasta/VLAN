@@ -112,6 +112,20 @@ namespace BugTracking
             }
         }
 
-        
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                dataGridView1.CurrentCell = null;
+                if (row.Cells[2].Value.ToString().Contains(textBox1.Text))
+                {
+                    row.Visible = true;
+                }
+                else
+                {
+                    row.Visible = false;
+                }
+            }
+        }
     }
 }
