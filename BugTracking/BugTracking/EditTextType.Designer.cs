@@ -70,7 +70,7 @@
             this.back.UseVisualStyleBackColor = true;
             this.back.Click += new System.EventHandler(this.back_Click);
             // 
-            // TextType
+            // EditTextType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -80,8 +80,9 @@
             this.Controls.Add(this.save);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "TextType";
+            this.Name = "EditTextType";
             this.Text = "TextType";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EditTextType_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

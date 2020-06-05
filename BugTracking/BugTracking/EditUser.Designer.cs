@@ -202,6 +202,7 @@
             this.Controls.Add(this.name);
             this.Name = "EditUser";
             this.Text = "EditUser";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EditUser_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

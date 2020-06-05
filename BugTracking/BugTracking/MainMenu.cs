@@ -69,6 +69,20 @@ namespace BugTracking
         }
         private void MainMenu_Load(object sender, EventArgs e)
         {
+            int i=0;
+            CheckBox[] cb1 = new CheckBox[11];
+            cb1[0] = checkBox1;
+            cb1[1] = checkBox2;
+            cb1[2] = checkBox3;
+            cb1[3] = checkBox4;
+            cb1[4] = checkBox5;
+            cb1[5] = checkBox6;
+            cb1[6] = checkBox7;
+            cb1[7] = checkBox8;
+            cb1[8] = checkBox9;
+            cb1[9] = checkBox10;
+            cb1[10] = checkBox11;
+
             if (Globals.user_status == "User")
             {
                 User.Visible = false;
@@ -82,7 +96,6 @@ namespace BugTracking
             {
                 ошибкиToolStripMenuItem.Visible = false;
                 DelError.Visible = false;
-
             }
 
             FixFilter();
@@ -112,6 +125,18 @@ namespace BugTracking
             dataGridView1.Columns[9].Width = Convert.ToInt32(dataGridView1.Columns[8].Width * 0.45);
             dataGridView1.Columns[10].HeaderText = "Тип ошибки";
 
+            foreach (DataGridViewColumn col in dataGridView1.Columns)
+            {
+                if (col.Visible == true)
+                {
+                    cb1[i].Checked = true;
+                }
+                else
+                {
+                    cb1[i].Checked = false;
+                }
+                i++;
+            }
         }
 
         void errorcontrol_FormClosed(object sender, FormClosedEventArgs e)
@@ -451,6 +476,11 @@ namespace BugTracking
         private void белыйToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.BackColor = Color.White;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            groupBox5.Visible = !groupBox5.Visible;
         }
     }
 }

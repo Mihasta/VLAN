@@ -176,6 +176,7 @@
             this.Controls.Add(this.create);
             this.Name = "ReportWindow";
             this.Text = "ReportWindow";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ReportWindow_KeyDown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

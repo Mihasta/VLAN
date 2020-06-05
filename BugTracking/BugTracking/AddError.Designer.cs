@@ -165,6 +165,7 @@
             this.Controls.Add(this.priority);
             this.Name = "AddError";
             this.Text = "AddError";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AddError_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

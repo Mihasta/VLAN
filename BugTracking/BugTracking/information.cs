@@ -57,5 +57,13 @@ namespace BugTracking
                                         queryObj["Speed"]));
             }
         }
+
+        private void information_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }

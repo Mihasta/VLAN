@@ -104,6 +104,7 @@
     <Compile Include="help.Designer.cs">
       <DependentUpon>help.cs</DependentUpon>
     </Compile>
+    <Compile Include="HideActiveWindows.cs" />
     <Compile Include="information.cs">
       <SubType>Form</SubType>
     </Compile>

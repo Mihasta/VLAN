@@ -33,6 +33,9 @@ namespace BugTracking
             tt.SetToolTip(Add1TypeError, "Добавить тип ошибки");
             tt.SetToolTip(DelTypeError, "Удалить тип ошибки");
             tt.SetToolTip(refresh, "Обновить список");
+
+            dbTypeError.Columns[1].HeaderText = "Имя";
+            dbTypeError.Columns[2].HeaderText = "Ошибки";
         }
 
         private void button8_Click(object sender, EventArgs e)

@@ -89,6 +89,7 @@
             this.Name = "About";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "About";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.About_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

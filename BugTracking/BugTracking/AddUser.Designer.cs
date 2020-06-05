@@ -308,6 +308,7 @@
             this.Controls.Add(this.name);
             this.Name = "AddUser";
             this.Text = "AddUser";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AddUser_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

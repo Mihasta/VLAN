@@ -16,5 +16,13 @@ namespace BugTracking
         {
             InitializeComponent();
         }
+
+        private void help_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }

@@ -153,5 +153,13 @@ namespace BugTracking
             userstring += user[0].Name + ' ' + user[0].Surname + ", ID = " + user[0].Id;
             return userstring;
         }
+
+        private void ReportWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }

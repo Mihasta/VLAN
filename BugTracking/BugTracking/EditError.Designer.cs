@@ -165,6 +165,7 @@
             this.Controls.Add(this.comboBox1);
             this.Name = "EditError";
             this.Text = "EditError";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EditError_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

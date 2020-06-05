@@ -209,6 +209,7 @@
             this.Name = "information";
             this.Text = "information";
             this.Load += new System.EventHandler(this.information_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.information_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -17,7 +17,7 @@ namespace BugTracking
         {
             string l = "";
             BTContext db = new BTContext();
-           // dataGridView1.DataSource = db.Solutions.Where(s => s.ErrorId == id).OrderByDescending(x => x.Likes).ToList();
+            // dataGridView1.DataSource = db.Solutions.Where(s => s.ErrorId == id).OrderByDescending(x => x.Likes).ToList();
             //var solution = db.Solutions.First(x => x.ErrorId == _id);
             //l = solution.LikedUsersId;
             foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -143,7 +143,6 @@ namespace BugTracking
                     Solution solution = db.Solutions.Find(id);
                     db.Solutions.Remove(solution);
                     db.SaveChanges();
-
                 }
             }
         }

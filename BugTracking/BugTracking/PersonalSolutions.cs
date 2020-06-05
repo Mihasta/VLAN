@@ -109,6 +109,11 @@ namespace BugTracking
                         }
                     }
                     break;
+                case Keys.Escape:
+                    {
+                        this.Close();
+                    }
+                    break;
             }
         }
 

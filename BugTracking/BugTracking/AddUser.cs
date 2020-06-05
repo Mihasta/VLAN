@@ -109,5 +109,13 @@ namespace BugTracking
                 emailCheck.Text = "Неправильная почта";
             }
         }
+
+        private void AddUser_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }

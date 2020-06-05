@@ -83,6 +83,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "EditSolution";
             this.Text = "EditSolution";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EditSolution_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -88,7 +88,6 @@ namespace BugTracking
 
             if (Globals.user_status == "Moderator")
             {
-
                 DelUser.Visible = false;
                 EditUser.Visible = false;
                 this.dataGridView1.Columns["Password"].Visible = false;

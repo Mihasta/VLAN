@@ -82,6 +82,7 @@
             this.Controls.Add(this.description);
             this.Name = "AddSolution";
             this.Text = "AddSolution";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AddSolution_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

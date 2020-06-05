@@ -35,5 +35,13 @@ namespace BugTracking
         {
             this.Close();
         }
+
+        private void TextType_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }

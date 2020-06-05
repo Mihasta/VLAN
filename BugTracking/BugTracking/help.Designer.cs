@@ -171,6 +171,7 @@
             this.Controls.Add(this.label1);
             this.Name = "help";
             this.Text = "help";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.help_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
