@@ -69,7 +69,7 @@ namespace BugTracking
         }
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            int i=0;
+            int i = 0;
             CheckBox[] cb1 = new CheckBox[11];
             cb1[0] = checkBox1;
             cb1[1] = checkBox2;
@@ -113,7 +113,7 @@ namespace BugTracking
             tt.SetToolTip(DelError, "Удалить ошибку");
             tt.SetToolTip(refresh, "Обновить");
             dataGridView1.ClearSelection();
-            dataGridView1.Columns[0].Width = Convert.ToInt32(dataGridView1.Columns[0].Width * 0.3); 
+            dataGridView1.Columns[0].Width = Convert.ToInt32(dataGridView1.Columns[0].Width * 0.3);
             dataGridView1.Columns[1].HeaderText = "Дата и Время";
             dataGridView1.Columns[2].HeaderText = "Статус ошибки";
             dataGridView1.Columns[3].HeaderText = "Приоритет";
@@ -427,11 +427,11 @@ namespace BugTracking
                         break;
                     default:
                         break;
-                
 
+
+                }
             }
         }
-    }
 
         private void создатьОтчетToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -482,5 +482,22 @@ namespace BugTracking
         {
             groupBox5.Visible = !groupBox5.Visible;
         }
+
+        private void MainMenu_SizeChanged(object sender, EventArgs e)
+        {
+            int s = 0;
+            foreach (DataGridViewColumn col in dataGridView1.Columns)
+            {
+                if (col.Visible == true)
+                {
+                    s++;
+                }
+            }
+            int cs = dataGridView1.Size.Width / s;
+            foreach (DataGridViewColumn col in dataGridView1.Columns)
+            {
+                col.Width = cs;
+            }
+        } 
     }
 }

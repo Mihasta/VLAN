@@ -132,5 +132,22 @@ namespace BugTracking
                 }
             }
         }
+
+        private void PersonalSolutions_SizeChanged(object sender, EventArgs e)
+        {
+            int s = 0;
+            foreach (DataGridViewColumn col in dataGridView1.Columns)
+            {
+                if (col.Visible == true)
+                {
+                    s++;
+                }
+            }
+            int cs = dataGridView1.Size.Width / s;
+            foreach (DataGridViewColumn col in dataGridView1.Columns)
+            {
+                col.Width = cs;
+            }
+        }
     }
 }
