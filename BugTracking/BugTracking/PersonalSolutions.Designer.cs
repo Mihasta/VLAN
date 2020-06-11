@@ -38,6 +38,9 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 61);
             this.dataGridView1.Name = "dataGridView1";
@@ -97,6 +100,7 @@
             this.Name = "PersonalSolutions";
             this.Text = "PersonalSolutions";
             this.Load += new System.EventHandler(this.PersonalSolutions_Load);
+            this.SizeChanged += new System.EventHandler(this.PersonalSolutions_SizeChanged);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PersonalSolutions_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
