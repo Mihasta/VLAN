@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -125,18 +126,8 @@ namespace BugTracking
             dataGridView1.Columns[9].Width = Convert.ToInt32(dataGridView1.Columns[8].Width * 0.45);
             dataGridView1.Columns[10].HeaderText = "Тип ошибки";
 
-            foreach (DataGridViewColumn col in dataGridView1.Columns)
-            {
-                if (col.Visible == true)
-                {
-                    cb1[i].Checked = true;
-                }
-                else
-                {
-                    cb1[i].Checked = false;
-                }
-                i++;
-            }
+            CreateMainMenuSettings();
+            FixCB();
         }
 
         void errorcontrol_FormClosed(object sender, FormClosedEventArgs e)
@@ -159,6 +150,64 @@ namespace BugTracking
                 };
                 db.Errors.Add(error);
                 db.SaveChanges();
+            }
+        }
+        private void FixCB() 
+        {
+            string Path = @"..\..\..\MainMenuSettings.txt";
+            int i = 0;
+            CheckBox[] cb1 = new CheckBox[11];
+            cb1[0] = checkBox1;
+            cb1[1] = checkBox2;
+            cb1[2] = checkBox3;
+            cb1[3] = checkBox4;
+            cb1[4] = checkBox5;
+            cb1[5] = checkBox6;
+            cb1[6] = checkBox7;
+            cb1[7] = checkBox8;
+            cb1[8] = checkBox9;
+            cb1[9] = checkBox10;
+            cb1[10] = checkBox11;
+            foreach (string line in File.ReadLines(Path))
+            {
+                if (line.Contains("1"))
+                {
+                    cb1[i].Checked = true;
+                }
+                else
+                {
+                    cb1[i].Checked = false;
+                }
+                i++;
+            }
+        }
+
+        private void CreateMainMenuSettings()
+        {
+            string Path = @"..\..\..\MainMenuSettings.txt";
+            if (File.Exists(Path) == false)
+            {
+                try
+                {
+                    using (StreamWriter sw = new StreamWriter(Path, false))
+                    {
+                        foreach (DataGridViewColumn col in dataGridView1.Columns)
+                        {
+                            if (col.Visible == true)
+                            {
+                                sw.WriteLine(col.Name + " = 1");
+                            }
+                            else
+                            {
+                                sw.WriteLine(col.Name + " = 0");
+                            }
+                        }
+                    }
+                }
+                catch (Exception exp)
+                {
+                    MessageBox.Show(exp.Message);
+                }
             }
         }
 
