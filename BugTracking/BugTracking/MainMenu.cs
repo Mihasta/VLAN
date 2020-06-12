@@ -128,6 +128,7 @@ namespace BugTracking
 
             CreateMainMenuSettings();
             FixCB();
+            TableUpdate();
         }
 
         void errorcontrol_FormClosed(object sender, FormClosedEventArgs e)
@@ -211,6 +212,55 @@ namespace BugTracking
             }
         }
 
+        private void TableUpdate()
+        {
+            string Path = @"..\..\..\MainMenuSettings.txt";
+            foreach (string line in File.ReadLines(Path))
+            {
+                if (line.Contains("1"))
+                {
+                    dataGridView1.Columns[line.Substring(0, line.IndexOf(" "))].Visible = true;
+                }
+                else
+                {
+                    dataGridView1.Columns[line.Substring(0, line.IndexOf(" "))].Visible = false;
+                }
+            }
+        }
+
+        private void ChangeSettings()
+        {
+            string Path = @"..\..\..\MainMenuSettings.txt";
+            CheckBox[] cb1 = new CheckBox[11];
+            cb1[0] = checkBox1;
+            cb1[1] = checkBox2;
+            cb1[2] = checkBox3;
+            cb1[3] = checkBox4;
+            cb1[4] = checkBox5;
+            cb1[5] = checkBox6;
+            cb1[6] = checkBox7;
+            cb1[7] = checkBox8;
+            cb1[8] = checkBox9;
+            cb1[9] = checkBox10;
+            cb1[10] = checkBox11;
+            int i = 0;
+            using (StreamWriter sw = new StreamWriter(Path, false))
+            {
+                foreach (DataGridViewColumn col in dataGridView1.Columns)
+                {
+                    if (cb1[i].Checked == true)
+                    {
+                        sw.WriteLine(col.Name + " = 1");
+                    }
+                    else
+                    {
+                        sw.WriteLine(col.Name + " = 0");
+                    }
+                    i++;
+                }
+            }       
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             using (BTContext db = new BTContext())
@@ -234,6 +284,8 @@ namespace BugTracking
         private void RefreshButton(object sender, EventArgs e)
         {
             RefreshDataGridView();
+            ChangeSettings();
+            TableUpdate();
         }
 
         public int GetErrorTypeId(string name)
