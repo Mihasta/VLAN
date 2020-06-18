@@ -128,6 +128,35 @@ namespace BugTracking
 
             CreateMainMenuSettings();
             FixCB();
+            TableUpdate();
+        }
+
+        public static void EncryptFile()
+        {
+            int y, nomer;
+            string path = @"..\..\..\MainMenuSettings.txt";
+            string s = "";
+            int key = 7;
+            StringBuilder Shifr = new StringBuilder("");
+            string[] A = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+                           "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+                           "0", "1", "="
+            };
+            foreach (string line in File.ReadLines(path))
+            {
+                for (int i = 0; i < path.Length; i++) 
+                {
+                    for (int j = 0; j <= 54; j++)
+                    {
+                        nomer = j;
+                        y = (nomer + key) % 54;
+                        Shifr.Insert(Shifr.Length, A[y]);
+                    }
+                }
+            }
+            StreamWriter sr = new StreamWriter(@"..\..\..\MainMenuSettings.txt", false);
+            sr.Write(Shifr);
+            sr.Close();
         }
 
         void errorcontrol_FormClosed(object sender, FormClosedEventArgs e)
@@ -211,6 +240,55 @@ namespace BugTracking
             }
         }
 
+        private void TableUpdate()
+        {
+            string Path = @"..\..\..\MainMenuSettings.txt";
+            foreach (string line in File.ReadLines(Path))
+            {
+                if (line.Contains("1"))
+                {
+                    dataGridView1.Columns[line.Substring(0, line.IndexOf(" "))].Visible = true;
+                }
+                else
+                {
+                    dataGridView1.Columns[line.Substring(0, line.IndexOf(" "))].Visible = false;
+                }
+            }
+        }
+
+        private void ChangeSettings()
+        {
+            string Path = @"..\..\..\MainMenuSettings.txt";
+            CheckBox[] cb1 = new CheckBox[11];
+            cb1[0] = checkBox1;
+            cb1[1] = checkBox2;
+            cb1[2] = checkBox3;
+            cb1[3] = checkBox4;
+            cb1[4] = checkBox5;
+            cb1[5] = checkBox6;
+            cb1[6] = checkBox7;
+            cb1[7] = checkBox8;
+            cb1[8] = checkBox9;
+            cb1[9] = checkBox10;
+            cb1[10] = checkBox11;
+            int i = 0;
+            using (StreamWriter sw = new StreamWriter(Path, false))
+            {
+                foreach (DataGridViewColumn col in dataGridView1.Columns)
+                {
+                    if (cb1[i].Checked == true)
+                    {
+                        sw.WriteLine(col.Name + " = 1");
+                    }
+                    else
+                    {
+                        sw.WriteLine(col.Name + " = 0");
+                    }
+                    i++;
+                }
+            }       
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             using (BTContext db = new BTContext())
@@ -234,6 +312,8 @@ namespace BugTracking
         private void RefreshButton(object sender, EventArgs e)
         {
             RefreshDataGridView();
+            ChangeSettings();
+            TableUpdate();
         }
 
         public int GetErrorTypeId(string name)
@@ -547,6 +627,11 @@ namespace BugTracking
             {
                 col.Width = cs;
             }
-        } 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            EncryptFile();
+        }
     }
 }
