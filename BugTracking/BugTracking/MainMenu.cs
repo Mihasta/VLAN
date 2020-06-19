@@ -131,32 +131,55 @@ namespace BugTracking
             TableUpdate();
         }
 
-        public static void EncryptFile()
+        public static string Encrypt()
         {
-            int y, nomer;
-            string path = @"..\..\..\MainMenuSettings.txt";
-            string s = "";
-            int key = 7;
-            StringBuilder Shifr = new StringBuilder("");
-            string[] A = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
-                           "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
-                           "0", "1", "="
-            };
-            foreach (string line in File.ReadLines(path))
-            {
-                for (int i = 0; i < path.Length; i++) 
-                {
-                    for (int j = 0; j <= 54; j++)
+            string alph = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01= ";
+            string text = @"..\..\..\MainMenuSettings.txt";
+            string s = File.ReadAllText(text);
+            var res = new StringBuilder();
+            for (int i = 0; i < s.Length; i++)
+                for (int j = 0; j < alph.Length; j++)
+                    if (s[i] == alph[j])
                     {
-                        nomer = j;
-                        y = (nomer + key) % 54;
-                        Shifr.Insert(Shifr.Length, A[y]);
+                        if (s[i] == alph[53] || s[i] == alph[54])
+                        {
+                            res.Append(alph[(j + 3) % alph.Length] + "\n");
+                        }
+                        else
+                        {
+                            res.Append(alph[(j + 3) % alph.Length]);
+                        }
                     }
-                }
-            }
+                            
             StreamWriter sr = new StreamWriter(@"..\..\..\MainMenuSettings.txt", false);
-            sr.Write(Shifr);
+            sr.WriteLine(Convert.ToString(res));
             sr.Close();
+            return "0";
+        }
+
+        public static string Decrypt() 
+        {
+            string crypt = @"..\..\..\MainMenuSettings.txt";
+            string alph = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01= ";
+            var res = new StringBuilder();
+            string s = File.ReadAllText(crypt);
+            for (int i = 0; i < s.Length; i++)
+                for (int j = 0; j < alph.Length; j++)
+                    if (s[i] == alph[j]) 
+                    {
+                        if (s[i] == alph[55] || s[i] == alph[0])
+                        {
+                            res.Append(alph[(j - 3 + alph.Length) % alph.Length] + "\n");
+                        }
+                        else
+                        {
+                            res.Append(alph[(j - 3 + alph.Length) % alph.Length]);
+                        }
+                    }
+            StreamWriter sr = new StreamWriter(@"..\..\..\MainMenuSettings.txt", false);
+            sr.WriteLine(Convert.ToString(res));
+            sr.Close();
+            return "0";
         }
 
         void errorcontrol_FormClosed(object sender, FormClosedEventArgs e)
@@ -197,6 +220,7 @@ namespace BugTracking
             cb1[8] = checkBox9;
             cb1[9] = checkBox10;
             cb1[10] = checkBox11;
+            //Decrypt();
             foreach (string line in File.ReadLines(Path))
             {
                 if (line.Contains("1"))
@@ -243,6 +267,7 @@ namespace BugTracking
         private void TableUpdate()
         {
             string Path = @"..\..\..\MainMenuSettings.txt";
+            //Decrypt();
             foreach (string line in File.ReadLines(Path))
             {
                 if (line.Contains("1"))
@@ -631,7 +656,13 @@ namespace BugTracking
 
         private void button4_Click(object sender, EventArgs e)
         {
-            EncryptFile();
+            //string 
+            Encrypt();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Decrypt();
         }
     }
 }
