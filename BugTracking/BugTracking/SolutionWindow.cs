@@ -29,6 +29,15 @@ namespace BugTracking
             BTContext db = new BTContext();
             var sol = (from p in db.Solutions where p.Id == _id select p).FirstOrDefault();
             textBox1.Text = sol.Description;
+            Login.Text += ' ' + sol.User.Login.ToString();
+            ErrorId.Text += ' ' + sol.ErrorId.ToString();
+            UserId.Text += ' ' + sol.UserId.ToString();
+            Date.Text += ' ' + sol.Date.ToString();
+            label1.Text += ' ' + sol.Likes.ToString();
+
+
         }
+
+       
     }
 }
