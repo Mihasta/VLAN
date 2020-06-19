@@ -430,5 +430,18 @@ namespace BugTracking
                 col.Width = cs;
             }
         }
+
+        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int index = dataGridView1.SelectedRows[0].Index;
+                bool converted = Int32.TryParse(dataGridView1[0, index].Value.ToString(), out int id);
+                if (converted == false)
+                    return;
+                SolutionWindow sw = new SolutionWindow(id);
+                sw.ShowDialog();
+            }
+        }
     }
 }

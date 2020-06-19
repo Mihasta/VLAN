@@ -129,6 +129,12 @@
     <Compile Include="ReportWindow.Designer.cs">
       <DependentUpon>ReportWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="SolutionWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SolutionWindow.Designer.cs">
+      <DependentUpon>SolutionWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="TextType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportWindow.resx">
       <DependentUpon>ReportWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SolutionWindow.resx">
+      <DependentUpon>SolutionWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TextType.resx">
       <DependentUpon>TextType.cs</DependentUpon>

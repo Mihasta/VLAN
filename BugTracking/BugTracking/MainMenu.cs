@@ -128,7 +128,7 @@ namespace BugTracking
 
             CreateMainMenuSettings();
             FixCB();
-            TableUpdate();
+            //TableUpdate();
         }
 
         public static void EncryptFile()
