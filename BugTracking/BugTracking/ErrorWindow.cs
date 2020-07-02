@@ -15,24 +15,34 @@ namespace BugTracking
         private static int _id;
         public void RefreshDataGridView(int id)
         {
-            string l = "";
             BTContext db = new BTContext();
-            // dataGridView1.DataSource = db.Solutions.Where(s => s.ErrorId == id).OrderByDescending(x => x.Likes).ToList();
-            //var solution = db.Solutions.First(x => x.ErrorId == _id);
-            //l = solution.LikedUsersId;
+            if (comboBox1.SelectedIndex == 0)
+            {
+                dataGridView1.DataSource = db.Solutions.Where(s => s.ErrorId == id).OrderByDescending(x => x.Likes).ToList();
+            }
+            else
+            {
+                dataGridView1.DataSource = db.Solutions.Where(s => s.ErrorId == id).OrderByDescending(x => x.Date).ToList();
+            }
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                int index = row.Index;
-                if (l.Contains(Globals.user_id.ToString()))
+                try
                 {
-                    row.DefaultCellStyle.BackColor = Color.PaleGreen;
+                    string l = row.Cells[8].Value.ToString();
+                    if (l.Contains(Globals.user_id.ToString()))
+                    {
+                        row.DefaultCellStyle.BackColor = Color.PaleGreen;
+                    }
+                    else
+                    {
+                        row.DefaultCellStyle.BackColor = Color.Pink;
+                    }
                 }
-                else
+                catch
                 {
                     row.DefaultCellStyle.BackColor = Color.Pink;
                 }
             }
-            
         }
 
         public void FillInfo(int id)
@@ -363,22 +373,6 @@ namespace BugTracking
             button3.Visible = !button1.Visible;
             button4.Visible = !button1.Visible;
             button5.Visible = !button1.Visible;
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            BTContext db = new BTContext();
-            switch (comboBox1.SelectedIndex)
-            {
-                case 0:
-                    dataGridView1.DataSource = db.Solutions.Where(s => s.ErrorId == _id).OrderByDescending(x => x.Likes).ToList();
-                    break;
-                case 1:
-                    dataGridView1.DataSource = db.Solutions.Where(s => s.ErrorId == _id).OrderByDescending(x => x.Date).ToList();
-                    break;
-                default:
-                    break;
-            }
         }
 
         private void button6_Click(object sender, EventArgs e)
